@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "emitDecoratorMetadata": true, // enable decorator syntax
     "experimentalDecorators": true, // enable decorator syntax
+    "downlevelIteration": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
@@ -25,7 +26,7 @@
   ],
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
+    "**/*.ts", 
     "**/*.tsx"
   ]
 }
