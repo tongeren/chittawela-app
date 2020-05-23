@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='-r dotenv/config' next dev",
-    "build": "NODE_OPTIONS='-r dotenv/config' next build",
-    "start": "NODE_OPTIONS='-r dotenv/config' next start -p $PORT"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "@vimeo/player": "^2.11.0",
