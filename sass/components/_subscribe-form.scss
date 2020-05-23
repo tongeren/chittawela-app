@@ -1,0 +1,16 @@
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: center;
+
+    &__title {
+        text-transform: uppercase;
+        color: white;
+        margin-bottom: 3rem;
+    }
+
+    &__group {
+        
+    }
+}

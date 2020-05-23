@@ -1,0 +1,66 @@
+.combination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 120rem;
+
+    transition: all .8s ease;
+
+    &:hover {
+        transform: rotateY(-180deg);
+    }
+    
+    &:hover &__disc {
+        border: .3rem solid var(--color-gold);
+        border-radius: 50%;
+    }
+
+    &:hover &__icon {
+        fill: var(--color-gold);
+        stroke: var(--color-gold);
+    }
+
+    &:hover &__text {
+        color: var(--color-gold);
+    }
+
+    &__disc {
+        position: relative;
+        border-radius: 50%;
+        height: 12rem;
+        width: 12rem;
+        border: .3rem solid var(--color-hair);
+        margin-bottom: 2rem;
+
+        @include respond(portrait) {
+            height: 10rem;
+            width: 10rem;
+            border-width: .3rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        fill: var(--color-hair);
+        stroke: var(--color-hair);
+        
+        border-radius: 50%;
+        height: 5rem;
+        width: 5rem;
+
+    }
+
+    &__text {
+        text-transform: uppercase;
+        color: var(--color-hair);
+
+        @include respond(portrait) {
+            margin: 0 2rem;
+        }
+    }
+}

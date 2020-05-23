@@ -1,0 +1,17 @@
+// TYPOGRAPHY 
+$body-font-family: 'Montserrat',
+sans-serif;
+$letter-spacing: 0.20rem;
+$button-navigation-text-size: 1.5rem;
+$navigation-text-size: $button-navigation-text-size;
+$navigation-letter-spacing: 0.1 * $navigation-text-size;
+$button-text-size: $button-navigation-text-size;
+$button-letter-spacing: 0.1 * $navigation-text-size;
+$body-text-size: 1.6rem;
+$h1-text-size: 6rem;
+$h2-text-size: 6rem;
+$subheadline-text-size: $body-text-size;
+$retreat-text-size: 2.4rem;
+$secondary-heading-multiplier: 1.9; // 180-200% of main body text
+$tertiary-heading-multiplier: 1.4; // 130-150% of main body text
+$line-spacing-multiplier: 1.55; // 120-145% of text size

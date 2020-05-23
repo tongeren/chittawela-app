@@ -1,0 +1,21 @@
+.logo {
+    
+    &--row {
+        height: 100%;
+    }
+
+    &--column {
+        height: 10rem; 
+        width: 10rem; 
+        margin: 0 2rem;
+
+        @include respond(portrait) {
+            height: 8rem;
+            width: 8rem;
+            margin-top: 2rem;
+        }
+    }
+}
+
+
+        

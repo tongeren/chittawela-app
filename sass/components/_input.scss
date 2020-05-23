@@ -1,0 +1,34 @@
+.input {
+    height: $input-height;
+    padding: 0 2.5rem;
+    border-radius: $input-border-radius;
+    
+    transition: all .3s;
+
+    @include respond(portrait) {
+        height: $scale-down-factor-portrait * $input-height;
+    }
+
+    &--white-hair {
+        color: white;
+        background-color: var(--color-hair);
+        border: $input-border-width solid white;
+    }
+
+    &--transparent-white {
+        color: black;
+        background-color: white;
+        border: $input-border-width solid transparent;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+        border-bottom: 2 * $input-border-width solid limegreen;
+
+        &:invalid {
+            border-bottom: 2 * $input-border-width solid red;
+        }
+    }
+
+}

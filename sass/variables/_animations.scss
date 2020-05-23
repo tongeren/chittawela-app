@@ -1,0 +1,29 @@
+// ANIMATIONS & TRANSITIONS
+// in order:
+// 1. backgroundFilm
+$film-duration: 12.5s;
+$film-delay: 0s;
+$film-finished: $film-duration + $film-delay;                                               // 12.5s
+
+// 2. texts slide in
+$text-slide-in-delay: 0.0s;
+$text-slide-begin: $film-finished + $text-slide-in-delay;                                   // 12.5s
+$text-slide-in-duration: 2s;
+$text-slide-finished: $text-slide-begin + $text-slide-in-duration;                          // 14.5s
+
+// 3. navigation slides in  
+$navigation-slide-in-delay: 0s;
+$navigation-slide-in-begin: $text-slide-finished + $navigation-slide-in-delay;              // 14.5s
+$navbar-slide-in-duration: 4s;
+$navigation-finished: $navigation-slide-in-begin + $navbar-slide-in-duration;               // 18.5s
+
+// 4. button slides in
+$button-slide-in-delay: 0.0s;
+$button-slide-in-begin: $navigation-finished + $button-slide-in-delay;                      // 18.5s
+$button-slide-in-duration: 2s;
+$button-finished: $button-slide-in-begin + $button-slide-in-duration;                       //= 20.5s = ANIMATION_DELAY
+
+// clippingHeader 
+$clipping-path-hero-begin: $button-finished;                                                //= ANIMATION_DELAY
+$clipping-path-hero-duration: 4s;                                                           //= ANIMATION_DURATION
+$clipping-path-hero-finished: $clipping-path-hero-begin + $clipping-path-hero-duration;     // 24.5s

@@ -1,0 +1,35 @@
+.section-layout {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: $section-padding-vertical $section-padding-horizontal; 
+
+    @include respond(portrait) {
+        padding: $section-padding-portrait;
+    }
+
+    &--blue {
+        padding: $section-padding-vertical + 5rem $section-padding-horizontal;
+
+        @include respond(portrait) {
+            padding: $section-padding-portrait;
+        }
+
+        &::before {
+            content: "";
+            background: $gradient-primary;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transform: skewY(-3deg);
+
+            @include respond(portrait) {
+                transform: none;
+            };
+        }
+    }
+
+}

@@ -1,0 +1,32 @@
+{
+    "navbar": {
+        "logobox": {
+            "name": "Chittawela"
+        },
+        "menu": {
+            "navitems": [
+                {
+                    "href": "#challenge",
+                    "name": "Challenge"
+                },
+                {
+                    "href": "#foundation",
+                    "name": "Foundation"
+                },
+                {
+                    "href": "#transformation",
+                    "name": "Transformation"
+                },
+                {
+                    "href": "#sanctuary",
+                    "name": "Sanctuary"
+                },
+                {
+                    "href": "#login",
+                    "name": "Login"
+                }
+
+            ]
+        }
+    }
+}

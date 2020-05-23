@@ -1,0 +1,106 @@
+.u-text-white { color: var(--color-white) !important; }
+.u-text-red { color: var(--color-red) !important; }
+.u-text-gold { color: var(--color-gold) !important; }
+.u-text-dark { color: var(--color-dark-grey) !important; }
+.u-text-grey { color: var(--color-dark-grey) !important; }
+
+.u-text-uppercase { text-transform: uppercase !important; }
+
+.u-text-nowrap { white-space: nowrap !important; }
+
+.u-text-center { text-align: center !important; }
+.u-text-left { text-align: left !important; }
+
+.u-margin-top-medium { 
+    margin-top: $margin-medium !important; 
+
+    @include respond(portrait) {
+        margin-top: $margin-medium-portrait !important;
+    }
+}
+
+.u-margin-top-small { 
+    margin-top: $margin-small !important; 
+
+    @include respond(portrait) {
+        margin-top: $margin-small-portrait !important;
+    }
+}
+
+.u-margin-bottom-medium { 
+    margin-bottom: $margin-medium !important; 
+
+    @include respond(portrait) {
+        margin-bottom: $margin-medium-portrait !important;
+    }
+}
+
+.u-margin-bottom-small { 
+    margin-bottom: $margin-small !important; 
+
+    @include respond(portrait) {
+        margin-bottom: $margin-small-portrait !important;
+    }
+}
+
+.u-margin-bottom-tiny { margin-bottom: $margin-tiny !important; }
+
+.u-padding-top-large { padding-top: $padding-large !important; }
+.u-padding-top-medium { padding-top: $padding-medium !important; }
+.u-padding-top-small { padding-top: $padding-small !important; }
+
+.u-padding-bottom-large { padding-bottom: $padding-large !important; }
+.u-padding-bottom-medium { padding-bottom: $padding-medium !important; }
+.u-padding-bottom-small { padding-bottom: $padding-small !important; }
+
+.u-box-shadow-box { box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .15) !important; }
+
+.u-border-radius-photo { border-radius: .2rem !important; }
+
+// SECTION GRADIENT
+.u-background-color-primary { background: $gradient-primary !important; }
+
+// SECTION PADDING
+.u-add-padding-section { 
+    padding: $section-padding-top $section-padding-horizontal $section-padding-bottom !important; 
+
+    // PADDING SAME AS NORMAL SECTION WHEN NOT CLIPPING
+    @include respond(portrait) {
+        padding: $section-padding-portrait !important;
+    }
+
+    /*
+    @include respond(bp-1600) {
+        padding: $section-padding-top 10rem $section-padding-bottom !important;
+    }
+
+    @include respond(phone) {
+        padding: 0 !important;
+    }
+    */
+}
+
+/*
+.u-fade-in { 
+    animation-name: hide, fadeInOpacity;
+    animation-delay: 0s, $fade-in-begin;
+    animation-duration: $fade-in-begin, $fade-in-duration;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    opacity: 1;
+}
+*/
+
+.u-section-visible {
+    z-index: $z-index-visible;
+}
+.u-on-top {
+    background-color: white;
+    background-position: top;
+}
+ 
+.u-hide {
+    display: none;
+}
+
+

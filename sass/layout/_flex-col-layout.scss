@@ -1,0 +1,12 @@
+.flex-col-layout {
+    display: flex;
+    flex-direction: column;
+
+    & > :not(:last-child) {
+        margin-bottom: $margin-medium !important; 
+
+        @include respond(portrait) {
+            margin-bottom: $margin-medium-portrait !important;
+        }
+    }
+};

@@ -1,0 +1,15 @@
+.nav-list {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    
+    @include respond(portrait) {
+        text-align: center;
+        padding: 0.7 * $navigation-height 0;
+    }
+
+    list-style: none;
+    
+}

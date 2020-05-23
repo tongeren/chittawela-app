@@ -1,0 +1,29 @@
+$white-line: 1px solid white;
+
+.line {
+    
+    &,
+    &::before,
+    &::after {
+        display: inline-block;
+        width: 3rem;
+        height: 2px;
+
+        @include respond(portrait) {    
+            display: none;
+        }
+    }
+
+}
+
+.vertical {
+    width: 50%;
+    border-right: $white-line;
+    margin: 4rem 0;
+}
+
+.horizontal {
+    content: " ";
+    border-bottom: $white-line;
+    padding: 0 2rem;
+}

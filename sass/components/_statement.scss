@@ -1,0 +1,19 @@
+.statement {  
+    display: grid;
+    align-self: stretch;
+    align-items: center;    
+    border: 4px solid white;
+    padding: 2rem 2rem;
+
+    @include onHover;
+
+    @include respond(portrait) {
+        border-width: 2px;
+        padding: 1rem 1rem; 
+    }
+
+    &__container {
+        text-align: center;
+    }
+
+}

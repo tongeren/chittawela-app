@@ -1,0 +1,77 @@
+.pricing-table {
+    overflow: auto;
+    width: 100%;
+    padding: 2rem;
+    background-color: rgba(white, .8);
+    border: 1px solid black;
+
+    @include respond(portrait) {
+        width: 100vw;
+        padding: 0;
+        margin-left: -$section-padding-portrait;
+        margin-right: -$section-padding-portrait;
+        // width: calc(100% + 2 * #{$section-padding-portrait}); // use section padding for extra space
+        // overflow: visible;
+    }
+
+    table {
+        table-layout: auto; 
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    tr {
+       &:nth-of-type(2) {
+           height: 5rem;
+
+           @include respond(portrait) {
+               height: 3rem;
+           }
+       }
+    }
+
+    td {
+        padding-top: 1rem;
+        padding-left: 1rem;
+
+        &:first-of-type {
+            padding-bottom: 1rem;
+            // padding-top: 1rem;
+            width: 33rem;
+
+            @include respond(portrait) {
+                //width: 10rem;
+            }
+        }
+
+        &:nth-of-type(3) {
+            text-align: right;
+        }
+
+        &:nth-of-type(4) {
+            padding-left: 3rem;
+
+            @include respond(portrait) {
+                padding-left: 1rem;
+                padding-top: 0;
+            }
+        }
+
+        &:nth-of-type(6) {
+            border: 1px solid grey; 
+        }
+    }
+
+    &__underline {
+        border-bottom: 1px solid black;
+    }
+
+    &__savings {
+        background-color: yellow;  
+    }
+
+    &__risk-free {
+        width: 25%;
+    }
+
+}

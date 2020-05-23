@@ -1,0 +1,50 @@
+.navbar {
+    display: flex;
+    position: fixed; 
+    top: 0; // -100%;
+    left: 0;
+    width: 100vw;
+    height: $navigation-height;
+    padding: 1rem $navigation-margin-horizontal;
+
+    z-index: 9999; // on top of everything
+    opacity: 0.8;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    color: white; 
+    background-color: transparent;
+
+    // initially start animation navbar height above the body
+    //animation: slideInDown $navbar-slide-in-duration ease-in-out $navigation-slide-in-begin 1 normal forwards;
+
+    @include respond(portrait) {
+        animation: none; 
+        padding: 0; // remove padding
+        height: 0.7 * $navigation-height;
+    }
+
+    // Logobox
+    & > div:first-of-type {
+        
+    }
+
+    // MenuButton
+    & > div:last-of-type {
+        width: 70%;
+        
+        @include respond(portrait) {
+            width: 100%;
+        }
+        
+    }
+
+    &--animated {
+        // initially start animation navbar height above the body
+        animation: slideInDown $navbar-slide-in-duration ease-in-out $navigation-slide-in-begin 1 normal forwards;
+    }
+
+}
+

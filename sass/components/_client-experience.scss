@@ -1,0 +1,29 @@
+.client-experience {
+
+    &__text {
+        position: relative;
+        
+        @include respond(portrait) {
+            transform: translateX(2rem);
+        }
+
+        &::before {
+            content: "\201c"; // left double quote
+            position: absolute;
+            top: 8rem;
+            left: -12rem;
+            font-size: 20rem;
+            color: var(--color-calligraphy);
+            font-family: 'Pinyon Script', cursive;
+            z-index: 1;
+
+            @include respond(portrait) {
+                font-size: 10rem;
+                top: 3.5rem;
+                left: -6.5rem;
+            }
+
+        }
+    }
+
+}

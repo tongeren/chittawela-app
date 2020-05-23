@@ -1,0 +1,97 @@
+.cta {
+    position: fixed; 
+    height: inherit; 
+    width: inherit; 
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    color: white;
+
+    @include respond(portrait) {
+        position: relative;
+        width: 100vw;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+    }
+
+    &__text-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        margin-top: 4.5rem;
+        margin-bottom: 9rem;
+
+        @include respond(portrait) {
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    
+    }
+
+    &__primary {
+        animation: moveInTop $text-slide-in-duration ease-out $text-slide-begin;
+        animation-fill-mode: backwards;
+
+        @include respond(portrait) {
+        
+        }
+    }
+
+    &__secondary {
+        padding-bottom: 2rem;
+
+        animation: moveInRight $text-slide-in-duration ease-out $text-slide-begin;
+        animation-fill-mode: backwards;
+        
+        @include respond(portrait) {
+            padding: 1rem 2rem 2rem;
+        }
+
+    }
+
+    &__horizontal {
+        width: 40%;
+        margin: 0 0 0 50%;
+        border-top: $white-line;
+        margin-top: 2rem;
+
+        @include respond(portrait) {
+            width: 20%;
+            margin: 0 30% 0 30%;
+        }
+    }
+
+    &__retreat {
+        display: block;
+        text-transform: uppercase;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+
+        @include respond(portrait) {
+
+        }    
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        @include respond(portrait) {
+            flex: 2;
+            align-items: flex-end;
+            padding-bottom: 2rem;
+        }
+    }
+
+}

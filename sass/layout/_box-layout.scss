@@ -1,0 +1,54 @@
+.box-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+
+    // switch to column
+    @include respond(portrait) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    & > :first-child {
+        margin-right: $box-margin-right;
+        
+        // NO MARGIN NECESSARY ANYMORE
+        @include respond(portrait) {
+            margin-right: 0;
+            margin-bottom: $margin-medium-portrait;
+        }
+    }
+
+    & > :last-child {
+        
+    }
+
+    &__text {
+        min-width: 0; // Let the width of the text adapt to not make other flex-items flow into the parent's padding
+    
+        @include respond(portrait) {
+            width: 100%;
+            height: auto;
+            
+            max-width: calc(100vw - 2 * #{$section-padding-portrait}); 
+        }
+
+    }
+
+    &__other {
+        display: flex;
+        flex-direction: column;
+        min-width: 42%;
+        max-width: 42%;
+        flex-basis: auto; 
+        flex-grow: 1;
+
+        @include respond(portrait) {
+            width: 100%;
+            height: auto;
+            max-width: calc(100vw - 2 * #{$section-padding-portrait});
+        }
+    }
+
+}

@@ -1,0 +1,81 @@
+.hero {
+    position: relative;
+    width: 100vw;
+    animation: clippingHeader $clipping-path-hero-begin ease-in-out $clipping-path-hero-duration 1 normal forwards;
+
+    @include sizingContainer($background-ratio);
+
+    @include respond(portrait) {
+        width: 100vw;
+
+        // browser cannot calculate the height, so fix this in the component
+    }
+
+    &__svg-container {
+        position: absolute;
+        // Determine universal scaling for each picture group
+        // 1920 x 1080
+        top: (328 / 1080) * 100%;
+        // top: 328px;
+        // left: -375px;
+        left: (-375 / 1920) * 100%;
+        // width: 1568px; 
+        width: (1568 / 1920) * 100%;
+        // height: 752px; 
+        height: (752 / 1080) * 100%;
+        
+        z-index: 3;  
+    }
+
+    &__svg {
+        width: 100%;
+        height: 100%;
+        fill: transparent;
+        fill-opacity: 0;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        svg > #wiphatthra:hover { 
+            cursor: zoom-in;
+        }
+    
+    }
+
+    &__crossfade {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    &__cta {
+        position: absolute;
+        top: $navigation-height;
+        left: 40%;
+        height: 60%;
+        width: calc(60% - #{$navigation-margin-horizontal}); //= 100% - left - margin-right;
+        margin-right: $navigation-margin-horizontal;
+
+        z-index: 2;
+
+        @include respond(portrait) {
+            top: 0.7 * $navigation-height;
+            left: 0;
+            height: calc(100% - #{0.7 * $navigation-height}); //= 100% - top
+            width: 100vw;
+        }
+    }
+
+    &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+}

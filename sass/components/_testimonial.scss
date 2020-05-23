@@ -1,0 +1,23 @@
+.testimonial {
+    display: flex;
+    flex-direction: row;
+    
+    &__transformation {
+        @include respond(portrait) {
+            margin-bottom: $margin-small-portrait;
+        }    
+    }
+
+    &__client-experience {
+        margin-left: $testimonial-margin-right;
+
+        @include respond(portrait) {
+            margin-left: 0;
+        }
+    }
+
+    @include respond(portrait) {
+        flex-direction: column;
+    }
+
+}

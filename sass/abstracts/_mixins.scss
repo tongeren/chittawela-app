@@ -1,0 +1,128 @@
+@use "sass:map";
+
+// --> FIND OUT WHETHER I STILL USE THIS
+@mixin sizingFluidImageContainer($width, $height) {
+    position: relative;
+    padding-bottom: imageRatio($width, $height);
+    source,
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+}
+
+@mixin sizingContainer($ratio) {
+    padding-bottom: $ratio * 100%;
+}
+
+@mixin noSizingContainer($ratio) {
+    padding-bottom: 0;
+}
+
+// add responsive design using breakpoints
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media only screen and (max-width: $bp-phone) {
+            @content
+        }
+        ;
+    }
+    @if $breakpoint==tab-port {
+        @media only screen and (max-width: $bp-tab-port) {
+            @content
+        }
+        ;
+    }
+    @if $breakpoint==tab-land {
+        @media only screen and (max-width: $bp-tab-land) {
+            @content
+        }
+        ;
+    }
+    @if $breakpoint==bp-1300 {
+        @media only screen and (max-width: $bp-1300) {
+            @content
+        }
+        ;
+    }
+    @if $breakpoint==bp-1400 {
+        @media only screen and (max-width: $bp-1400) {
+            @content
+        }
+        ;
+    }
+    @if $breakpoint==portrait {
+        @media only screen and (max-width: $bp-portrait) {
+            @content
+        }
+        ;
+    }
+    @if $breakpoint==big-desktop {
+        @media only screen and (min-width: $bp-big-desktop) {
+            @content
+        }
+        ;
+    }
+}
+
+// add on hover functionality to HTMLElement
+@mixin onHover($show-box-shadow: true) {
+    transition: all $on-hover-transition-time;
+    cursor: pointer;
+    &:hover {
+        transform: scale($on-hover-scaling-factor) translateY($on-hover-vertical-translation);
+        @if $show-box-shadow {
+            box-shadow: $on-hover-box-shadow;
+        }
+    }
+}
+
+// mixin for clipping background pictures
+@mixin clipBackground($height) {
+    @supports (clip-path: polygon(0, 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 $delta-y, 100% 0, 100% calc(#{$height} - #{$delta-y}), 0 calc(#{$height}));
+        clip-path: polygon(0 $delta-y, 100% 0, 100% calc(#{$height} - #{$delta-y}), 0 calc(#{$height}));
+    }
+    @include respond(portrait) {
+        -webkit-clip-path: none;
+        clip-path: none;
+    }
+}
+
+// calculate a nice line height given a font size
+@mixin calcLineHeight($fontsize) {
+    line-height: calc(#{$line-spacing-multiplier} * #{$fontsize});
+}
+
+@mixin divider($height, $delta-y-header, $angle) {
+    text-align: center;
+    color: white;
+    background-color: rgba(var(--color-divider), 1);
+    @if $angle==0 {
+        @include respond(portrait) {
+            height: inherit;
+            padding: $section-padding-portrait;
+            &__header {
+                transform: none;
+            }
+        }
+    }
+    @else {
+        height: $height;
+        padding-top: 0.5 * $height;
+        @include clipBackground($height);
+        &__header {
+            transform: translateY($delta-y-header) rotate($angle);
+        }
+    }
+}
+
+/*
+@mixin responsive-images($width-picture-break) {
+    @media only screen and (min-resolution: $resolution-apple-retina-screen) and (min-width: $breakpoint-phone),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: $breakpoint-phone),
+           only screen and (min-width: $width-picture-break) { @content };
+}
+*/

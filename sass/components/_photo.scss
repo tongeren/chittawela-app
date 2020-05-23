@@ -1,0 +1,31 @@
+@use "sass:map";
+@use "sass:list";
+
+.photo {
+
+    &__img {
+        border-radius: $photo-border-radius;
+        display: block; 
+
+        @include onHover;
+
+        source, img {
+            // Use this instead of the following. Our transformation component doesn't scale up then!
+            // width: auto;
+            // max-width: 100%;
+            // height: auto;
+            width: 100%;
+        }
+    }
+}
+
+$keys: map-keys($image-sizes);
+@each $section-name in $keys {
+    .img--size-#{$section-name} {
+        $list: map-get($image-sizes, $section-name);
+        $width: nth($list, 1);
+        $height: nth($list, 2);
+
+        @include sizingFluidImageContainer($width, $height);
+    }
+}

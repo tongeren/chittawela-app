@@ -1,0 +1,41 @@
+.divider {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: rgba(var(--color-divider), 1);
+    transform: skewY(-3deg);
+
+    @include respond(portrait) {
+        height: inherit;
+        padding: $section-padding-portrait; 
+        transform: none;
+    }
+
+    &__title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+
+        @include respond(portrait) {
+            position: relative;
+            top: auto;
+            left: auto;
+            transform: none;
+            text-align: center;
+        }
+    }
+
+    &__subtitle {
+        @include respond(portrait) {
+            margin-top: $margin-tiny;
+        }
+
+        & > em { 
+            display: inherit; 
+        }
+    }
+
+}
+

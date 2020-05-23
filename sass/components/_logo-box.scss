@@ -1,0 +1,24 @@
+.logo-box {
+    display: flex;
+
+    &--row {
+        flex-direction: row;
+        justify-content: flex-start;
+        height: 100%;
+
+        @include respond(portrait) {
+            display: none;
+        }
+    }
+
+    &--column {
+        flex-direction: column;
+        align-items: center; 
+        max-height: 100%;
+
+        & > :last-child {
+            margin-top: -1rem;
+        }
+    }
+
+}

@@ -1,0 +1,96 @@
+.footer-bottom-layout {
+    position: relative;
+    
+    height: 60rem; 
+    padding: 0 10rem;
+
+    display: grid;
+    grid-template-rows: 32% 10% 20% 28% 10%;
+    grid-template-columns: 35% 30% 35%;
+    grid-template-areas: 
+        "left-line logo-box right-line"
+        "navigation-left social-media navigation-right"
+        "navigation-left vertical-line navigation-right"
+        "subscribe-form subscribe-form subscribe-form"
+        "copyright copyright copyright";
+    
+    background-color: var(--color-hair);
+    color: white;
+
+    @include respond(portrait) {
+        height: max-content;
+        padding: 0 2rem;
+
+        grid-template-rows: 15rem 8rem repeat(2, $menu-grid-item-height) 20rem 4rem;
+        grid-template-columns: 100%;
+
+        grid-template-areas: 
+            "logo-box"
+            "social-media"
+            "navigation-left"
+            "navigation-right"
+            "subscribe-form"
+            "copyright";
+    }
+
+    &__line-left {
+        grid-area: left-line;
+    }
+
+    &__line-right {
+        grid-area: right-line;
+    }
+
+    &__line-left, &__line-right {
+        content: " ";
+        border-bottom: 1px solid white;
+        margin: 0 8rem 6rem;
+        padding: 0 2rem;
+    }
+
+    &__logo-box {
+        grid-area: logo-box;
+    }
+
+    &__nav-left {
+        grid-area: navigation-left;
+    }
+
+    &__nav-right {
+        grid-area: navigation-right;
+    }
+
+    &__nav-left, &__nav-right {
+        @include respond(portrait) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__social-media {
+        grid-area: social-media;
+    }
+
+    &__line-vertical {
+        grid-area: vertical-line;
+        width: 50%;
+        border-right: 1px solid white;
+        margin: 4rem 0;
+    }
+
+    &__form {
+        grid-area: subscribe-form;
+
+        @include respond(portrait) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__copyright {
+        grid-area: copyright;
+    }
+    
+}

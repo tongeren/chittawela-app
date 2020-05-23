@@ -1,0 +1,204 @@
+$max-slides: 6;
+
+.carousel {
+
+    &__navigation {
+        position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+    }
+
+    &__radio {
+		// Hide the radio buttons
+		position: absolute;
+		top: -100rem;	
+		// Prevent scroll back to radio button
+		visibility: hidden
+	}
+
+	@for $i from 1 through $max-slides {
+		&__radio:nth-of-type(#{$i}):checked {
+			// if nth radio button has been selected, then show selected color of corresponding Quick Button 
+			& ~ .carousel__quick-nav > .carousel__quick-btn:nth-of-type(#{$i}) {
+				background-color: coral;
+			}
+
+			// if nth radio button has been selected, then show nth slide 
+			& ~ .carousel__slides > .carousel__slide {
+				display: none;
+			
+				&:nth-of-type(#{$i}) {
+					display: block;
+				}
+			}	
+		}
+	}
+	
+	&__radio:checked {
+		@for $i from 1 through $max-slides {	
+	
+			$prev: $i - 1;
+			$next: $i + 1;
+
+			&:nth-of-type(#{$i}) {
+				// Show last prev button if first slide 
+				&:first-of-type ~ .carousel__prev-nav > .carousel__prev-btn:last-child {
+					display: block;
+				}
+				
+				// Show previous button if not the first slide 
+				@if $prev > 0 {
+					& ~ .carousel__prev-nav > .carousel__prev-btn {
+						display: none;
+					
+						&:nth-child(#{$prev}) {
+							display: block;
+						}
+					}	
+				}
+
+				// Show next button if not the last slide 
+				@if $next < ($max-slides + 1) {
+					& ~ .carousel__next-nav > .carousel__next-btn {
+						display: none;
+					
+						&:nth-child(#{$next}) {
+							display: block;
+						}
+					}	
+				}
+				
+				// Show first next button if last slide 
+				&:last-of-type ~ .carousel__next-nav > .carousel__next-btn {
+					display: none;
+				
+					&:first-child {
+						display: block;
+					}
+				}	 
+			}
+
+		}
+	}	
+	
+    &__slides {
+		position: relative;
+		top: 0;
+        left: 0;
+        padding-bottom: $slides-padding-bottom;
+    }
+
+    &__slide {
+        display: none;
+        background-color: white; 
+
+        /* Display first child on load */
+		&:first-child {
+			display: block;
+		}
+	}
+
+	&__photo {
+		@include respond(portrait) {
+			width: 100%;
+			height: auto;
+			max-width: $photo-width-portrait;
+		}
+	}
+
+
+    &__photo-nav {
+        display: flex;
+    }
+
+
+    &__quick-nav {
+        position: absolute;
+        top: $carousel-intrinsic-photo-height - $quick-button-delta-y; // look for a better responsive solution
+        left: 50%;
+        transform: translateX(-50%);
+		margin: auto;
+		
+		@include respond(phone) {
+			top: calc((100vw - 2 * #{$section-padding-portrait}) / #{$carousel-photo-aspect-ratio} - 0.9 * #{$quick-button-delta-y});
+		}
+    }
+
+    &__photo-btn {
+        height: $carousel-intrinsic-photo-height / $max-slides;
+		width: $carousel-intrinsic-photo-width / $max-slides;
+		
+		@include respond(phone) {
+			height: calc((100vw - 2 * #{$section-padding-portrait}) / #{$carousel-photo-aspect-ratio} / #{$max-slides});
+			width: calc((100vw - 2 * #{$section-padding-portrait}) / #{$max-slides});
+		}
+    }
+
+    &__quick-btn {
+		display: inline-block;
+		height: $quick-button-size;
+		width: $quick-button-size;
+		margin: 0 .2rem;
+		border-radius: 50%;
+		cursor: pointer;
+		background-color: rgba(white, 0.8);
+
+		&:hover {
+			background-color: rgba(white, 0.6);
+		}
+    }
+
+    &__prev-nav, &__next-nav {
+		display: flex;
+        position: absolute;
+        top: 0;
+		height: $carousel-intrinsic-photo-height;
+        width: .5 * $carousel-intrinsic-photo-width / $max-slides;
+
+		@include respond(portrait) {
+			height: calc((100vw - 2 * #{$section-padding-portrait}) / #{$carousel-photo-aspect-ratio});
+			width: 0.75 * (100% / $max-slides);
+		}
+
+		&:hover {
+            background-color: rgba(white, .2);
+		}
+    }
+
+	&__prev-nav {
+		left: 0;
+	}
+
+    &__next-nav {
+		right: 0;
+	}
+ 
+	&__prev-btn, &__next-btn {
+		display: none;
+		align-self: center;
+        margin: auto;
+        cursor: pointer;	
+
+		&:before {
+			font-family: "Font Awesome 5 Free";
+			font-size: 2rem;
+			font-weight: 900;
+            color: white;
+		}
+	}
+
+	&__prev-btn:before {
+        content: "\f053";
+	}
+
+	&__next-btn:before {
+		content: "\f054";
+	}
+
+	// Display first pair of Prev/Next Buttons on load 
+	&__prev-btn:last-child, &__next-btn:nth-child(2) {
+		display: block;
+	}
+
+}

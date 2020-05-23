@@ -1,0 +1,11 @@
+.card-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem 10rem;
+    align-items: flex-start;
+    justify-items: center;
+
+    @include respond(portrait) {
+        grid-template-columns: 1fr;
+    }
+}

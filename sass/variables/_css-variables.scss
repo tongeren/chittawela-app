@@ -1,0 +1,46 @@
+:root {
+    // COLORS
+    --color-orange: darkorange;
+    --color-white: #fff;
+    --color-light-black: rgb(0, 0, 0, .15);
+    --color-black: rgba(0, 0, 0, 1);
+    --color-red: #b02b2c;
+    --color-green: #a6ce38;
+    --color-light-grey: #f7f7f7;
+    --color-medium-grey: #9b9494;
+    --color-dark-grey: #777;
+    --color-extra-light-brown: rgb(232, 218, 204, .4);
+    --color-light-brown: #c6b9ab;
+    --color-medium-brown: #b59f87;
+    --color-light-pink: #f2aeef;
+    --color-medium-pink: #c973c5;
+    --color-dark-pink: #a65ea2;
+
+    // SPLIT COMPLEMENTARY COLOR SCHEME
+    --color-light-yellow: 235, 247, 0; // rgb(235, 247, 0);  
+    --color-medium-yellow: 247, 200, 0; // rgba(247, 200, 0, 1);
+    --color-dark-yellow: 247, 177, 0; // rgb(247, 177, 0, 1);
+    --color-light-limegreen: rgba(151, 202, 48, 1);
+    --color-medium-limegreen: 151, 202, 48; // rgba(151, 202, 48, 1);
+    --color-dark-limegreen: rgba(77, 216, 17, 0.961);
+    --color-medium-violet: rgba(148, 1, 149, 1);
+    --color-light-royalblue: rgb(0, 73, 198);
+    --color-medium-royalblue: rgb(2, 2, 142, 1);
+    --color-dark-royalblue: rgb(2, 2, 62);
+    --color-light-skyblue: 167, 248, 254; // rgb(167, 248, 254)
+    --color-medium-skyblue: 2, 193, 248; // rgb(2, 193, 248)
+    --color-dark-skyblue: 2, 141, 248; // rgb(2, 141, 248, 1)
+    --color-divider: 83, 174, 186; // rgb(83, 174, 186)
+    --color-light-purple: rgba(172, 96, 219, 1);
+    --color-medium-purple: rgba(109, 34, 156, 1);
+    --color-dark-purple: rgba(65, 10, 99, 1);
+    --color-medium-peach: rgba(255, 153, 153, 1);
+    --color-action-primary: darkorange;
+    --color-calligraphy: rgba(255, 153, 153, .6);
+    --color-hair: rgba(57, 57, 71, 1);
+    --color-gold-light: rgba(226, 172, 71, 1);
+    --color-gold: rgba(136, 113, 89, 1);
+    
+    // BORDERS
+    --line-medium-thickness: .7rem;
+}

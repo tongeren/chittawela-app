@@ -1,0 +1,46 @@
+.crossfade {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1; //$z-index-background;
+
+    @include respond(portrait) {
+
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;    
+
+        @include respond(portrait) {
+            height: auto;
+            overflow: auto;
+        }
+
+    }
+    
+    // final picture excluded, because that is the one that has to be visible through the stack
+    &__img:not(:first-child) {
+        animation: backgroundFilm 12.5s ease-in-out 0s 1 normal forwards;
+    }
+    
+    // final picture excluded 
+    @for $i from 2 through $no-of-hero-pictures  {
+        &__img:nth-child(#{$i}) {
+            animation-delay: ($no-of-hero-pictures - $i) * $animation-delay;
+        }
+    } 
+
+    /*
+    // simplify for phones 
+    @include respond(portrait) {
+        // hide all images other than the last & no animation
+        &__img:not(:first-child) {
+            display: none;
+            animation: none;
+        }
+    }
+    */
+
+}

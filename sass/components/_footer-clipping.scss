@@ -1,0 +1,8 @@
+.footer-clipping {
+    background-color: var(--color-hair);
+
+    @include respond(portrait) {
+        display: none;
+    }    
+
+}

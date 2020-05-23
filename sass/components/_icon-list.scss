@@ -1,0 +1,53 @@
+.icon-list {
+    list-style: none;
+    padding: 2rem 4rem;
+
+    @include respond(portrait) {
+        padding: 2rem 0;
+    }
+
+    &__item {
+        display: flex;
+        margin-bottom: 2rem;
+        
+        &::before {
+            display: inline-block;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 3.5rem;
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+            content: "\f13d"; 
+            
+            height: 5rem;
+            width: 5rem;
+
+            padding-top: 1.2rem;
+            margin-right: 2rem;
+
+            border-radius: 50%;
+            background-color: rgba(var(--color-divider), 1);
+
+        }
+
+        &:last-child {
+            margin-bottom: 0rem;
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    &__header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        @include respond(portrait) {
+            padding-top: 0;
+        }
+    }
+}

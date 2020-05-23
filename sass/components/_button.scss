@@ -1,0 +1,78 @@
+.button {
+    &,
+    &:link,
+    &:visited {
+        display: flex;
+        text-transform: uppercase;
+        text-decoration: none;
+        position: relative;
+        height: $button-height;
+        padding: 0 2.5rem;
+
+        opacity: 0.8;
+
+        align-items: center;
+        justify-content: center;
+
+        border-radius: $button-border-radius;
+        cursor: pointer;
+
+        @include respond(portrait) {
+            height: $scale-down-factor-portrait * $button-height;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba(black, .2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 1rem rgba(black, .2);
+    }
+
+    &--interact-gold {
+        &:hover, &:active, &:focus {
+            background-color: var(--color-gold);
+        }
+    }
+
+    &--white-orange {
+        color: white;
+        background-color: orange;
+        border: $button-border-width solid white;
+    }
+
+    &--white-transparent {
+        color: white;
+        background-color: transparent;
+        border: $button-border-width solid white;
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: $button-slide-in-duration ease-out $button-slide-in-begin 1 backwards moveInBottom, 1s linear $clipping-path-hero-finished infinite running pulse;
+    }
+    
+}
+

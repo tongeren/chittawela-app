@@ -1,0 +1,216 @@
+// fade in opacity and grow the width
+@keyframes fadeInOpacityGrowWidth {
+    0% {
+        opacity: 0;
+        width: 0;
+	}
+	100% {
+        opacity: 1;
+        width: 100%;
+	}
+}
+
+// fade in opacity and scall background
+@keyframes fadeInOpacityScaleBackground {
+    0% {
+        opacity: 0;
+        background: transparent;
+    }
+    1% {
+        opacity: 0;
+        background: radial-gradient(rgba(var(--color-medium-skyblue), 1), rgba(var(--color-light-skyblue), 1));
+    }
+    100% {
+        opacity: 1;
+        background: radial-gradient(rgba(var(--color-medium-skyblue), 1), rgba(var(--color-light-skyblue), 1));
+        transform: scale(80);
+    }
+}
+// CROSSFADE
+// --> REWRITE THIS IN JAVASCRIPT IN ORDER TO CONNECT KEYFRAME PERCENTAGES TO CONSTANTS IN THE CODE, SINCE THEY CANNOT BE CALCULATED 
+// USING VARIABLES IN SCSS
+/*
+$n: 5;
+$presentation-time-image: 2s;
+$duration-cross-fading: .5s;
+$animation-delay: $presentation-time-image + $duration-cross-fading; 2.5s
+$total-animation-duration: $animation-delay * $n; 12.5s
+*/
+
+// add crossfade behaviour to pictures
+@keyframes backgroundFilm {
+    0% {
+        opacity: 1;
+    }
+    /* (($presentation-time-image / $total-animation-duration) * 100%) { 2/12.5 */
+    16% {
+        opacity: 1;
+    }
+    /* ((1 / $n) * 100%) { */
+    20% {
+        opacity: 0;
+    }
+    /* ((1 - $duration-cross-fading / $total-animation-duration) * 100%) { 1 - .5/12.5 = .84 */
+    84% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+// add slide in down behavior to HTMLElement
+@keyframes slideInDown {
+    0% { 
+        top: -100%;
+        // transform: translateY(-100%); // IS THIS A SAFE WAY TO DO THIS?
+        //z-index: $z-index-navigation; // IS ADDING A Z-INDEX REALLY NECESSARY?
+    }
+
+    100% {
+        top: 0;
+        // transform: translateY(0);
+        //z-index: $z-index-navigation;
+    }
+}
+
+// add move from the bottom to HTMLElement
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(10rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// add move from the top to HTMLElement
+@keyframes moveInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-15rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// add move from the right to HTMLElement
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(15rem);
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// add move from the left to HTMLElement
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-15rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// add pulse behavior to HTMLElement
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+// DO I STILL USE THIS?
+@keyframes hide {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+// fade in opacity
+@keyframes fadeInOpacity {
+    0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+// --> DO I STILL USE THIS?
+@keyframes fadeInBackgroundOpacity {
+    0% {
+        background-color: rgba(255, 255, 255, 0); 
+        box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0);
+	}
+	100% {
+        background-color: rgba(255, 255, 255, 1); 
+        box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .15);
+	}
+}
+
+// --> TO REWRITE IN JAVASCRIPT
+/*
+@keyframes clippingHeader {
+    0% {
+        clip-path: polygon(0 0, 100vw 0, 100vw $header-height, 0 $header-height); 
+    }
+    100% {
+        clip-path: polygon(0 0, 100vw 0, 100vw 834px, 0 $header-height); 
+        //@include clipHeader(#{$header-height}); 
+        clip-path: polygon(0 0, 100% 0, 100% calc(#{$header-height} - #{$delta-y}), 0 calc(#{$header-height}));
+    }
+}
+*/
+
+// change color of text from white to ghold
+@keyframes changeColorText {
+    0% {
+        color: white;
+    }
+    100% {
+        color: var(--color-gold);
+    }
+}
+
+// change color of lines from white to gold
+@keyframes changeColorLine {
+    0% {
+        border-top: .2rem solid white;
+    }
+    100% {
+        border-top: .2rem solid var(--color-gold);
+    }
+}

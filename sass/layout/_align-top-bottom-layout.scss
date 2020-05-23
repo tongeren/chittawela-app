@@ -1,0 +1,18 @@
+.align-top-bottom-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    &__first {
+        align-self: flex-start;
+    }
+
+    &__last {
+        align-self: flex-end;
+
+        @include respond(portrait) {
+            width: 100%;
+        }
+    }
+}

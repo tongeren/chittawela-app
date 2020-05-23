@@ -1,0 +1,10 @@
+.grid-layout {    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5rem;
+
+    @include respond(portrait) {
+        grid-template-columns: 1fr;
+        grid-gap: $margin-small-portrait;
+    }   
+}    

@@ -1,0 +1,222 @@
+body, footer {
+    font-family: $body-font-family; 
+    font-size: $body-text-size;
+    font-weight: 300;
+    
+    @include calcLineHeight($body-text-size);
+    letter-spacing: .1rem;   
+}
+
+label {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 1.2rem;
+}
+
+.book__button-email {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.navigation, .footer-navigation {
+    font-family: $body-font-family;
+    font-weight: 400;
+    font-size: $navigation-text-size;
+    letter-spacing: $navigation-letter-spacing;
+    
+    @include calcLineHeight($navigation-text-size);
+
+    &__link:hover {
+        font-weight: 700;
+        letter-spacing: .3rem;
+    }
+}
+
+.brand-name {
+    font-family: 'Caveat', cursive;
+    font-weight: 400;
+    font-size: 4rem; 
+    letter-spacing: .2rem;
+    
+    @include calcLineHeight(4rem); 
+
+    &--column {
+        font-family: 'Caveat', cursive;
+        font-weight: 400;
+        font-size: 6rem;
+        letter-spacing: .3rem;
+
+        @include calcLineHeight(6rem);
+
+        @include respond(portrait) {
+            font-size: 4rem;
+            letter-spacing: .2rem;
+
+            @include calcLineHeight(4rem);
+        }
+    }
+}
+
+// HEADINGS
+.heading-primary {
+    font-family: 'Cormorant SC', serif;
+    font-weight: 400; 
+    font-size: $h1-text-size; 
+    letter-spacing: 0rem; 
+    
+    @include calcLineHeight($h1-text-size);
+
+    @include respond(portrait) {
+        font-size: $h1-text-size;
+
+        @include calcLineHeight(0.5 * $h1-text-size);
+    }
+
+    @media (orientation: portrait) and (width: 320px) {
+        font-size: 0.9 * $h1-text-size;
+
+        @include calcLineHeight(0.45 * $h1-text-size);
+    }
+}
+
+.subheadline {
+    font-family: $body-font-family;
+    font-weight: 400;
+    font-size: $subheadline-text-size; 
+    
+    @include calcLineHeight($subheadline-text-size); 
+    letter-spacing: $letter-spacing;   
+
+    @include respond(portrait) {
+        font-size: $subheadline-text-size;
+        @include calcLineHeight($subheadline-text-size); 
+        letter-spacing: $letter-spacing; 
+    }
+}
+
+.retreat {
+    font-family: $body-font-family;
+    font-weight: 700;
+    font-size: $retreat-text-size;
+
+    @include respond(portrait) {
+        font-size: 0.7 * $retreat-text-size;
+    }
+}
+
+.heading-secondary {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 4.2rem;
+
+    @include calcLineHeight(3rem);
+}
+
+.heading-secondary-alt {
+    font-family: $body-font-family;
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 3.5rem;
+}
+
+.heading-tertiary {
+    font-family: $body-font-family;
+    font-weight: 700;
+    font-size: 1.2 * $body-text-size;
+}
+
+.heading-tertiary-alt {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 3.5rem;
+}
+
+.heading-tertiary-emphasis {
+    font-family: $body-font-family;
+    font-weight: 600; // 300;
+    font-size: 2.5rem; // 3.5rem;
+    text-transform: uppercase;
+
+    @include calcLineHeight(2.2rem); // 3rem
+}
+
+.button, .input {
+    font-family: $body-font-family;
+    font-weight: 400;
+    font-size: $button-text-size; //2rem;
+    letter-spacing: $button-letter-spacing; //.28rem;
+    
+    @include calcLineHeight($button-text-size);
+
+    @include respond(portrait) {
+        font-size: .7 * $button-text-size;
+        letter-spacing: .7 * $button-letter-spacing;
+    }
+}
+
+.line {
+    font-size: 5rem;
+    font-weight: 400;
+}
+
+.discounted {
+    color: red;
+    text-decoration: line-through;
+    font-weight: 700;
+}
+
+.limited {
+    color: red; 
+    font-weight: 700;
+    font-size: 1.3 * $body-text-size;
+    text-transform: uppercase;
+}
+
+.emphasis {
+    font-weight: 700;
+    background-color: yellow;
+    padding: 0 .3rem;
+}
+
+.important {
+    font-weight: 700;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    padding: 1rem 0;
+}
+
+.result {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.1 * $body-text-size;
+    padding: 1rem 0;
+}
+
+.pricing-table, .dropdown-label {
+    @include respond(portrait) {
+        font-size: 0.5 * $body-text-size;
+        @include calcLineHeight(0.5 * $body-text-size);
+        letter-spacing: 0.5 * .1rem; 
+    }
+}
+
+.newsletter {
+    font-family: $body-font-family;
+    font-weight: 400;
+    font-size: $button-text-size; //2rem;
+    letter-spacing: $button-letter-spacing; //.28rem;
+    
+    @include calcLineHeight($button-text-size);
+
+}
+
+.copyright {
+    @include respond(portrait) {
+        font-size: 0.8 * $body-text-size;
+        letter-spacing: 0.46 * .1rem; 
+    }
+}

@@ -1,0 +1,53 @@
+.dropdown {
+    position: relative;
+    width: 18rem;
+
+    @include respond(portrait) {
+        width: 10rem;
+    }
+
+    &__options {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: -1rem;
+        left: 0;
+        border-radius: $dropdown-border-radius;
+        border: solid $dropdown-border-width black; 
+        width: 100%;
+    }
+
+    &__option {
+        width: 100%;
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__label {
+        width: 100%;
+        padding: .4rem;
+
+        @include respond(portrait) {
+            padding: 2px;
+        }
+    }
+
+    // FUNCTIONALITY
+    &__input + &__label {
+        display: none;
+    }
+
+    &__options:hover &__label {
+        display: block;
+        cursor: pointer;
+        background-color: white;
+    }
+
+    &__input:checked + &__label {
+        display: block;
+        background-color: orange;
+        color: white;
+    }
+}

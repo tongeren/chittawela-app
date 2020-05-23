@@ -1,0 +1,12 @@
+.svg-button {
+    display: flex;
+    background-color: white; // var(--color-hair); 
+    border-color: white; // var(--color-hair);
+    border-radius: 50%;
+
+    @include respond(portrait) {
+       
+    }
+
+}
+

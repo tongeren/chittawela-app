@@ -1,0 +1,166 @@
+@import "./variables/css-variables";
+@import "./variables/breakpoints";
+@import "./variables/animations";
+@import "./variables/typography";
+
+// ---------------
+// SASS VARIABLES
+// ---------------
+// FLAGS
+$flag-crossfade: true;
+$flag-test: true;
+$flag-debug: true;
+$production: true;
+// GLOBAL
+$background-ratio: 1080 / 1920; 
+
+
+$button-and-input-height: 5.7rem;
+$scale-down-factor-portrait: 0.7;
+$height-top-container: 6rem;
+$show-box-shadow: true;
+// DEVICE RELATED
+$width-iphone4: 320px;
+// RESOLUTIONS
+$resolution-apple-retina-screen: 192dpi;
+// LISTS
+// $respond-nested-map:  (
+//     margin-top: ("480px": -6.7rem, "568px": -17.7rem, "640px": -20rem, "667px": -13rem, "736px": -23rem, "812px": -39rem, "896px": 0rem)
+// );
+
+
+// GRADIENTS
+$gradient-skyblue: linear-gradient(to right top, rgba(var(--color-medium-skyblue), 1), rgba(var(--color-light-skyblue), .1));
+$gradient-primary: $gradient-skyblue;
+// PADDING
+$padding-large: 6rem;
+$padding-medium: 3rem;
+$padding-small: 2rem;
+
+// UNIVERSAL ON HOVER BEHAVIOUR
+$on-hover-scaling-factor: 1.05;
+$on-hover-vertical-translation: -.5rem;
+$on-hover-transition-time: .2s;
+$on-hover-box-shadow: 0 2.5rem 4rem rgba(black, .4);
+// GRADIENTS
+$gradient-blue: linear-gradient(to top right, yale, steel, sky);
+
+// SECTION
+$section-padding-top: 12rem;
+$section-padding-vertical: 5rem;
+$section-padding-horizontal: 21rem;
+$section-padding-bottom: 10rem;
+// MARGINS
+$section-margin-vertical: 4rem;
+$margin-medium: 6rem;
+$margin-medium-portrait: 5rem;
+$margin-small: 3rem;
+$margin-small-portrait: 2rem;
+$margin-tiny: 1.4rem;
+$section-padding-portrait: 3.5rem;
+// LINE
+$white-line: 1px solid white;
+// BOX-SHADOWS
+$box-shadow: 0 1.5rem 4rem rgba(var(--color-black), .3);
+$box-shadow-photo: 0 1.5rem 4rem rgba(var(--color-black), .3);
+$box-shadow-photo-hover: 0 2.5rem 4rem rgba(var(--color-black), .4);
+// GRID GAPS
+$grid-gaps: 3rem 2rem;
+// SKEW
+$skew-y: 3deg;
+$delta-y: 96px; // 8.88vh; // =96px
+$header-height: 96rem; //960px; // 88.88vh; // =960px 
+$outline-delta-y: 18.3rem; //183px; // 16.94vh; // =183px 
+// WIDTH
+$separation-width: 10%;
+// PHOTO DIVIDER
+$photo-divider-height-portrait: 80rem;
+// IMAGES
+$image-sizes: ( challenge: (620, 603), foundation: (852, 640), guides: (450, 600), invitation: (585, 450), offer: (500, 280), program-work: (450, 450), program-play: (600, 360), testimonials: (300, 300), banburee: (600, 360));
+// Z-INDICES
+$z-index-hidden: -3;
+$z-index-background: -2;
+$z-index-hidable: -1;
+$z-index-scroll-over: 1000;
+$z-index-visible: 5000;
+//$z-index-navigation: 9999;
+$border-radius-button-input: 0rem;
+$border-width-button-input: 1px;
+// NAVIGATION
+$navigation-margin-horizontal: 5rem;
+$navigation-margin-vertical: 1rem;
+$navigation-nav-width: 60vw;
+$navigation-logo-height: 5rem;
+$navigation-height: 8.5rem;
+$hamburger-height: 3rem;
+// CTA
+$cta-width: 54%;
+// BOX
+$box-margin-right: $separation-width;
+// TESTIMONIAL
+$testimonial-margin-right: $separation-width;
+// BOOK
+$book-side-width: $separation-width;
+// BUTTON
+$button-border-radius: $border-radius-button-input;
+$button-border-width: $border-width-button-input;
+$button-height: $button-and-input-height;
+// INPUT 
+$input-height: $button-and-input-height;
+// APPLICATION
+$application-border-radius: 0rem;
+// INPUT
+$input-border-radius: $border-radius-button-input;
+$input-border-width: $border-width-button-input;
+// DROPDOWN
+$dropdown-border-radius: $border-radius-button-input;
+$dropdown-border-width: $border-width-button-input;
+// CARD
+$card-height: 30rem;
+$card-width: 0.8 * $card-height;
+$card-grid-gap: 8rem;
+$card-border-radius: 0rem;
+// PHOTO 
+$photo-border-radius: 0rem;
+$photo-width-portrait: calc(100vw - 2 * #{$section-padding-portrait});
+// CAROUSEL
+$slides-padding-bottom: 20px;
+$carousel-intrinsic-photo-width: 600px;
+$carousel-intrinsic-photo-height: 360px;
+$carousel-photo-aspect-ratio: $carousel-intrinsic-photo-width / $carousel-intrinsic-photo-height;
+$quick-button-size: 10px;
+$quick-button-delta-y: 40px;
+// FORM
+$form-border-radius: 0rem;
+// CROSSFADE
+$no-of-hero-pictures: 5;
+
+/* adapt film constants for constants below: */
+
+$presentation-time-image: 2s;
+$duration-cross-fading: .5s;
+$animation-delay: $presentation-time-image+$duration-cross-fading;
+$total-animation-duration: $animation-delay * $no-of-hero-pictures;
+// IMAGE URLS
+$url-card-img: url(../img/1920x1080/wall-card.jpg);
+$url-lotus: url(../img/1920x1080/lotus_1920x1280.jpg);
+$url-ang-thong: url(../img/1920x1080/ang_thong_national_park_1920x1080.jpg);
+$url-resort-banburee-sunset: url(../img/1920x1080/banburee-sunset-pool_1920x1080.jpg);
+$url-sanctuary-banburee: url(../img/1920x1080/banburee_1280x835.jpg);
+$url-transformation-nathon: url(../img/1920x1080/nathon_1920x1280.jpg);
+$url-book-taling-ngaam: url(../img/1920x1080/taling_ngaam_1920x1046.jpg);
+$url-on-your-way: url(../img/1920x1080/Lana_climbing_stairs_1920x2560.jpg);
+// CLOUDINARY
+$cloudinary-prefix: "https://res.cloudinary.com/chittawela/image/upload/";
+// DIVIDER
+$divider-height: 20rem;
+$divider-delta-y: -3rem;
+$divider-angle: -$skew-y;
+$divider-large-height: 26rem;
+$divider-large-delta-y: -7rem;
+$divider-large-angle: -$skew-y;
+$divider-large-subheader-height: 22rem;
+$divider-large-subheader-delta-y: -5rem;
+$divider-large-subheader-angle: -$skew-y;
+// FOOTER BOTTOM
+$menu-grid-item-height: 3 * $navigation-height;

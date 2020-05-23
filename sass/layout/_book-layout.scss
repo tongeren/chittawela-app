@@ -1,0 +1,36 @@
+.book-layout {
+    display: flex;
+    flex-direction: row;
+
+    @include respond(portrait) {
+        flex-direction: column;
+    }
+
+    &__left, &__right {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    &__left {
+        max-width: 40%;
+        margin-right: $book-side-width;
+
+        @include respond(portrait) {
+            max-width: 100%;
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: $margin-small-portrait;
+        }
+    }
+
+    &__right {
+        min-width: 30%;
+
+        @include respond(portrait) {
+            min-width: 100%;
+            width: 100%;
+        }
+    }
+
+}

@@ -1,0 +1,9 @@
+.picture-divider {
+    background-size: cover; 
+    background-position: top;
+	
+	@include respond(portrait) {
+		transform: none;
+	}
+
+}

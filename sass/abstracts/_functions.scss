@@ -1,0 +1,51 @@
+// @function margin_top_description($bp-height) {
+//     // iPhone 4S, ...
+//     @if $bp-height == 480px {
+//         @return -6.7rem;
+//     }
+//     // iPhone 5, ...
+//     @if $bp-height == 568px {
+//         @return 6rem;
+//     } 
+//     // Galaxy S3, ...
+//     @if $bp-height == 640px {
+//         @return -18.7rem;
+//     }
+//     // iPhone 6, ...
+//     @if $bp-height == 667px {
+//         @return 6rem;
+//     }
+//     // iPhone 6+, ...
+//     @if $bp-height == 736px {
+//         @return -20.7rem;
+//     }
+//     // iPhone X, ...
+//     @if $bp-height == 812px {
+//         @return 6rem;
+//     }
+//     // iPhone 11, ...
+//     @if $bp-height == 896px {
+//         @return 6rem;
+//     }
+// }
+
+// calculate image ratio
+@function imageRatio($width, $height) {
+    @return ($height / $width) * 100%;
+}
+
+// calculate z-index test-production
+// $env: test || prod, $class: hero__svg-container
+@function zIndexTestProduction($env, $class) {
+    @if $class == hero__svg-container {
+        @if $env == test {
+            @return 3;
+        }
+        @if $env == prod {
+            @return 0;
+        }
+    } @else {
+        @return auto;
+    }
+}
+

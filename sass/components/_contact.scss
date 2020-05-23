@@ -1,0 +1,53 @@
+.contact {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 3.5rem;
+    text-transform: uppercase;
+    border-radius: 0rem;
+    box-shadow: 0 .5rem 1.3rem rgba(var(--color-black), .15);
+
+    @include respond(portrait) {
+        padding: 2rem;
+    }
+
+    &__question {
+        margin-bottom: 3rem;
+    }
+
+    &__list {
+        list-style: none;
+
+        > * {
+            display: flex;
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    &__icon {
+        order: 1;
+        margin-top: .3rem;
+        margin-right: 4rem;
+    }
+
+    &__no-recaptcha {
+        order: 2;
+    }
+
+    &__recaptcha {
+        display: none; // block;
+        order: 2;
+        border: none;
+        background-color: inherit;
+        
+        color: black;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__hide {
+        order: 2;
+        display: none;
+    }
+    
+}

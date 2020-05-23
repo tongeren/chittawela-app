@@ -1,0 +1,8 @@
+.composition-layout {
+    display: flex;
+    flex-direction: column;
+
+    &__photo:not(:last-child) {
+        margin-bottom: 1.4rem;
+    }
+}
