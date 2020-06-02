@@ -1,7 +1,10 @@
+import dynamic from 'next/dynamic';
+
 import ActionForm from '../components/ActionForm/ActionForm';
 import Contact from '../components/Contact/Contact';
-import PhotoSection from '../components/PhotoSection/PhotoSection';
-// import SectionHeading from '../components/SectionHeading/SectionHeading';
+
+const PhotoSection = dynamic(() => import('../components/PhotoSection/PhotoSection'), { ssr: false });
+
 import ResponsiveHeading from '../components/ResponsiveHeading/ResponsiveHeading';
 import SectionLayout from '../components/SectionLayout/SectionLayout';
 import BookLayout from '../components/BookLayout/BookLayout';
@@ -42,7 +45,7 @@ const ACTION_FORM_LIST = [
     }
 ];
 
-const SectionBook = () => 
+const SectionBook:React.FunctionComponent = ():React.ReactElement => 
     <PhotoSection id="section-book" > 
         <SectionLayout>
             <BookLayout

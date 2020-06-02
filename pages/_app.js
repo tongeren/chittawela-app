@@ -1,21 +1,42 @@
-import { Provider } from 'mobx-react';
-import { useStore } from '../stores/UIStore';
+/* eslint-disable */
+import React from 'react';
+import { useStore } from '../stores/stores';
 import initFirebase from '../utils/initFirebase';
+import { StoreProvider } from '../components/StoreProvider/StoreProvider';
+import { initStore } from '../stores/stores';
 import 'mobx-react-lite/batchingForReactDom';
+
 import '../sass/main.scss';
 
-// init the Firebase app
+// Initialize the Firebase app
 initFirebase();
 
-const MyApp = props => {
-    const { Component, pageProps } = props;
-    const store = useStore();
-    
+// Initialize mobx store
+// const store = initStore();
+
+const Root = ({ Component, pageProps}) => {
+    const store = useStore(pageProps.initialState);
+
     return (
-        <Provider store={ store }>
+        <StoreProvider value={ store }>
             <Component { ...pageProps } />
-        </Provider>
+        </StoreProvider>
     );
 };
 
-export default MyApp;
+export default Root;
+
+
+
+
+
+// import { Provider } from 'mobx-react';
+// const Root = ({ Component, pageProps}) => {
+//     const store = useStore(pageProps.initialState);
+
+//     return (
+//         <Provider store={ store }>
+//             <Component { ...pageProps } />
+//         </Provider>
+//     );
+// };

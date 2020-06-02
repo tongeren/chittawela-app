@@ -13,7 +13,7 @@ const PHOTOS = [
             "sectionName": "testimonials"
         },
         "after": {
-            "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_300/v1586672896/testimonials/before_300x300.jpg",
+            "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_300/v1586672896/testimonials/after_300x300.jpg",
             "alt": "After",
             "sectionName": "testimonials"
         }
@@ -25,7 +25,7 @@ const PHOTOS = [
             "sectionName": "testimonials"
         },
         "after": {
-            "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_300/v1586672896/testimonials/before_300x300.jpg",
+            "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_300/v1586672896/testimonials/after_300x300.jpg",
             "alt": "After",
             "sectionName": "testimonials"
         }
@@ -37,7 +37,7 @@ const PHOTOS = [
             "sectionName": "testimonials"
         },
         "after": {
-            "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_300/v1586672896/testimonials/before_300x300.jpg",
+            "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_300/v1586672896/testimonials/after_300x300.jpg",
             "alt": "After",
             "sectionName": "testimonials"
         }

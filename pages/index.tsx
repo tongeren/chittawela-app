@@ -1,10 +1,11 @@
+import React from 'react';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
 // client(browser)-only components:
 import Divider from '../components/Divider/Divider';
 import FooterClipping from '../components/FooterClipping/FooterClipping';
 import PictureDivider from '../components/PictureDivider/PictureDivider';
-
 
 // sections
 import SectionDescription from '../sections/SectionDescription';
@@ -36,10 +37,14 @@ import FooterBottom from '../components/FooterBottom/FooterBottom';
 import Hero from '../components/Hero/Hero';
 import LogoBox from '../components/LogoBox/LogoBox';
 import MenuNav from '../components/MenuNav/MenuNav';
-import NavBar from '../components/NavBar/NavBar';
+
+const NavBar = dynamic(() => import('../components/NavBar/NavBar'), { ssr: false });
+
 import SocialMedia from '../components/SocialMedia/SocialMedia';
 import SubscribeForm from '../components/SubscribeForm/SubscribeForm';
 import FooterTestimonial from '../components/FooterTestimonial/FooterTestimonial';
+
+import { CROSSFADE } from '../static/crossfade';
 
 const NAVIGATION = [
     {
@@ -76,7 +81,18 @@ const NAV_RIGHT = [
     { "href": "/contact", "name": "Contact" }
 ];
 
-const Home = () => {
+
+const CTA = {
+    headline: "Be on your way to a new you", 
+    explanation: "Realign with inner values and ambitions: find yourself, in a supportive, safe, and quiet space, where you will receive essential guidance and tools actualizing your journey of self-discovery and transformation.", 
+    retreatInfo: {
+        date: "March 1-7th, 2021",
+        location: "Koh Samui, Thailand"
+    }, 
+    ctaButton: true
+};
+
+const Home:React.FunctionComponent = ():React.ReactElement => {
   
   return (
     <div className="container">
@@ -94,7 +110,11 @@ const Home = () => {
         </Head>
 
         <main>
-            <Hero />
+            <Hero 
+                sprite="wiphatthra"
+                crossfade={ CROSSFADE }
+                cta={ CTA }
+            /> 
             <NavBar 
                 name="Chittawela" 
                 flex="row"  

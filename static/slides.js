@@ -17,7 +17,7 @@ const ALT = "Lagoon 400 in Ang Thong National Marine Park";
 
 const SECTION_NAME = [ "program-play", "banburee" ];
 
-const slides = id => {
+const slides = (id) => {
     const FULL_FILENAME_EX_NUMBER = CLOUDINARY_CHITTAWELA
     .concat("", CLOUDINARY_QUALITY_SETTINGS)
     .concat(",", CLOUDINARY_WIDTH_SETTING)

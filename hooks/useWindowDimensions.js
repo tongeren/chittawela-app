@@ -15,12 +15,13 @@ const useWindowDimensions = () => {
 
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
+    function handleResize() {
+        setWindowDimensions(getWindowDimensions());
+    }
+
     useEffect(() => {
         if (hasWindow) {
-            function handleResize() {
-                setWindowDimensions(getWindowDimensions());
-            }
-
+           
             window.addEventListener('resize', _.throttle(handleResize, THROTTLE_TIME));
             return () => window.removeEventListener('resize', _.throttle(handleResize, THROTTLE_TIME));
         }

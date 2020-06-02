@@ -1,14 +1,17 @@
-import PropTypes from 'prop-types';
-
+import React from 'react';
 // hoc
 import restrictToClient from '../../hoc/restrictToClient';
-
-import useDimensions from '../../hooks/useDimensions/useDimensions';
+import { useDimensions } from '../../hooks/useDimensions/useDimensions';
 import isPortrait from '../../hooks/isPortrait';
 import calcClipHeight from '../../helpers/calcClipHeight';
+import { useStore } from '../StoreProvider/StoreProvider';
 
 const PhotoSection = ({ id, children }) => {
-    const [ ref, { width, height }] = useDimensions(true);
+    const [ ref, dimensions ] = useDimensions({liveMeasure: true});
+
+    const width = (dimensions === undefined) ? 0 : dimensions.width; 
+    const height = (dimensions === undefined ) ? 0 : dimensions.height;
+    
     // console.log("PhotoSection: width, height", width, height);
     // const styles = null ;//getStyle(width, height);
     const clip = calcClipHeight(width);
@@ -38,7 +41,3 @@ const PhotoSection = ({ id, children }) => {
 
 export default restrictToClient(PhotoSection);
 
-PhotoSection.propTypes = {
-    id: PropTypes.string,
-    children: PropTypes.node.isRequired
-};

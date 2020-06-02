@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import NavItem from '../NavItem/NavItem';
 import NavButton from '../NavButton/NavButton';

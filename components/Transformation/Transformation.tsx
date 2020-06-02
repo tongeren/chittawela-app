@@ -1,12 +1,16 @@
-import PropTypes from 'prop-types';
-import useSliderValue from '../../hooks/useSliderValue/useSliderValue';
-import useDimensions from '../../hooks/useDimensions/useDimensions';
+/* eslint react/prop-types: 0 */
+import React from 'react';
+import { useSliderValue } from '../../hooks/useSliderValue/useSliderValue';
+import { useDimensions } from '../../hooks/useDimensions/useDimensions';
 import restrictToClient from '../../hoc/restrictToClient';
 import Photo from '../Photo/Photo';
+import { TransformationProps } from './types';
 
-const Transformation = ({ before, after }) => {
+const Transformation: React.FunctionComponent<TransformationProps> = ({ before, after }): React.ReactElement => {
     const [sliderRef, sliderValue] = useSliderValue();
-    const [beforeRef, { width }] = useDimensions();
+    const [beforeRef, dimensions ] = useDimensions({ liveMeasure: true });
+
+    const width = dimensions?.width;
 
     const styles = {
         "handle":  { "left":  sliderValue + "%" },
@@ -14,7 +18,7 @@ const Transformation = ({ before, after }) => {
         "after":   { "width": width + "px"      }         // scale picture
     };
 
-    return (
+    return ( 
         <div className="transformation">
             <div className="transformation__comparison">
                 <figure className="transformation__figure">
@@ -23,8 +27,8 @@ const Transformation = ({ before, after }) => {
                     </div>
                     <div className="transformation__handle" style={ styles.handle } />
                     <div className="transformation__divisor" style={ styles.divisor } >
-                        <div className="transformation__image--after photo" style={ styles.after }>
-                            <Photo { ...after } />
+                        <div className="transformation__image--after photo"> 
+                            <Photo { ...after } styles={ styles.after } />
                         </div>
                     </div>
                 </figure>
@@ -35,23 +39,3 @@ const Transformation = ({ before, after }) => {
 };
 
 export default restrictToClient(Transformation);
-
-Transformation.propTypes = {
-    before: PropTypes.shape({
-        media: PropTypes.string,
-        srcSet: PropTypes.string,
-        sizes: PropTypes.string,
-        src: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired,
-        sectionName: PropTypes.string.isRequired   
-    }).isRequired,
-    after: PropTypes.shape({
-        media: PropTypes.string,
-        srcSet: PropTypes.string,
-        sizes: PropTypes.string,
-        src: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired,
-        sectionName: PropTypes.string.isRequired    
-    }).isRequired
-};
-

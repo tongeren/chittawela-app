@@ -1,33 +1,32 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import _ from 'lodash';
-import { DimensionObject, UseDimensionsArgs, UseDimensionsHook } from "./types";
+import { DimensionObject, UseDimensionsArgs, UseDimensionsHook, HTMLElements } from "./types";
+import { THROTTLE_TIMES } from '../throttle';
 
-const THROTTLE_TIMES = {
-    "scroll": 50,
-    "resize": 1000
-}; // ms
-
+// See https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
 const getDimensions: (ele: HTMLElement) => DimensionObject = (ele: HTMLElement) => {
-    const rect = ele.getBoundingClientRect();
+    const rect:DOMRect = ele.getBoundingClientRect();
 
     return {
         width: rect.width,
         height: rect.height,
-        // top: "x" in rect ? rect.x : rect.top,
-        // left: "y" in rect ? rect.y : rect.left,
-        // x: "x" in rect ? rect.x : rect.left,
-        // y: "y" in rect ? rect.y : rect.top,
+        top: rect.top,
+        left: rect.left,
+        x: rect.x,
+        y: rect.y,
         right: rect.right,
         bottom: rect.bottom
     };
 };
 
-const useDimensions = (liveMeasure = true) => {
-    const [dimensions, setDimensions] = useState({});
-    const [ele, setEle] = useState(null);
+export const useDimensions: (liveMeasure: UseDimensionsArgs) => UseDimensionsHook = (liveMeasure: UseDimensionsArgs) => {
+    const [dimensions, setDimensions] = useState<DimensionObject>();
+    const [ele, setEle] = useState<HTMLElement>();
 
-    const ref = useCallback(ele => setEle(ele), []);
-
+    const ref = useCallback<(ele: HTMLElement) => void>(ele => setEle(ele), []);
+    // const ref = useRef<HTMLElements>()
+    // const ele = ref.current;
+    
     useEffect(() => {
         // If element exists, then
         if (ele) {
@@ -56,13 +55,11 @@ const useDimensions = (liveMeasure = true) => {
                     window.removeEventListener("resize", handleResize);
                     window.removeEventListener("scroll", handleScroll);
                 };
-            };
-
-
-        };
+            }
+        } 
     }, [ele]);
 
+    if (dimensions === null) {  console.log("WTF"); return [ref, undefined, ele]; }
     return [ref, dimensions, ele];
 };
 
-export default useDimensions;

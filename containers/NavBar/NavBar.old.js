@@ -1,8 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { action } from 'mobx';
-import { observer, MobXProviderContext } from 'mobx-react';
 
 // hoc
 import restrictToClient from '../../hoc/restrictToClient';
@@ -141,11 +139,6 @@ class NavBar extends Component {
         window.removeEventListener('scroll', _.throttle(this.handleScroll, THROTTLE_TIME), true);
     };
 
-
-    @action addAnimation = classes => {
-        return classes.concat(" ", "navbar--animated")
-    };
-
     render() {
         const { flex, name, navItems, lastButton, isPortrait } = this.props;
 
@@ -153,18 +146,17 @@ class NavBar extends Component {
 
         const style = this.getStyleProperties(up, passed);
 
-        //const store =
         const classes = "navbar" //.concat(" ", uiStore.ctaButtonAnimationEnd ? "navbar--animated" : "");
 
-        return (        
+        return ( 
                 <div 
                     className={ classes }
-                    // style={ style }
+                    style={ style }
                 >
                     <LogoBox flex={ flex } name={ name } />
                     { isPortrait ? <MenuButton navItems={ navItems } lastButton={ lastButton } /> 
-                        : <MenuNav menu={ true } navItems={ navItems } flex={ flex } lastButton={ lastButton } /> }
-                </div>   
+                        : <MenuNav navItems={ navItems } flex={ flex } lastButton={ lastButton } /> }
+                </div>
         );
     };
 };
