@@ -1,4 +1,5 @@
 import React from 'react';
+import { useObserver } from 'mobx-react-lite';
 import MenuButton from '../MenuButton/MenuButton';
 import MenuNav from '../MenuNav/MenuNav';
 import LogoBox from '../LogoBox/LogoBox';
@@ -9,16 +10,18 @@ import { useStore } from '../StoreProvider/StoreProvider';
 // import { useStore } from '../../stores/stores';
 import { NavBarProps } from './types';
 
-const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, lastButton}): React.ReactElement =>{
+const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, lastButton}): React.ReactElement => {
     const responsive = useResponsive();
     const store = useStore();
     
+    if (!(responsive===null)) store.client.setResponsiveState(responsive);
+
     // Server still able to render by reading responsive state from the store
     const render = responsive === "undetermined" ? store.client.responsive as ResponsiveState: responsive; 
 
     // Animate the navbar after the button animation ends
-    const classes = store.animations.addNavBarAnimation()
-
+    // const classes = store.animations.addNavBarAnimation()
+    // console.log("NavBar: classes", classes);
     const renderMenu = (responsive: ResponsiveState) => {
         switch (responsive) {
             case "portrait": {
@@ -33,14 +36,14 @@ const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, las
         }
     };
 
-    return (        
-            <div className={ classes }
+    return useObserver( () => (        
+            <div className={ store.animations.addNavBarAnimation() }
                 // style={ style }
             >
                 <LogoBox flex={ flex } name={ name } />
                 { renderMenu(render) }
             </div>   
-    );
+    ));
 };
 
 export default restrictToClient(NavBar);

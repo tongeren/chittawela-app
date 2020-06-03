@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     position: fixed; 
-    top: 0; // -100%;
+    top: -100%; // 0
     left: 0;
     width: 100vw;
     height: $navigation-height;
@@ -16,9 +16,6 @@
     
     color: white; 
     background-color: transparent;
-
-    // initially start animation navbar height above the body
-    //animation: slideInDown $navbar-slide-in-duration ease-in-out $navigation-slide-in-begin 1 normal forwards;
 
     @include respond(portrait) {
         animation: none; 
@@ -43,7 +40,7 @@
 
     &--animated {
         // initially start animation navbar height above the body
-        animation: slideInDown $navbar-slide-in-duration ease-in-out $navigation-slide-in-begin 1 normal forwards;
+        animation: slideInDown $navbar-slide-in-duration ease-in-out 0s 1 normal forwards;
     }
 
 }

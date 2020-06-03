@@ -4,5 +4,5 @@ export interface CTAProps {
     headline: string,
     explanation: string,
     retreatInfo: RetreatInfoProps, 
-    ctaButton: boolean
+    ctaButtonText: string
 }

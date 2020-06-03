@@ -1,9 +1,9 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import { CTAProps } from './types';
 import RetreatInfo from '../RetreatInfo/RetreatInfo';
+import CTAButton from './CTAButton/CTAButton';
 
-const CTA: React.FunctionComponent<CTAProps> = ({ headline, explanation, retreatInfo, ctaButton }): React.ReactElement => {
+const CTA: React.FunctionComponent<CTAProps> = ({ headline, explanation, retreatInfo, ctaButtonText }): React.ReactElement => {
     return (
         <div className="cta">
             <div className="cta__text-box">
@@ -15,7 +15,7 @@ const CTA: React.FunctionComponent<CTAProps> = ({ headline, explanation, retreat
                 </div>
             </div>
             <div className="cta__container">
-                { ctaButton }
+                <CTAButton cta={ ctaButtonText } /> 
             </div>
         </div>
     );

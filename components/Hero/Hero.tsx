@@ -1,29 +1,30 @@
 import React from 'react';
+import { useObserver } from 'mobx-react-lite';
 import CTA from '../CTA/CTA';
 import SVG from '../SVG/SVG';
 import Crossfade from '../Crossfade/Crossfade';
-import { useStore } from '../StoreProvider/StoreProvider'
-// import { useStore } from '../../stores/stores'
+import { useStore } from '../StoreProvider/StoreProvider';
+import restrictToClient from '../../hoc/restrictToClient';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { HeroProps } from './types';
 
 const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): React.ReactElement =>{
     const store = useStore();
+
     const { width, height } = useWindowDimensions();
 
-    if (!(width===null)) store.client.setWindowWidth(width);
-    let styles;
-    if (!(height===null)) {
+    if (!(width===null) && !(height===null)) {
+        store.client.setWindowWidth(width);
         store.client.setWindowHeight(height);
-        styles = { height: height + "px" };
+        // store.addClipPathBeforeAnimation();
     }
-    
-    return (
-        <div id="hero" className="hero" >
+
+    return useObserver( () => (
+        <div id="hero" className={ store.addHeroAnimation() } style={ store.ui.getHeroHeightStyle() }>
             <div className="hero__svg-container">
                 <SVG classes="hero__svg" sprite={ sprite } />
             </div>
-            <div id="background" className="hero__crossfade" style={ styles }>
+            <div id="background" className="hero__crossfade">
                 <Crossfade { ...crossfade } />
             </div>        
             <div className="hero__cta">
@@ -31,11 +32,17 @@ const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): R
             </div>
             <div id="vimeo-video" className="hero__video" />
         </div>
-    );
+    ));
 
 };
 
-export default Hero;
+export default restrictToClient(Hero);
+
+
+
+
+
+
 
 // 
 // console.log("store=", store);
@@ -84,16 +91,3 @@ export default Hero;
 //     };
 // };
 
-{/* <CTA 
-                    headline="Be on your way to a new you"
-                    explanation="Realign with inner values and ambitions: find yourself, in a supportive, safe, and quiet space, where you will receive essential guidance and tools actualizing your journey of self-discovery and transformation."
-                    retreatInfo={
-                        <RetreatInfo    
-                            date="March 1-7th, 2021"
-                            location="Koh Samui, Thailand"
-                        />
-                    }
-                    ctaButton={
-                        <CTAButton cta="Click for a message from Wiphatthra" />
-                    }
-                /> */}

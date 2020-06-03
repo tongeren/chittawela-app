@@ -89,7 +89,7 @@ const CTA = {
         date: "March 1-7th, 2021",
         location: "Koh Samui, Thailand"
     }, 
-    ctaButton: true
+    ctaButtonText: "Click here for a message from Wiphatthra"
 };
 
 const Home:React.FunctionComponent = ():React.ReactElement => {

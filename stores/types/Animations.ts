@@ -13,7 +13,8 @@ export const Animations = types
         addNavBarAnimation():string {
             const classes = "navbar";
             return self.ctaButtonAnimationEnd ? classes.concat(" ", "navbar--animated") : classes;
-        }
+        },
+        
     }))
     
     

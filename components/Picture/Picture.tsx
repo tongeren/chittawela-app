@@ -1,20 +1,21 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../StoreProvider/StoreProvider';
-import { useEventListener } from '../../hooks/useEventListener/useEventListener';
-import { useMeasurements } from '../../hooks/useMeasurements/useMeasurements';
 import { PictureProps } from './types';
 
 const Picture: React.FunctionComponent<PictureProps> = ({ classes, sources, image }):React.ReactElement => {    
-    // const store = useStore();
-    // const [ref, dimensions] = useMeasurements();
-    // const height = dimensions === undefined ? store.ui.imageHeight : dimensions.height;
+    const store = useStore();
+    
+    const observed = useRef(null);
 
-    // useEffect(() => store.ui.setImageHeight(height));
-    console.log("Picture: sources", sources );
+    useEffect(() => {
+        const picture = observed.current;
+        console.log("Picture:", picture);
+        store.ui.setImageHeight(picture.getBoundingClientRect().height);
+    }, [observed, store.ui]);
 
     return useObserver( () => (
-        <picture className={ classes }> 
+        <picture ref={ observed }  className={ classes }> 
             { sources.map((deviceSource, key) => {
                     const { device, source } = deviceSource;
                     return <source key={ key } { ...source } />
@@ -26,6 +27,11 @@ const Picture: React.FunctionComponent<PictureProps> = ({ classes, sources, imag
 };
 
 export default Picture;
+
+
+// const height = dimensions === undefined ? store.ui.imageHeight : dimensions.height;
+
+//     useEffect(() => store.ui.setImageHeight(height));
 
 // media={ source.media } srcSet={ source.srcSet } sizes={ source.sizes }
 // ref={ ref  }
@@ -55,3 +61,35 @@ export default Picture;
     // ); 
 
     // useEventListener('resize', measureHandler, picture);
+
+
+
+
+    // const measure = (ele: HTMLElement): {width: number, height: number }  => {
+    //     const { width, height } = ele ? ele.getBoundingClientRect() : { width: 0, height: 0 };
+    //     console.log("Picture: measure: rect", width, height);
+    //     return { width: width, height: height };
+    // }
+
+    // const ref = useRef(null);
+    // const picture = ref.current;
+    // console.log("picture=", picture);
+    // const [dimensions, setDimensions] = useState({width: 0, height: 0});
+
+    // const measureHandler = useCallback(
+    //     event => {
+    //         const ele = event.currentTarget;
+    //         const measurements = measure(ele);
+    //         console.log("measureHandler: measurements", measurements);
+    //         setDimensions(measurements);
+    //     },
+    //     [ setDimensions ]
+    // ); 
+
+    // useEventListener('resize', measureHandler, picture);
+
+    // const meas = measure(picture.current);
+
+    // console.log("Picture: meas", meas);
+
+    

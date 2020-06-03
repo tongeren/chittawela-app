@@ -1,6 +1,4 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
-//const Picture = dynamic(() => import('../Picture/Picture'), { ssr: false });
 import Picture from '../Picture/Picture';
 import { CrossfadeProps } from './types';
 

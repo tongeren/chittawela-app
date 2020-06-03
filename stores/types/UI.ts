@@ -13,7 +13,6 @@ export const UI = types
         setPhotoHeight(height:number):void {
             self.photoHeight = height;
         },
-
     }))
     .views(self => ({
         getHeroHeightStyle():CSS.Properties {
@@ -21,4 +20,5 @@ export const UI = types
                 height: self.imageHeight + "px"
             };
         },
+        
     }))

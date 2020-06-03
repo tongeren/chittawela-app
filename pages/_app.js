@@ -3,7 +3,7 @@ import React from 'react';
 import { useStore } from '../stores/stores';
 import initFirebase from '../utils/initFirebase';
 import { StoreProvider } from '../components/StoreProvider/StoreProvider';
-import { initStore } from '../stores/stores';
+//import { initStore } from '../stores/stores';
 import 'mobx-react-lite/batchingForReactDom';
 
 import '../sass/main.scss';

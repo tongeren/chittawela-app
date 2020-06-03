@@ -3,6 +3,7 @@ import calcClipHeight from "../helpers/calcClipHeight";
 import CSS from 'csstype';
 import { ResponsiveState } from '../../hooks/useResponsive/types';
 
+
 const COLOR_GOLD = "rgba(136, 113, 89, 1)";
 const COLOR_WHITE = "white";
 
@@ -59,7 +60,7 @@ export const Client = types
     }))
     .views(self => ({
         clipHeight(): number {
-            return calcClipHeight(self.windowWidth);
+            return (self.windowWidth === 0) ? 0 : calcClipHeight(self.windowWidth);
         },
         scrollDirection(prevScrollY: number):YDirection {
             return (prevScrollY - self.scrollY) < 0 ? YDirection.Down : YDirection.Up;

@@ -1,4 +1,4 @@
-import { observer } from 'mobx-react-lite';
+import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../StoreProvider/StoreProvider';
 // import usePlayer from '../../../hooks/usePlayer';
 
@@ -17,23 +17,18 @@ const CTAButton: React.FunctionComponent<Props> = ({ cta }) => {
 
     console.log("CTAButton: store", store);
     // player.on('play', () => console.log("Succes!"));
-
-    const onAnimationEndHandler = () => {  
-        console.log("CTAButton: animation ended");
-        store.animations.setCTAButtonAnimationEnd();
-    };
     
-    return (
+    return useObserver( () => (
         <button id="cta-button"
             onClick={ onClickHandler } 
-            onAnimationEnd={ onAnimationEndHandler }
+            onAnimationEnd={ () => store.animations.setCTAButtonAnimationEnd() }
             className="button button--white-orange button--animated"
         >
             { cta }
         </button>
-    );
+    ));
 };
 
 
-export default observer(CTAButton);
+export default CTAButton;
 
