@@ -28,7 +28,7 @@ const RootStore = types
 
             const cssText = KEYFRAMES_NAME + "{ 0% { clip-path: none; } 100% { clip-path: polygon(0 0, 0 " + H +", 100vw " + R + ", 100vw 0); } }";
 
-            if (!self.inserted && !(clip === 0)) {
+            if (!self.inserted && !(height === 0)) {
                 insertKeyFrameRules(cssText);
                 console.log("RootStore; ", cssText);
                 self.inserted = true;

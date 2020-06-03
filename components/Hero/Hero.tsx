@@ -16,7 +16,7 @@ const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): R
     if (!(width===null) && !(height===null)) {
         store.client.setWindowWidth(width);
         store.client.setWindowHeight(height);
-        // store.addClipPathBeforeAnimation();
+        store.addClipPathBeforeAnimation();
     }
 
     return useObserver( () => (
