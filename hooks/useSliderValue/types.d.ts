@@ -1,9 +1,9 @@
-export interface SliderValueObject {
-    sliderValue: string
-}
+// export interface SliderValueObject {
+//     sliderValue: string
+// }
 
 export type UseSliderHook = [
     (ele: HTMLInputElement) => void,
-    SliderValueObject | undefined,
+    string | undefined,
     HTMLInputElement | undefined
 ];

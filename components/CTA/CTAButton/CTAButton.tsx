@@ -15,7 +15,6 @@ const CTAButton: React.FunctionComponent<Props> = ({ cta }) => {
     const store = useStore();
     // const player = usePlayer();
 
-    console.log("CTAButton: store", store);
     // player.on('play', () => console.log("Succes!"));
     
     return useObserver( () => (

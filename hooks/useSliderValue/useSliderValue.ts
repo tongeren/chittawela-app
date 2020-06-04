@@ -1,20 +1,18 @@
 import { useState, useEffect, useCallback } from 'react';
 import _ from 'lodash';
 import { THROTTLE_TIMES } from '../throttle';
-import { UseSliderHook, SliderValueObject } from './types';
+import { UseSliderHook } from './types';
 
-const getSliderValue: (slider: HTMLInputElement) => SliderValueObject = (slider: HTMLInputElement) => {
-    return { 
-        sliderValue: slider.value 
-    };
+const getSliderValue: (slider: HTMLInputElement) => string = (slider: HTMLInputElement) => {
+    return slider.value;
 };
 
 export const useSliderValue = ():UseSliderHook => {
-    const [sliderValue, setSliderValue] = useState<SliderValueObject>();
+    const [sliderValue, setSliderValue] = useState<string>();
     const [slider, setSlider] = useState<HTMLInputElement>();
 
     const ref = useCallback(slider => setSlider(slider), []);
-
+    console.log(ref);
     useEffect(() => {
         // If element exists, then
         if (slider) {

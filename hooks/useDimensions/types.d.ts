@@ -12,10 +12,10 @@ export interface DimensionObject {
 export type HTMLElements = HTMLElement | HTMLDivElement | HTMLPictureElement;
 
 export type UseDimensionsHook = [
-    // MutableRefObject<HTMLElements>,
+    MutableRefObject<HTMLElements>,
     // DimensionObject | undefined,
     // HTMLElements | undefined
-    (ele: HTMLElement) => void,
+    //(ele: HTMLElement) => void,
     DimensionObject,
     HTMLElement
 ];

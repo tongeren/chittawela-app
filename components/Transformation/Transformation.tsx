@@ -1,4 +1,3 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import { useSliderValue } from '../../hooks/useSliderValue/useSliderValue';
 import { useDimensions } from '../../hooks/useDimensions/useDimensions';
@@ -7,7 +6,7 @@ import Photo from '../Photo/Photo';
 import { TransformationProps } from './types';
 
 const Transformation: React.FunctionComponent<TransformationProps> = ({ before, after }): React.ReactElement => {
-    const [sliderRef, sliderValue] = useSliderValue();
+    const [sliderRef, sliderValue ] = useSliderValue();
     const [beforeRef, dimensions ] = useDimensions({ liveMeasure: true });
 
     const width = dimensions?.width;
