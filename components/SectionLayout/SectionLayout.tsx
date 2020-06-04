@@ -1,18 +1,24 @@
 import PropTypes from 'prop-types';
+import { useRef, useEffect } from 'react';
+import { useStore } from '../StoreProvider/StoreProvider';
+import { SectionLayoutProps } from './types';
 
-// hoc
-import restrictToClient from '../../hoc/restrictToClient';
+const SectionLayout: React.FunctionComponent<SectionLayoutProps> = ({ id, heading, children, blue, marginBottom, marginTop }):React.ReactElement => { 
+    const store = useStore();
 
-// hooks
-import isPortrait from '../../hooks/isPortrait';
-
-const SectionLayout = ({ id, heading, children, blue, marginBottom, marginTop }) => { 
-    const portrait = isPortrait();
+    const portrait = (store.client.responsive === "portrait");
     const color = `section-layout ${blue ? "section-layout--blue" : ""}`;
     const classes = portrait ? color : (color 
         .concat(" ", marginBottom ? "u-margin-bottom-section" : "")
         .concat(" ", marginTop ? "u-margin-top-section" : "")
     );
+
+    
+    // const observed = useRef();
+
+    // useEffect(() => {
+    //     const layout = observed.current;
+    // },[observed])
         
     return (
         <div id={ id } className={ classes }>
@@ -22,7 +28,7 @@ const SectionLayout = ({ id, heading, children, blue, marginBottom, marginTop })
     );
 };
 
-export default restrictToClient(SectionLayout);
+export default SectionLayout;
 
 SectionLayout.propTypes = {
     id: PropTypes.string,
