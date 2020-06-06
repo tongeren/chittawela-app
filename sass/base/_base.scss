@@ -27,18 +27,19 @@ html {
 }
 
 body {
-    
+    box-sizing: border-box;
 }
 
 
 html, body {
     height: 100%;
-    // Remove 100vw causing overflow bug
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width: 100%;  // Remove 100vw causing overflow bug
+    // Using css overflow disables reading of scroll coordinates:
+    // -webkit-overflow-scrolling: touch;
+    // overflow-x: hidden;
+    // overflow-y: scroll;
+
     
-    -webkit-overflow-scrolling: touch;
-    overflow-y: scroll;
 }
 
 section {

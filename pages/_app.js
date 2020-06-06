@@ -2,6 +2,9 @@
 import React from 'react';
 import { useStore } from '../stores/stores';
 import initFirebase from '../utils/initFirebase';
+//import Client from '../components/Client/Client';
+import dynamic from 'next/dynamic';
+const Client = dynamic(() => import('../components/Client/Client.js'), {ssr: false })
 import { StoreProvider } from '../components/StoreProvider/StoreProvider';
 //import { initStore } from '../stores/stores';
 import 'mobx-react-lite/batchingForReactDom';
@@ -19,7 +22,9 @@ const Root = ({ Component, pageProps}) => {
 
     return (
         <StoreProvider value={ store }>
-            <Component { ...pageProps } />
+            <Client>
+                <Component { ...pageProps } />
+            </Client>          
         </StoreProvider>
     );
 };

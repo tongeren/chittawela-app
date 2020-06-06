@@ -6,7 +6,7 @@
     flex-direction: column;
     text-align: right;
     color: white;
-
+    
     @include respond(portrait) {
         position: relative;
         width: 100vw;
@@ -15,6 +15,7 @@
         align-items: center;
         justify-content: flex-start;
         text-align: center;
+        overflow-x: hidden; // Don't remove!
     }
 
     &__text-box {

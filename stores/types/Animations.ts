@@ -2,21 +2,18 @@ import { types } from "mobx-state-tree";
 
 export const Animations = types
     .model("Animations", {
-        ctaButtonAnimationEnd: types.boolean
+        ctaButtonAnimationEnd: types.boolean,
+        navbarAnimationEnd: types.boolean
     })
     .actions(self => ({
         setCTAButtonAnimationEnd():void {
             self.ctaButtonAnimationEnd = true;
+        },
+        setNavbarAnimationEnd():void {
+            self.navbarAnimationEnd = true;
         }
     }))
-    .views(self => ({
-        addNavBarAnimation():string {
-            const classes = "navbar";
-            return self.ctaButtonAnimationEnd ? classes.concat(" ", "navbar--animated") : classes;
-        },
-        
-    }))
-    
+   
     
     
     

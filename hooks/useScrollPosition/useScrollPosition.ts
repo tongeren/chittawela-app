@@ -12,7 +12,7 @@ const getScrollPosition: (x: void) => ScrollPositionObject = (x: void) => {
     };
 };
 
-const useScrollPosition: (x: void) => ScrollPositionObject | null = (x: void) => {
+export const useScrollPosition: (x: void) => ScrollPositionObject | null = (x: void) => {
     const [scrollPosition, setScrollPosition] = useState<ScrollPositionObject | null>(null);
 
     useEffect(() => {
@@ -38,4 +38,3 @@ const useScrollPosition: (x: void) => ScrollPositionObject | null = (x: void) =>
     return scrollPosition;
 };
 
-export default useScrollPosition;

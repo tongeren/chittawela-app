@@ -10,7 +10,6 @@ import { HeroProps } from './types';
 
 const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): React.ReactElement =>{
     const store = useStore();
-
     const { width, height } = useWindowDimensions();
 
     if (!(width===null) && !(height===null)) {

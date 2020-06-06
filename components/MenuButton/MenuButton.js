@@ -3,7 +3,7 @@ import MenuNav from '../MenuNav/MenuNav';
 
 const MenuButton = ({ navItems, lastButton }) => {
     return (
-        <div className="menu-button">
+        <div className="menu-button clearfix">
             <input className="menu-button__checkbox" id="navi-toggle" type="checkbox"/>   
             <div className="menu-button__background">&nbsp;</div>
             <label className="menu-button__button" htmlFor="navi-toggle"> 

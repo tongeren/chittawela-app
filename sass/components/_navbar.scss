@@ -18,14 +18,16 @@
     background-color: transparent;
 
     @include respond(portrait) {
-        animation: none; 
+        top: 0; // show again
         padding: 0; // remove padding
         height: 0.7 * $navigation-height;
     }
 
     // Logobox
     & > div:first-of-type {
-        
+        @include respond(portrait) {
+            display: none;
+        }
     }
 
     // MenuButton
@@ -33,7 +35,9 @@
         width: 70%;
         
         @include respond(portrait) {
-            width: 100%;
+            //width: 100vw; // 100% of 100vw is larger than 100vw: very strange
+            //try using clearfix instead, also instead of overflow-x: hidden on body
+            width: 100vw;
         }
         
     }

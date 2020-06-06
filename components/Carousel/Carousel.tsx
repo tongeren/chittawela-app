@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import CarouselInput from './CarouselInput/CarouselInput';
 import CarouselSlide from './CarouselSlide/CarouselSlide';
 import CarouselLabel from './CarouselLabel/CarouselLabel';
 import Photo from '../Photo/Photo';
+import { CarouselProps } from './types';
 
-const Carousel = ({ slides }) => {
+const Carousel:React.FunctionComponent<CarouselProps> = ({ slides }):React.ReactElement => {
     // Determine the length of the photos array
     const no = slides.length;
 
@@ -19,7 +19,6 @@ const Carousel = ({ slides }) => {
     for (let i = 1; i <= no; i++) {
         // Get the current slide
         slide = slides[ i - 1 ];
-        
 
         // Populate the inputs 
         inputs.push(
@@ -53,7 +52,7 @@ const Carousel = ({ slides }) => {
             <CarouselLabel group="next" key={ i } number={ i }/>
         );
 
-    };
+    }
 
     return (
         <div className="carousel">
@@ -71,25 +70,3 @@ const Carousel = ({ slides }) => {
 
 export default Carousel;
 
-Carousel.propTypes = {
-    slides: PropTypes.arrayOf(
-        PropTypes.shape({
-            photo: PropTypes.shape({
-                media: PropTypes.string,
-                srcSet: PropTypes.string.isRequired,
-                sizes: PropTypes.string.isRequired,
-                src: PropTypes.string.isRequired,
-                alt: PropTypes.string.isRequired,
-                sectionName: PropTypes.string.isRequired
-            }).isRequired,
-            thumbnail: PropTypes.shape({
-                media: PropTypes.string,
-                srcSet: PropTypes.string.isRequired,
-                sizes: PropTypes.string.isRequired,
-                src: PropTypes.string.isRequired,
-                alt: PropTypes.string.isRequired,
-                sectionName: PropTypes.string.isRequired
-            }).isRequired
-        }).isRequired
-    ).isRequired,
-};

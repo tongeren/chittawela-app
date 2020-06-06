@@ -12,7 +12,7 @@ export const useSliderValue = ():UseSliderHook => {
     const [slider, setSlider] = useState<HTMLInputElement>();
 
     const ref = useCallback(slider => setSlider(slider), []);
-    console.log(ref);
+    
     useEffect(() => {
         // If element exists, then
         if (slider) {

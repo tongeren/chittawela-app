@@ -44,16 +44,12 @@ export const useDimensions: (liveMeasure: UseDimensionsArgs) => UseDimensionsHoo
 
             // Define event handlers, use throttling to reduce performance impact
             const handleResize = _.throttle(measure, THROTTLE_TIMES.resize);
-            const handleScroll = _.throttle(measure, THROTTLE_TIMES.scroll);
 
             // If we want to measure continually take care of adding and removing the appropriate event listeners
             if (liveMeasure) {
                 window.addEventListener("resize", handleResize);
-                window.addEventListener("scroll", handleScroll);
-
                 return () => {
                     window.removeEventListener("resize", handleResize);
-                    window.removeEventListener("scroll", handleScroll);
                 };
             }
         } 

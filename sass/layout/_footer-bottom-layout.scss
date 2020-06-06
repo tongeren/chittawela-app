@@ -33,12 +33,29 @@
             "copyright";
     }
 
+    @include respond(portrait) {
+        &::after { // remove white space after footer
+            content: " ";
+            width: 100%;
+            height: 2rem;
+            background-color: var(--color-hair);
+        }
+    }
+
     &__line-left {
         grid-area: left-line;
+
+        @include respond(portrait) {
+            display: none;
+        }
     }
 
     &__line-right {
         grid-area: right-line;
+
+        @include respond(portrait) {
+            display: none;
+        }
     }
 
     &__line-left, &__line-right {
@@ -77,6 +94,10 @@
         width: 50%;
         border-right: 1px solid white;
         margin: 4rem 0;
+
+        @include respond(portrait) {
+            display: none;
+        }
     }
 
     &__form {

@@ -10,7 +10,6 @@ const Picture: React.FunctionComponent<PictureProps> = ({ classes, sources, imag
 
     useEffect(() => {
         const picture = observed.current;
-        console.log("Picture:", picture);
         store.ui.setImageHeight(picture.getBoundingClientRect().height);
     }, [observed, store.ui]);
 

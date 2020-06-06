@@ -7,12 +7,16 @@ export const createStore = (): RootStoreModel => {
             windowHeight: 0,
             scrollX: 0,
             scrollY: 0,
-            responsive: "undetermined"
+            responsive: "undetermined",
+            up: false,
         },
-        animations: { ctaButtonAnimationEnd: false },
+        animations: { 
+            ctaButtonAnimationEnd: false,
+            navbarAnimationEnd: false
+        },
         ui: { 
             imageHeight: 0,
-            photoHeight: 0
+            photoHeight: 0,
         }
     });
 };

@@ -13,12 +13,10 @@ const onClickHandler = () => {
 
 const CTAButton: React.FunctionComponent<Props> = ({ cta }) => {
     const store = useStore();
-    // const player = usePlayer();
 
-    // player.on('play', () => console.log("Succes!"));
-    
     return useObserver( () => (
-        <button id="cta-button"
+        <button
+            id="cta-button"
             onClick={ onClickHandler } 
             onAnimationEnd={ () => store.animations.setCTAButtonAnimationEnd() }
             className="button button--white-orange button--animated"

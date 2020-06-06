@@ -115,13 +115,14 @@ $max-slides: 6;
 
     &__quick-nav {
         position: absolute;
-        top: $carousel-intrinsic-photo-height - $quick-button-delta-y; // look for a better responsive solution
+        top: 81.8182%; // $carousel-intrinsic-photo-height - $quick-button-delta-y; // look for a better responsive solution
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) translateY(- 4 * $quick-button-size);
 		margin: auto;
 		
 		@include respond(phone) {
-			top: calc((100vw - 2 * #{$section-padding-portrait}) / #{$carousel-photo-aspect-ratio} - 0.9 * #{$quick-button-delta-y});
+            // top: calc((100vw - 2 * #{$section-padding-portrait}) / #{$carousel-photo-aspect-ratio} - 0.9 * #{$quick-button-delta-y});
+            transform: translateX(-50%) translateY(- 3 * $quick-button-size);
 		}
     }
 
@@ -153,7 +154,7 @@ $max-slides: 6;
 		display: flex;
         position: absolute;
         top: 0;
-		height: $carousel-intrinsic-photo-height;
+		height: 81.8182%; // $carousel-intrinsic-photo-height;
         width: .5 * $carousel-intrinsic-photo-width / $max-slides;
 
 		@include respond(portrait) {

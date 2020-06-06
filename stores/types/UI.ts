@@ -4,7 +4,7 @@ import CSS from 'csstype';
 export const UI = types
     .model("UI", {
         imageHeight: types.number,
-        photoHeight: types.number
+        photoHeight: types.number,
     })
     .actions(self => ({
         setImageHeight(height:number):void {

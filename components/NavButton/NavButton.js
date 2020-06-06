@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const NavButton = ({ href, name }) => {
     return (
-        <li className="nav-item button button--white-transparent">
+        <li className="button button--white-transparent">
             <Anchor href={ href } name={ name } />
         </li>
     );

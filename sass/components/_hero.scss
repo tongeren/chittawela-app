@@ -2,6 +2,8 @@
     position: relative;
     width: 100vw;
 
+    clip-path: inset(0);
+
     @include sizingContainer($background-ratio);
 
     @include respond(portrait) {
@@ -68,6 +70,7 @@
             left: 0;
             height: calc(100% - #{0.7 * $navigation-height}); //= 100% - top
             width: 100vw;
+            margin-right: 0;
         }
     }
 

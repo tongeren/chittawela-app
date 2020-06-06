@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 
 // client(browser)-only components:
 import Divider from '../components/Divider/Divider';
@@ -37,12 +36,13 @@ import FooterBottom from '../components/FooterBottom/FooterBottom';
 import Hero from '../components/Hero/Hero';
 import LogoBox from '../components/LogoBox/LogoBox';
 import MenuNav from '../components/MenuNav/MenuNav';
-
-const NavBar = dynamic(() => import('../components/NavBar/NavBar'), { ssr: false });
-
+import NavBar from '../components/NavBar/NavBar';
 import SocialMedia from '../components/SocialMedia/SocialMedia';
 import SubscribeForm from '../components/SubscribeForm/SubscribeForm';
 import FooterTestimonial from '../components/FooterTestimonial/FooterTestimonial';
+
+import { useScrollPosition } from '../hooks/useScrollPosition';
+
 
 import { CROSSFADE } from '../static/crossfade';
 
@@ -93,7 +93,6 @@ const CTA = {
 };
 
 const Home:React.FunctionComponent = ():React.ReactElement => {
-  
   return (
     <div className="container">
         <Head>
