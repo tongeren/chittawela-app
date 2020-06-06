@@ -1,6 +1,7 @@
 import { types } from "mobx-state-tree";
 import calcClipHeight from "../helpers/calcClipHeight";
 import { ResponsiveState } from '../../hooks/useResponsive/types';
+import CSS from 'csstype';
 
 export const Client = types
     .model("Client", {
@@ -35,14 +36,8 @@ export const Client = types
         },
         passedHeader(height: number):boolean {
             return self.scrollY > height - this.clipHeight();
-        },
-        
-       
+        },       
     }))
-
-
-    
-    
 
     
 

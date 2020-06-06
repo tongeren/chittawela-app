@@ -77,7 +77,28 @@ const RootStore = types
                     display: displayValue(up, passed),
                     top: 0
                 }) : undefined) : undefined;
+        },
+        getPictureDividerStyle(src:string, aspectRatio:number, shift?:boolean, scroll?:boolean):CSS.Properties {
+            const clip = self.client.clipHeight();
+            const portrait = (self.client.responsive === "portrait");
+
+            // Scale the height using the aspect ratio of the background image
+            const height = ((aspectRatio > 1) ? self.client.windowHeight : (self.client.windowWidth / aspectRatio)) + 2 * clip;
+
+            // Attach units
+            const margin = -0.5 * clip + "px";
+            const delta = clip + "px";
+            const H = height + "px";
+        
+            return {
+                height: H,
+                backgroundAttachment: (scroll || portrait) ? 'scroll' : 'fixed', // iOS has trouble with background-attachment: fixed
+                backgroundImage: `url(${ src })`,
+                marginTop: portrait ? 0 : (shift ? margin : 0),
+                clipPath: portrait ? 'none' : `polygon(0 ${ delta }, 100% 0, 100% calc(${ H } - ${delta}), 0 ${ H })`
+            }
         }
+
     }))
 
 export default RootStore;

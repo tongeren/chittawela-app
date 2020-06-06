@@ -17,7 +17,7 @@ const ALT = "Lagoon 400 in Ang Thong National Marine Park";
 
 const SECTION_NAME = [ "program-play", "banburee" ];
 
-const slides = (id) => {
+const slides = (id:number):Record<string, unknown>[] => {
     const FULL_FILENAME_EX_NUMBER = CLOUDINARY_CHITTAWELA
     .concat("", CLOUDINARY_QUALITY_SETTINGS)
     .concat(",", CLOUDINARY_WIDTH_SETTING)
@@ -25,11 +25,12 @@ const slides = (id) => {
     .concat("", CLOUDINARY_FOLDER[ id ])
     .concat("", PICTURE_PREFIX[ id ]);
 
-    let slides = [];
+    /* eslint prefer-const: 0 */
+    let slides:Record<string, unknown>[] = [];
     let filename;
 
     for (let i = 1; i<= NO_OF_SLIDES; i++) {
-        filename = FULL_FILENAME_EX_NUMBER.concat("0", i).concat("", EXTENSION);
+        filename = FULL_FILENAME_EX_NUMBER.concat("0", i.toString()).concat("", EXTENSION);
         slides.push({
             "photo": {
                 "media": "",
@@ -48,7 +49,7 @@ const slides = (id) => {
                 "sectionName": SECTION_NAME[ id ]
             }
         });
-    };
+    }
 
     return slides;
 };

@@ -1,9 +1,12 @@
 .picture-divider {
     background-size: cover; 
     background-position: top;
+    // background-attachment: fixed;
 	
 	@include respond(portrait) {
-		transform: none;
+        transform: none;
+        // background-size: auto; // background-size: cover gives scaling problems on iOS
+        // background-attachment: scroll;
 	}
 
 }
