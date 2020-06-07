@@ -6,7 +6,7 @@ const PictureDivider:React.FunctionComponent<PictureDividerProps> = ({ src, aspe
     const store = useStore();
     
     return useObserver( () => (
-        <div className="picture-divider" style={ store.getPictureDividerStyle(src, aspectRatio, shift, scroll) } />
+        <div className="picture-divider" style={ store.getPictureDividerStyles(src, aspectRatio, shift, scroll) } />
     ));
 };
 

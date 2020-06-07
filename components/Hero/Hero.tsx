@@ -4,19 +4,12 @@ import CTA from '../CTA/CTA';
 import SVG from '../SVG/SVG';
 import Crossfade from '../Crossfade/Crossfade';
 import { useStore } from '../StoreProvider/StoreProvider';
-import restrictToClient from '../../hoc/restrictToClient';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
+// import restrictToClient from '../../hoc/restrictToClient';
 import { HeroProps } from './types';
 
 const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): React.ReactElement =>{
     const store = useStore();
-    const { width, height } = useWindowDimensions();
-
-    if (!(width===null) && !(height===null)) {
-        store.client.setWindowWidth(width);
-        store.client.setWindowHeight(height);
-        store.addClipPathBeforeAnimation();
-    }
+    store.addClipPathBeforeAnimation();
 
     return useObserver( () => (
         <div id="hero" className={ store.addHeroAnimation() } style={ store.ui.getHeroHeightStyle() }>
@@ -35,7 +28,7 @@ const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): R
 
 };
 
-export default restrictToClient(Hero);
+export default Hero;
 
 
 

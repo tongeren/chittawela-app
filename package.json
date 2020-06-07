@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p 3000",
+    "dev": "cross-env NODE_ENV=development next dev",
+    "build": "cross-env NODE_ENV=production next build",
+    "start": "cross-env NODE_ENV=production next start -p 3000",
     "test": "jest",
     "test:watch": "jest --watch",
     "check-types": "tsc --watch"
@@ -41,6 +41,7 @@
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^3.0.0",
     "@typescript-eslint/parser": "^3.0.0",
+    "cross-env": "^7.0.2",
     "csstype": "^2.6.10",
     "eslint": "^7.1.0",
     "eslint-plugin-react": "^7.20.0",

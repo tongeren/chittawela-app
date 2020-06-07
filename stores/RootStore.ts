@@ -78,7 +78,7 @@ const RootStore = types
                     top: 0
                 }) : undefined) : undefined;
         },
-        getPictureDividerStyle(src:string, aspectRatio:number, shift?:boolean, scroll?:boolean):CSS.Properties {
+        getPictureDividerStyles(src:string, aspectRatio:number, shift?:boolean, scroll?:boolean):CSS.Properties {
             const clip = self.client.clipHeight();
             const portrait = (self.client.responsive === "portrait");
 
@@ -97,6 +97,27 @@ const RootStore = types
                 marginTop: portrait ? 0 : (shift ? margin : 0),
                 clipPath: portrait ? 'none' : `polygon(0 ${ delta }, 100% 0, 100% calc(${ H } - ${delta}), 0 ${ H })`
             }
+        },
+        getPhotoSectionStyles():CSS.Properties {
+            const clip = self.client.clipHeight();
+            const portrait = (self.client.responsive === "portrait");
+            const height = self.ui.bookSectionHeight;
+            const total = height + 2 * clip;
+            
+            const H = (height + clip) + "px";
+            const C = clip + "px";
+            const M = -0.5* clip + "px";
+            const N = -clip + "px";
+            const T = total + "px";
+
+            const styles = {
+                marginTop: M,
+                paddingTop: C,
+                height: T,
+                clipPath: portrait ? "none" : `polygon(0 ${ T }, 100vw ${ H }, 100vw 0, 0 ${ C })`
+            };
+
+            return (height === 0) ? undefined : styles;
         }
 
     }))

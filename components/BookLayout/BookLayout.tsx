@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import { BookLayoutProps } from './types';
 
-const BookLayout = ({ left, right }) => {
+const BookLayout:React.FunctionComponent<BookLayoutProps> = ({ left, right }):React.ReactElement => {
     return (
         <div className="book-layout">
             <div className="book-layout__left">{ left }</div>
@@ -11,7 +11,3 @@ const BookLayout = ({ left, right }) => {
 
 export default BookLayout;
 
-BookLayout.propTypes = {
-    left: PropTypes.element.isRequired,
-    right: PropTypes.element.isRequired
-};

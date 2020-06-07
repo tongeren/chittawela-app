@@ -17,6 +17,7 @@ export const createStore = (): RootStoreModel => {
         ui: { 
             imageHeight: 0,
             photoHeight: 0,
+            bookSectionHeight: 0
         }
     });
 };

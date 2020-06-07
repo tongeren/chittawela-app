@@ -10,7 +10,6 @@ import { useStore } from '../StoreProvider/StoreProvider';
 import { NavBarProps } from './types';
 import restrictToClient from '../../hoc/restrictToClient/restrictToClient';
 
-
 const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, lastButton}): React.ReactElement => {
     const responsive = useResponsive();
     const store = useStore();

@@ -17,6 +17,10 @@
 
     &__checkbox {
         display: none;
+
+        // @include respond(portrait) {
+        //     display: block;
+        // }
     }
 
 
