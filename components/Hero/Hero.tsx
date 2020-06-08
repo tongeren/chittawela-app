@@ -4,7 +4,6 @@ import CTA from '../CTA/CTA';
 import SVG from '../SVG/SVG';
 import Crossfade from '../Crossfade/Crossfade';
 import { useStore } from '../StoreProvider/StoreProvider';
-// import restrictToClient from '../../hoc/restrictToClient';
 import { HeroProps } from './types';
 
 const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): React.ReactElement =>{
