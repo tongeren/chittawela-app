@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { RetreatInfoProps } from './types';
 
-const RetreatInfo = ({ date, location }) => {
+const RetreatInfo:React.FunctionComponent<RetreatInfoProps> = ({ date, location }):React.ReactElement => {
     return (
-        <h2 className="retreat-layout">
+        <h2 className="retreat-layout retreat">
             <span className="retreat-layout__date">{ date }</span>
             <span className="retreat-layout__divider line">-</span>
             <span className="retreat-layout__location">{ location }</span>
@@ -12,9 +12,4 @@ const RetreatInfo = ({ date, location }) => {
 };
 
 export default RetreatInfo;
-
-RetreatInfo.propTypes = {
-    date: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired
-};
 

@@ -13,5 +13,6 @@ export interface SlideProps {
 }
 
 export interface CarouselProps {
+    name: string
     slides: SlideProps[]
 }

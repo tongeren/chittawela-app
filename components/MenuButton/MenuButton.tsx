@@ -17,7 +17,7 @@ const MenuButton:React.FunctionComponent<MenuButtonProps> = ({ navItems, lastBut
                 className="menu-button__checkbox" 
                 id="navi-toggle" 
                 type="checkbox" 
-                checked={ checked }
+                defaultChecked={ checked }
                 onInput={ toggle }
             />   
             {/* <div className="menu-button__background">&nbsp;</div> */}

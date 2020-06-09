@@ -28,6 +28,9 @@
         margin-bottom: 9rem;
 
         @include respond(portrait) {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: max-content max-content 2fr 1fr max-content;
             justify-content: flex-start;
             align-items: center;
             width: 100%;
@@ -35,6 +38,7 @@
             padding-right: 0.5rem;
             margin-top: 0;
             margin-bottom: 0;
+            flex: 2; // try
         }
     
     }
@@ -68,9 +72,8 @@
 
         @include respond(portrait) {
             width: 20%;
-            margin: 0 30% 0 30%;
-
-            align-items: flex-end;
+            margin: 0 40% 0 40%;
+            align-self: flex-end;
         }
     }
 
@@ -81,7 +84,7 @@
         padding-bottom: 1rem;
 
         @include respond(portrait) {
-            align-items: flex-end;
+           
         }    
     }
 
@@ -91,8 +94,6 @@
         justify-content: flex-end;
 
         @include respond(portrait) {
-            flex: 2;
-            align-items: flex-end;
             padding-bottom: 2rem;
         }
     }

@@ -1,19 +1,16 @@
-import PropTypes from 'prop-types';
+import React from 'react';
+import { CarouselInputProps } from './types';
 
-const CarouselInput = ({ number }) => {
+const CarouselInput:React.FunctionComponent<CarouselInputProps> = ({ name, number }):React.ReactElement => {
     return (
         <input 
             type="radio" 
             className="carousel__radio" 
             name="radio" 
-            id={ `slide-${ number }` } 
+            id={ `slide-${ name }-${ number }` } 
             defaultChecked={ (number === 1) ? true : false } 
         />
     );
 };
 
 export default CarouselInput;
-
-CarouselInput.propTypes = {
-    number: PropTypes.number.isRequired
-};

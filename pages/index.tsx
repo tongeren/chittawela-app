@@ -83,7 +83,7 @@ const NAV_RIGHT = [
 
 
 const CTA = {
-    headline: "Be on your way to a new you", 
+    headline: "be on your way to a new you", 
     explanation: "Realign with inner values and ambitions: find yourself, in a supportive, safe, and quiet space, where you will receive essential guidance and tools actualizing your journey of self-discovery and transformation.", 
     retreatInfo: {
         date: "March 1-7th, 2021",

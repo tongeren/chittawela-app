@@ -40,7 +40,7 @@ const SectionPlay = () => {
                         </Fragment>
                     }
                     other={
-                        <Carousel slides={ SLIDES_PLAY } />
+                        <Carousel name="play" slides={ SLIDES_PLAY } />
                     }   
                 />
             </SectionLayout>

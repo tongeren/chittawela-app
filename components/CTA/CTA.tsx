@@ -7,7 +7,7 @@ const CTA: React.FunctionComponent<CTAProps> = ({ headline, explanation, retreat
     return (
         <div className="cta">
             <div className="cta__text-box">
-                <h1 className="cta__primary heading-primary ">{ headline }</h1>
+                <h1 className="cta__primary headline">{ headline }</h1>
                 <span className="cta__secondary subheadline">{ explanation }</span>
                 <hr className="cta__horizontal" />
                 <div className="cta__retreat">

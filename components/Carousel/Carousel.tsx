@@ -4,17 +4,17 @@ import CarouselLabel from './CarouselLabel/CarouselLabel';
 import Photo from '../Photo/Photo';
 import { CarouselProps } from './types';
 
-const Carousel:React.FunctionComponent<CarouselProps> = ({ slides }):React.ReactElement => {
+const Carousel:React.FunctionComponent<CarouselProps> = ({ name, slides }):React.ReactElement => {
     // Determine the length of the photos array
     const no = slides.length;
 
     let slide;
-    let inputs = [];
-    let photos = [];
-    let thumbnails = [];
-    let quick = [];
-    let prev = [];
-    let next = [];
+    const inputs = [];
+    const photos = [];
+    const thumbnails = [];
+    const quick = [];
+    const prev = [];
+    const next = [];
 
     for (let i = 1; i <= no; i++) {
         // Get the current slide
@@ -22,34 +22,34 @@ const Carousel:React.FunctionComponent<CarouselProps> = ({ slides }):React.React
 
         // Populate the inputs 
         inputs.push(
-            <CarouselInput key={ i } number={ i }/>
+            <CarouselInput key={ i } name={ name } number={ i }/>
         );
 
         // Populate the photo slides 
         photos.push(
-            <CarouselSlide photo={ slide.photo } key={ i }/>
+            <CarouselSlide key={ i } photo={ slide.photo } />
         );
 
         // Populate the photo buttons  
         thumbnails.push(
-            <CarouselLabel group="photo" key={ i } number={ i }>
+            <CarouselLabel name={ name } group="photo" key={ i } number={ i }>
                 <Photo { ...slide.thumbnail } />
             </CarouselLabel>
         );
         
         // Poputate the quick buttons 
         quick.push(
-            <CarouselLabel group="quick" key={ i } number={ i }/>
+            <CarouselLabel name={ name } group="quick" key={ i } number={ i }/>
         );
 
         // Populate the prev buttons
         prev.push(
-            <CarouselLabel group="prev" key={ i } number={ i }/>
+            <CarouselLabel name={ name } group="prev" key={ i } number={ i }/>
         );
 
         // Populate the next buttons
         next.push(
-            <CarouselLabel group="next" key={ i } number={ i }/>
+            <CarouselLabel name={ name } group="next" key={ i } number={ i }/>
         );
 
     }

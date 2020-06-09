@@ -39,7 +39,7 @@ const SectionResort = () =>
                     </Fragment>
                 }
                 other={
-                    <Carousel slides={ BANBUREE_SLIDES } />
+                    <Carousel name="Banburee" slides={ BANBUREE_SLIDES } />
                 }
             />
         </SectionLayout>

@@ -61,7 +61,7 @@ label {
 }
 
 // HEADINGS
-.heading-primary {
+.headline {
     font-family: 'Cormorant SC', serif;
     font-weight: 400; 
     font-size: $h1-text-size; 
@@ -70,15 +70,18 @@ label {
     @include calcLineHeight($h1-text-size);
 
     @include respond(portrait) {
-        font-size: $h1-text-size;
-
-        @include calcLineHeight(0.5 * $h1-text-size);
+        font-size: 0.5 * $h1-text-size;
+        transform: scaleY(1.4);
+        @include calcLineHeight(0.25 * $h1-text-size);
     }
 
+    // iPhone 4
     @media (orientation: portrait) and (width: 320px) {
-        font-size: 0.9 * $h1-text-size;
+        font-size: 0.5 * $h1-text-size;
+        transform: scaleY(1.4);
+        @include calcLineHeight(0.25 * $h1-text-size);
 
-        @include calcLineHeight(0.45 * $h1-text-size);
+        // text-shadow: 2px 0px 4px rgba(150, 150, 150, 1);
     }
 }
 
@@ -95,6 +98,13 @@ label {
         @include calcLineHeight($subheadline-text-size); 
         letter-spacing: $letter-spacing; 
     }
+
+    // iPhone 4
+    @media (orientation: portrait) and (width: 320px) {
+        font-size: 0.75 * $subheadline-text-size;
+        @include calcLineHeight(0.75 * $subheadline-text-size);
+        // text-shadow: 2px 0px 4px rgba(150, 150, 150, 1);
+    }
 }
 
 .retreat {
@@ -104,6 +114,7 @@ label {
 
     @include respond(portrait) {
         font-size: 0.7 * $retreat-text-size;
+        text-shadow: 2px 0px 4px rgba(150, 150, 150, 1);
     }
 }
 
