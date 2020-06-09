@@ -1,10 +1,9 @@
-import { types, Instance, SnapshotIn, SnapshotOut } from 'mobx-state-tree';
+import { types, Instance } from 'mobx-state-tree';
 import { Client } from './types/Client';
 import { Animations } from './types/Animations';
 import { UI } from './types/UI';
 import CSS from 'csstype';
 import insertKeyFrameRules from '../helpers/insertKeyFrameRules';
-import { $nonEmptyObject } from 'mobx-state-tree/dist/internal';
 
 const KEYFRAMES_NAME ="clippingHeader";
 
@@ -12,8 +11,8 @@ const COLOR_GOLD = "rgba(136, 113, 89, 1)";
 const COLOR_WHITE = "white";
 
 export type RootStoreModel = Instance<typeof RootStore>;
-export type RootStoreSnapshotIn = SnapshotIn<typeof RootStore>;
-export type RootStoreSnapshotOut = SnapshotOut<typeof RootStore>;
+// export type RootStoreSnapshotIn = SnapshotIn<typeof RootStore>;
+// export type RootStoreSnapshotOut = SnapshotOut<typeof RootStore>;
 
 const RootStore = types
     .model("RootStore", {
@@ -43,13 +42,13 @@ const RootStore = types
     .views(self => ({
         addHeroAnimation():string {
             const classes = "hero";
-            return ((self.client.responsive === "landscape") && self.animations.ctaButtonAnimationEnd) 
+            return ((self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd) 
                 ? classes.concat(" ", "hero--animated") 
                 : classes;
         },
         addNavBarAnimation():string {
             const classes = "navbar";
-            return ((self.client.responsive === "landscape") && self.animations.ctaButtonAnimationEnd && !self.animations.navbarAnimationEnd)  
+            return ((self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd && !self.animations.navbarAnimationEnd)  
                 ? classes.concat(" ", "navbar--animated") 
                 : classes;
         },
@@ -60,7 +59,7 @@ const RootStore = types
 
             const passed = (self.client.scrollY > rightHeaderHeight);
             const up = self.client.up;
-            const landscape = (self.client.responsive === "landscape");
+            const landscape = (self.client.responsiveState() === "landscape");
             const ended = self.animations.navbarAnimationEnd;
 
             // Get the styles of the navbar
@@ -80,7 +79,7 @@ const RootStore = types
         },
         getPictureDividerStyles(src:string, aspectRatio:number, shift?:boolean, scroll?:boolean):CSS.Properties {
             const clip = self.client.clipHeight();
-            const portrait = (self.client.responsive === "portrait");
+            const portrait = (self.client.responsiveState() === "portrait");
 
             // Scale the height using the aspect ratio of the background image
             const height = ((aspectRatio > 1) ? self.client.windowHeight : (self.client.windowWidth / aspectRatio)) + 2 * clip;
@@ -100,7 +99,7 @@ const RootStore = types
         },
         getPhotoSectionStyles():CSS.Properties {
             const clip = self.client.clipHeight();
-            const portrait = (self.client.responsive === "portrait");
+            const portrait = (self.client.responsiveState() === "portrait");
             const height = self.ui.bookSectionHeight;
             const total = height + 2 * clip;
             

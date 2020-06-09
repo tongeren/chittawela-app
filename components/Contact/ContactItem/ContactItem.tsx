@@ -1,4 +1,6 @@
-const ContactItem = ({ iconClasses, recaptcha, contactInfo }) => {
+import { ContactItemProps } from './types';
+
+const ContactItem:React.FunctionComponent<ContactItemProps> = ({ iconClasses, recaptcha, contactInfo }):React.ReactElement => {
 
     const classes = {
         "icon": "contact__icon".concat(" ", iconClasses),

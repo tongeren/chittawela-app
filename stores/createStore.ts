@@ -7,7 +7,7 @@ export const createStore = (): RootStoreModel => {
             windowHeight: 0,
             scrollX: 0,
             scrollY: 0,
-            responsive: "undetermined",
+            orientation: "unsupported",
             up: false,
         },
         animations: { 

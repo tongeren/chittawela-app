@@ -1,7 +1,9 @@
 import { types } from "mobx-state-tree";
 import calcClipHeight from "../helpers/calcClipHeight";
 import { ResponsiveState } from '../../hooks/useResponsive/types';
-import CSS from 'csstype';
+import { ScreenOrientationPS } from '../../helpers/orientation/types';
+
+const IPAD_WIDTH = 768;
 
 export const Client = types
     .model("Client", {
@@ -9,7 +11,7 @@ export const Client = types
         windowHeight: types.number,
         scrollX: types.number,
         scrollY: types.number,
-        responsive: types.string,
+        orientation: types.string,
         up: types.boolean,
     })
     .actions(self => ({
@@ -26,8 +28,8 @@ export const Client = types
             self.up = (scrollY - self.scrollY) > 0; 
             self.scrollY = scrollY;
         },
-        setResponsiveState(responsive: ResponsiveState):void {
-            self.responsive = responsive as string;
+        setOrientation(orientation: ScreenOrientationPS):void {
+            self.orientation = orientation;
         }
     }))
     .views(self => ({
@@ -36,7 +38,11 @@ export const Client = types
         },
         passedHeader(height: number):boolean {
             return self.scrollY > height - this.clipHeight();
-        },       
+        },
+        responsiveState():ResponsiveState {
+            const isPortrait = (self.orientation === "portrait") && (self.windowWidth < IPAD_WIDTH);
+            return isPortrait ? "portrait" : "landscape";
+        }       
     }))
 
     
