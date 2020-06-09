@@ -27,17 +27,16 @@ const Client = ({ children }) => {
 
     const orientationChangeHandler = useCallback(
         event => {
-            const window = event.currentTarget.window;        
+            // const window = event.currentTarget.window;   
             const orientationStr = determineOrientation(window);
-    
-            setOrientation(orientationStr);
+            setOrientation(orientationStr);      
         },
         [ setOrientation ]
     )
 
     const scrollHandler = useCallback(
-        event => {
-            const window = event.currentTarget.window;
+        event => {        
+            // const window = event.currentTarget.window;
             const scrollX =  window.scrollX;
             const scrollY =  window.scrollY;
             const coordinates = { scrollX: scrollX, scrollY: scrollY };
@@ -50,7 +49,7 @@ const Client = ({ children }) => {
 
     const dimensionsChangeHandler = useCallback(
         event => {
-            const window = event.currentTarget;
+            // const window = event.currentTarget;
             const dimensions = measureDimensions(window)
 
             // Update dimensions
