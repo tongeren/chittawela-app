@@ -41,8 +41,11 @@ const Client = ({ children }) => {
             const scrollY =  window.scrollY;
             const coordinates = { scrollX: scrollX, scrollY: scrollY };
 
-            // Update coordinates
-            setScrollCoords(coordinates); 
+            // Allow for animations to run first and then set the dimensions
+            return window.requestAnimationFrame(
+                // Update coordinates
+                () => setScrollCoords(coordinates)
+            ); 
         },
         [ setScrollCoords ]
     );
@@ -52,8 +55,11 @@ const Client = ({ children }) => {
             // const window = event.currentTarget;
             const dimensions = measureDimensions(window)
 
-            // Update dimensions
-            setWindowDimensions(dimensions);
+            // Allow for animations to run first and then set the dimensions
+            return window.requestAnimationFrame(
+                // Update dimensions
+                () => setWindowDimensions(dimensions)
+            );
         },
         [ setWindowDimensions ]
     );
