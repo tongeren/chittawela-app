@@ -1,11 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { createStore } from '../../stores/createStore';
+import { StoreProvider } from '../StoreProvider/StoreProvider';
 import Picture from "./Picture";
+import 'mobx-react-lite/batchingForReactDom';
 
-const testProps ={
-    sources: [{ 
-        "media": "(orientation: portrait) and (width: 320px)", 
-        "srcSet":"https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,c_crop,h_2592,w_1944,x_0/w_640/v1584329960/hero/hero-big_4.jpg 2x" 
+const testProps = {
+    sources: [{ "source": 
+        { 
+            "media": "(orientation: portrait) and (width: 320px)", 
+            "srcSet":"https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,c_crop,h_2592,w_1944,x_0/w_640/v1584329960/hero/hero-big_4.jpg 2x" 
+        }
     }],
     image: {
         "classes": "hero-img", 
@@ -16,7 +21,11 @@ const testProps ={
 
 describe("<Picture />", () => {
     test("Renders an image that has attributes classes, src and alt.", () => {
-        const { container } = render(<Picture { ...testProps } />);
+        const { container } = render(
+            <StoreProvider value={ createStore() }>
+                <Picture { ...testProps } />
+            </StoreProvider>
+        );
         const img = screen.getByRole("img");
         expect(container).toContainElement(img);
         expect(img).toHaveAttribute("classes");
@@ -25,3 +34,4 @@ describe("<Picture />", () => {
     });   
 });
 
+// TO DO 

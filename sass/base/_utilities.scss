@@ -45,8 +45,21 @@
 
 .u-margin-bottom-tiny { margin-bottom: $margin-tiny !important; }
 
-.u-margin-top-section { margin-top: $section-margin-vertical !important; }
-.u-margin-bottom-section { margin-bottom: $section-margin-vertical !important; }
+.u-margin-top-section { 
+    margin-top: $section-margin-vertical !important; 
+
+    @include respond(portrait) {
+        margin-bottom: 0 !important;
+    }
+}
+
+.u-margin-bottom-section { 
+    margin-bottom: $section-margin-vertical !important;
+    
+    @include respond(portrait) {
+        margin-bottom: 0 !important;
+    }
+}
 
 .u-padding-top-large { padding-top: $padding-large !important; }
 .u-padding-top-medium { padding-top: $padding-medium !important; }

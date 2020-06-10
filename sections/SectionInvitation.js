@@ -46,7 +46,7 @@ const SectionInvitation = () =>
                 }
                 other={
                     <Photo
-                        sectionName="invitation"
+                        name="invitation"
                         media="" 
                         srcSet="https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_1920/v1584329960/invitation/guides.jpg 1920w" 
                         sizes="100vw" 

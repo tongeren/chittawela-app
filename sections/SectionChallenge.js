@@ -43,7 +43,7 @@ const SectionChallenge = () =>
                             sizes="100vw"
                             src="https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_620/v1584329960/challenge/meditating.jpg" 
                             alt="Wiphatthra meditating"
-                            sectionName="challenge"
+                            name="challenge"
                         /> 
                     }
             />

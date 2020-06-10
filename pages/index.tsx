@@ -41,10 +41,15 @@ import SocialMedia from '../components/SocialMedia/SocialMedia';
 import SubscribeForm from '../components/SubscribeForm/SubscribeForm';
 import FooterTestimonial from '../components/FooterTestimonial/FooterTestimonial';
 
-import { useScrollPosition } from '../hooks/useScrollPosition';
-
-
 import { CROSSFADE } from '../static/crossfade';
+
+const MEDIA = [
+    { "sprite": "facebook", "url": new URL("https://quantapex.com") },
+    { "sprite": "twitter", "url": new URL("https://quantapex.com") },
+    { "sprite": "pinterest", "url": new URL("https://quantapex.com") },
+    { "sprite": "instagram", "url": new URL("https://quantapex.com") },
+    { "sprite": "youtube", "url": new URL("https://quantapex.com") }
+];
 
 const NAVIGATION = [
     {
@@ -195,7 +200,7 @@ const Home:React.FunctionComponent = ():React.ReactElement => {
             logoBox       ={ <LogoBox name="Chittawela" flex="column" /> }
             navLeft       ={ <MenuNav menu={ false } flex="column" navItems={ NAV_LEFT } lastButton={ false } /> }
             navRight      ={ <MenuNav menu={ false } flex="column" navItems={ NAV_RIGHT } lastButton={ false } /> }
-            socialMedia   ={ <SocialMedia /> } 
+            socialMedia   ={ <SocialMedia media={ MEDIA } /> } 
             subscribeForm ={ <SubscribeForm /> } 
             copyright     ={ <Copyright period="2019-2020" name="Chittawela LLP" /> }
         />

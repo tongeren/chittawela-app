@@ -20,9 +20,9 @@
 }
 
 $keys: map-keys($image-sizes);
-@each $section-name in $keys {
-    .img--size-#{$section-name} {
-        $list: map-get($image-sizes, $section-name);
+@each $name in $keys {
+    .img--size-#{$name} {
+        $list: map-get($image-sizes, $name);
         $width: nth($list, 1);
         $height: nth($list, 2);
 

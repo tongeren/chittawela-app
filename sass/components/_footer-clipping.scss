@@ -1,5 +1,7 @@
 .footer-clipping {
+    position: relative;
     background-color: var(--color-hair);
+    border-color: var(--color-hair);
 
     @include respond(portrait) {
         display: none;

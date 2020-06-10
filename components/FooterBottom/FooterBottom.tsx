@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import { FooterBottomProps } from './types';
 
-const FooterBottom = ({ logoBox, navLeft, navRight, socialMedia, subscribeForm, copyright }) => 
+const FooterBottom:React.FunctionComponent<FooterBottomProps> = ({ logoBox, navLeft, navRight, socialMedia, subscribeForm, copyright }):React.ReactElement => 
     <div className="footer-bottom-layout">
         <div className="footer-bottom-layout__line-left" />
         <div className="footer-bottom-layout__line-right" />
@@ -15,14 +15,6 @@ const FooterBottom = ({ logoBox, navLeft, navRight, socialMedia, subscribeForm, 
 
 export default FooterBottom;
 
-FooterBottom.propTypes = {
-    logoBox: PropTypes.element.isRequired,
-    navLeft: PropTypes.element.isRequired,
-    navRight: PropTypes.element.isRequired,
-    socialMedia: PropTypes.element.isRequired,
-    subscribeForm: PropTypes.element.isRequired,
-    copyright: PropTypes.element.isRequired
-};
 
 
 

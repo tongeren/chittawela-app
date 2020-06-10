@@ -60,7 +60,7 @@ const SectionFoundation = () =>
                             sizes="100vw" 
                             src="https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_852/v1584329960/foundation/philippe.jpg" 
                             alt="Philippe & Wiphatthra"
-                            sectionName="foundation"
+                            name="foundation"
                         />
                     }
             />

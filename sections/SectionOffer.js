@@ -11,17 +11,17 @@ const PHOTOS = {
     "photo1": {
         "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584529453/offer/birdseye.jpg", 
         "alt": "Bird's eye view of Banburee",
-        "sectionName": "offer"
+        "name": "offer"
     },
     "photo2": {
         "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584529453/offer/yoga.jpg",
         "alt": "Yoga",
-        "sectionName": "offer"
+        "name": "offer"
     },
     "photo3": {
         "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584529453/offer/dinner.jpg",
         "alt": "Sunset dinner",
-        "sectionName": "offer"
+        "name": "offer"
     }
 };
 

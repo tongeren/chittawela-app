@@ -7,6 +7,6 @@ export interface PhotoProps {
     sizes?: string
     src: string
     alt: string
-    sectionName: string
+    name: string
     styles?: CSS.Properties
 }

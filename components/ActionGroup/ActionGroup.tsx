@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import { ActionGroupProps } from './types';
 
-const ActionGroup = ({ action }) => {
+const ActionGroup:React.FunctionComponent<ActionGroupProps> = ({ action }):React.ReactElement => {
     return (
         <div className="action-group">
             <input 
@@ -16,7 +16,3 @@ const ActionGroup = ({ action }) => {
 };
 
 export default ActionGroup;
-
-ActionGroup.propTypes = {
-    action: PropTypes.string.isRequired
-};

@@ -38,7 +38,7 @@ const slides = (id:number):Record<string, unknown>[] => {
                 "sizes": SIZES,
                 "src": filename,
                 "alt": ALT,
-                "sectionName": SECTION_NAME[ id ]
+                "name": SECTION_NAME[ id ]
             },
             "thumbnail": {
                 "media": "",
@@ -46,7 +46,7 @@ const slides = (id:number):Record<string, unknown>[] => {
                 "sizes": SIZES,
                 "src": filename,
                 "alt": ALT,
-                "sectionName": SECTION_NAME[ id ]
+                "name": SECTION_NAME[ id ]
             }
         });
     }

@@ -4,7 +4,7 @@ import Section from '../components/Section/Section';
 import SectionHeading from '../components/SectionHeading/SectionHeading';
 import SectionLayout from '../components/SectionLayout/SectionLayout';
 
-const SectionTransformation = () => 
+const SectionTransformation = ():React.ReactElement => 
     <Section id="section-transformation">
         <SectionLayout
             blue

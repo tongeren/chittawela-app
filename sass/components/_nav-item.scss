@@ -5,22 +5,18 @@
     justify-items: center;
 
     @include respond(portrait) {
-        // width: 80vw;
         height: 8.5rem;
-        // height: $scale-down-factor-portrait * $button-height;
-
-
     }
 
     // first ones are just links, last one acts as a button
-    &:not(:last-of-type) > .nav-menu__link {
+    & > * {
         border-top: var(--line-medium-thickness) solid transparent;
         border-bottom: var(--line-medium-thickness) solid transparent;
     }
     
     // on hover for links
-    &:not(:last-of-type) > :hover {
+    & > *:hover {
         border-bottom: var(--line-medium-thickness) solid var(--color-medium-peach);
-        transform: scaleX(1.1);
+        transform: scaleX(1.2);
     }
 }

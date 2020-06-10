@@ -7,19 +7,19 @@ import SectionLayout from '../components/SectionLayout/SectionLayout';
 const PHOTO = {
     "wiphatthra": {
         "media": "(orientation: portrait)",
-        "srcSet": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584528564/guides/your_host.jpg 29w", 
+        "srcSet": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584528564/guides/your_host_400x600.jpg 29w", 
         "sizes": "(max-width: 768px) 100vw, 12vw", 
-        "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584528564/guides/your_host.jpg", 
+        "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584528564/guides/your_host_400x600.jpg", 
         "alt": "Your host", 
-        "sectionName": "guides"
+        "name": "your-host"
     },
     "duncan": {
         "media": "(orientation: portrait)",
-        "srcSet": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584528564/guides/guides_together.jpg 29w", 
+        "srcSet": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584528564/guides/guides_together_600x450.jpg 29w", 
         "sizes": "(max-width: 768px) 100vw, 12vw", 
-        "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584528564/guides/guides_together.jpg", 
+        "src": "https://res.cloudinary.com/chittawela/image/upload/f_auto,q_70,w_450/v1584528564/guides/guides_together_600x450.jpg", 
         "alt": "Guides together", 
-        "sectionName": "guides"
+        "name": "guides-together"
     }
 };
 

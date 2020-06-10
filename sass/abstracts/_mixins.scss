@@ -79,44 +79,9 @@
     }
 }
 
-// mixin for clipping background pictures
-@mixin clipBackground($height) {
-    @supports (clip-path: polygon(0, 0)) or (-webkit-clip-path: polygon(0 0)) {
-        -webkit-clip-path: polygon(0 $delta-y, 100% 0, 100% calc(#{$height} - #{$delta-y}), 0 calc(#{$height}));
-        clip-path: polygon(0 $delta-y, 100% 0, 100% calc(#{$height} - #{$delta-y}), 0 calc(#{$height}));
-    }
-    @include respond(portrait) {
-        -webkit-clip-path: none;
-        clip-path: none;
-    }
-}
-
 // calculate a nice line height given a font size
 @mixin calcLineHeight($fontsize) {
     line-height: calc(#{$line-spacing-multiplier} * #{$fontsize});
-}
-
-@mixin divider($height, $delta-y-header, $angle) {
-    text-align: center;
-    color: white;
-    background-color: rgba(var(--color-divider), 1);
-    @if $angle==0 {
-        @include respond(portrait) {
-            height: inherit;
-            padding: $section-padding-portrait;
-            &__header {
-                transform: none;
-            }
-        }
-    }
-    @else {
-        height: $height;
-        padding-top: 0.5 * $height;
-        @include clipBackground($height);
-        &__header {
-            transform: translateY($delta-y-header) rotate($angle);
-        }
-    }
 }
 
 /*

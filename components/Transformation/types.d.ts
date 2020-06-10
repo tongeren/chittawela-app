@@ -4,7 +4,7 @@ export type PictureProps = {
     sizes: string,
     src: string,
     alt: string,
-    sectionName: string
+    name: string
 };
 
 export type TransformationProps = {

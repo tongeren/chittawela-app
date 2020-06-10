@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import { FormGroupProps } from './types';
 
-const FormGroup = ({id, name, inputType, hint, placeholder}) => {
+const FormGroup:React.FunctionComponent<FormGroupProps> = ({id, name, inputType, hint, placeholder}):React.ReactElement => {
     return (
         <div className="form__group labeled-input">
             <input 
@@ -17,12 +17,4 @@ const FormGroup = ({id, name, inputType, hint, placeholder}) => {
 };
 
 export default FormGroup;
-
-FormGroup.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    inputType: PropTypes.string.isRequired,
-    hint: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired
-};
 

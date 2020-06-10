@@ -12,6 +12,14 @@ import '../sass/main.scss';
 // Initialize the Firebase app
 initFirebase();
 
+// Report Core Web Vitals
+// Will be called once for every metric that has to be reported.
+export function reportWebVitals(metric) {
+    // These metrics can be sent to any analytics service
+    // TO DO: send to MATOMO server
+    console.log(metric)
+};
+
 const Root = ({ Component, pageProps}) => {
     const store = useStore(pageProps.initialState);
 
