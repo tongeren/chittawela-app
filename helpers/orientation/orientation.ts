@@ -1,10 +1,18 @@
-import { ScreenOrientation, ScreenOrientationPS } from './types';
+import { ScreenOrientationPS } from './types';
 
 const screenOrientation = (window: Window):ScreenOrientationPS => {
+    // window.screem has good support still
+    const _screen = window.screen;
+
     // window.screen.orientation (experimental)
     // See https://developer.mozilla.org/en-US/docs/Web/API/Screen/orientation 
-    // Not supported: Safari, Android webview, Opera for Android, Safari on iOS    
-    const orientationType = window.screen.orientation.type;
+    // Not supported: Safari, Android webview, Opera for Android, Safari on iOS
+    const _orientation = _screen.orientation;
+
+    // Bail out early if not supported
+    if (_orientation === undefined ) return "unsupported"; 
+
+    const orientationType = _orientation.type;
 
     /* eslint-disable @typescript-eslint/no-explicit-any */
     switch (orientationType as any) { 
@@ -19,6 +27,9 @@ const windowOrientation = (window: Window):ScreenOrientationPS => {
     // See https://developer.mozilla.org/en-US/docs/Web/API/Window/orientation
     // Not supported: Chrome, Edge, Firefox - Unknown: Internet Explorer, Opera, Safari
     const orientationAngle = window.orientation;
+
+    // Bail out early if not supported
+    if (orientationAngle === undefined ) return "unsupported"; 
 
     switch (orientationAngle) {
         case 0 || 180: return "landscape";
