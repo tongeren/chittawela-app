@@ -4,14 +4,12 @@ import { useStore } from '../StoreProvider/StoreProvider';
 import { PictureProps } from './types';
 
 const Picture: React.FunctionComponent<PictureProps> = ({ classes, sources, image }):React.ReactElement => {    
-    const store = useStore();
-    
+    const store = useStore(); 
     const observed = useRef(null);
 
     useEffect(() => {
         const picture = observed.current;
         const height = picture.getBoundingClientRect().height;
-        console.log("Picture: height", height);
         store.ui.setImageHeight(height);
     }, [observed, store.ui]);
 

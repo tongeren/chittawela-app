@@ -3,10 +3,9 @@ import { useObserver } from 'mobx-react-lite';
 import MenuButton from '../MenuButton/MenuButton';
 import MenuNav from '../MenuNav/MenuNav';
 import LogoBox from '../LogoBox/LogoBox';
-import { ResponsiveState } from '../../hooks/useResponsive/types'
 import { useStore } from '../StoreProvider/StoreProvider';
+import { ResponsiveState } from '../../hooks/useResponsive/types'
 import { NavBarProps } from './types';
-import restrictToClient from '../../hoc/restrictToClient/restrictToClient';
 
 const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, lastButton}): React.ReactElement => {
     const store = useStore();
@@ -37,6 +36,6 @@ const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, las
     ));
 };
 
-export default restrictToClient(NavBar);
+export default NavBar;
 
 

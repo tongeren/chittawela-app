@@ -41,16 +41,18 @@ const RootStore = types
     }))
     .views(self => ({
         addHeroAnimation():string {
+            // Animate (clip) the hero iaoi responsiveState in landscape mode and the CTAButton animation has ended
+            const flag = (self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd;
+
             const classes = "hero";
-            return ((self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd) 
-                ? classes.concat(" ", "hero--animated") 
-                : classes;
+            return flag ? classes.concat(" ", "hero--animated") : classes;
         },
         addNavBarAnimation():string {
+            // Animate the navbar iaoi responsiveState in landscape mode, the CTAButton animation has ended, and the navbar animation has not ended earlier 
+            const flag = (self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd && !self.animations.navbarAnimationEnd;
+
             const classes = "navbar";
-            return ((self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd && !self.animations.navbarAnimationEnd)  
-                ? classes.concat(" ", "navbar--animated") 
-                : classes;
+            return flag ? classes.concat(" ", "navbar--animated") : classes;
         },
         getNavBarStyles():CSS.Properties {
             const height = self.ui.imageHeight;
