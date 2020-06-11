@@ -5,7 +5,7 @@ import Section from '../components/Section/Section';
 import SectionHeading from '../components/SectionHeading/SectionHeading';
 import SectionLayout from '../components/SectionLayout/SectionLayout';
 
-const SectionDescription = () => 
+const SectionDescription = ():React.ReactElement => 
     <Section id="section-description">
         <SectionLayout marginBottom> 
             <BoxLayout
@@ -29,7 +29,13 @@ const SectionDescription = () =>
                     </Fragment>
                 }
                 other={ 
-                    <Application />
+                    <Application 
+                        sprite="star"
+                        header="Only 12 spots available"
+                        cta="Is one of them yours?"
+                        buttonText="Apply now"
+                        href="#section-goal"
+                    />
                 }
             />    
         </SectionLayout>

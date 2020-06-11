@@ -5,18 +5,17 @@ import { useEventListener } from '../../hooks/useEventListener/useEventListener'
 import restrictToClient from '../../hoc/restrictToClient'; // I should only use this here and nowhere else
 import { determineOrientation } from '../../helpers/orientation/orientation';
 import { ScreenOrientationPS } from '../../helpers/orientation/types';
+import measureDimensions from '../../helpers/dimensions/measureDimensions';
+import isMobile from '../../helpers/mobile/isMobile';
 import _ from 'lodash';
-
-const measureDimensions = (window) => {
-    const { innerWidth, innerHeight } = window;
-    return { windowWidth: innerWidth, windowHeight: innerHeight };
-}
 
 const Client = ({ children }) => {
     const store = useStore();
     const observed = useRef(); // observe screen orientation as early as possible
 
-    const [ windowDimensions, setWindowDimensions ] = useState(measureDimensions(window)) 
+    store.client.setIsMobile(isMobile());
+
+    const [ windowDimensions, setWindowDimensions ] = useState(measureDimensions()) 
     const [ scrollCoords, setScrollCoords ] = useState({ scrollX: 0, scrollY: 0 }); // scroll position does not exist on load
     const [ orientation, setOrientation ] = useState("unsupported" as ScreenOrientationPS);
 
@@ -25,6 +24,7 @@ const Client = ({ children }) => {
         setOrientation(orientationStr);
     }, [observed]);
 
+    // Event handlers
     const orientationChangeHandler = useCallback(
         event => {
             // const window = event.currentTarget.window;   
@@ -36,7 +36,6 @@ const Client = ({ children }) => {
 
     const scrollHandler = useCallback(
         event => {        
-            // const window = event.currentTarget.window;
             const scrollX =  window.scrollX;
             const scrollY =  window.scrollY;
             const coordinates = { scrollX: scrollX, scrollY: scrollY };
@@ -52,8 +51,7 @@ const Client = ({ children }) => {
 
     const dimensionsChangeHandler = useCallback(
         event => {
-            // const window = event.currentTarget;
-            const dimensions = measureDimensions(window)
+            const dimensions = measureDimensions();
 
             // Allow for animations to run first and then set the dimensions
             return window.requestAnimationFrame(
@@ -64,6 +62,7 @@ const Client = ({ children }) => {
         [ setWindowDimensions ]
     );
 
+    // Add event listeners
     useEventListener('resize', (event) => {
         _.throttle(dimensionsChangeHandler, 50)(event);
         _.throttle(orientationChangeHandler, 50)(event);
@@ -74,13 +73,7 @@ const Client = ({ children }) => {
     }, window);
     useEventListener('scroll', _.throttle(scrollHandler, 50), window);  
 
-    // Set store client states as soon as they become available
-    // if (!(orientation === "unsupported")) store.client.setOrientation(orientation);
-    // if (!(scrollCoords.scrollX === undefined)) store.client.setScrollX(scrollCoords.scrollX);
-    // if (!(scrollCoords.scrollY === undefined)) store.client.setScrollY(scrollCoords.scrollY);
-    // if (!(windowDimensions.windowHeight === undefined)) store.client.setWindowHeight(windowDimensions.windowHeight);
-    // if (!(windowDimensions.windowWidth === undefined)) store.client.setWindowWidth(windowDimensions.windowWidth);
-
+    // Set store values
     useEffect( () => {
         store.client.setOrientation(orientation);
         store.client.setScrollX(scrollCoords.scrollX);
@@ -88,6 +81,8 @@ const Client = ({ children }) => {
         store.client.setWindowHeight(windowDimensions.windowHeight);
         store.client.setWindowWidth(windowDimensions.windowWidth);
     }, [store.client, orientation, scrollCoords, windowDimensions])
+
+    console.log("Client: store.client", store.client);
 
     return useObserver( () => 
         <div ref={ observed }>

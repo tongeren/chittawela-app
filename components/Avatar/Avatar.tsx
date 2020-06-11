@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import { AvatarProps } from './types';
 
-const Avatar = ({ src, alt, margin }) => {
+const Avatar:React.FunctionComponent<AvatarProps> = ({ src, alt, margin }):React.ReactElement => {
     const classes = "avatar".concat(" ", margin ? `u-margin-bottom-${ margin }`: "");
 
     return (
@@ -14,8 +14,3 @@ const Avatar = ({ src, alt, margin }) => {
 
 export default Avatar;
 
-Avatar.propTypes = {
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    margin: PropTypes.string
-};

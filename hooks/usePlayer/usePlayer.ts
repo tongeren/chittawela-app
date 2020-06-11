@@ -6,17 +6,20 @@ const OPTIONS = {
     width: 640
 };
 
-const usePlayer = () => {
+// Get the Vimeo Player object
+function getPlayer() {
     const hasWindow = typeof window !== 'undefined';
+    const player = hasWindow ? new Player("vimeo-video", OPTIONS) : null;
 
-    // Get the Vimeo Player object
-    function getPlayer() {
-        const player = hasWindow ? new Player("vimeo-video", OPTIONS) : null;
-    
-        return player;
-    }
+    return player;
+}
 
+const usePlayer = ():Player => {
     const [playerState, setPlayer] = useState(getPlayer());
+
+    useEffect( () => {
+        setPlayer(getPlayer());
+    }, []);
 
     return playerState;
 };

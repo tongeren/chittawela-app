@@ -1,10 +1,11 @@
 import CenterBox from '../components/CenterBox/CenterBox';
+import LinkButton from '../components/LinkButton/LinkButton';
 import Section from '../components/Section/Section';
 import SectionHeading from '../components/SectionHeading/SectionHeading';
 import SectionLayout from '../components/SectionLayout/SectionLayout';
 import Video from '../components/Video/Video';
 
-const SectionGoal = () => 
+const SectionGoal = ():React.ReactElement => 
     <Section id="section-goal">
         <SectionLayout
             heading={
@@ -18,10 +19,7 @@ const SectionGoal = () =>
             }
         >
             <CenterBox>
-                <Video 
-                    src="https://player.vimeo.com/video/395625673"
-                    alt="Wiphatthra speaking about the content of the retreat"
-                />
+                <Video src="https://player.vimeo.com/video/395625673" />
             </CenterBox>
             <SectionHeading 
                 alt
@@ -30,7 +28,7 @@ const SectionGoal = () =>
                 margin="small"
             />
             <CenterBox>
-                <a href="#section-book" className="button button--white-orange">Apply today</a>
+                <LinkButton href="#section-book" text="Apply today" />
             </CenterBox>
         </SectionLayout>
     </Section>;

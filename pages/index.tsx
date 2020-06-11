@@ -5,6 +5,8 @@ import Head from 'next/head';
 import Divider from '../components/Divider/Divider';
 import FooterClipping from '../components/FooterClipping/FooterClipping';
 import PictureDivider from '../components/PictureDivider/PictureDivider';
+import Modal from '../components/Modal/Modal';
+import ResponsivePlayer from '../components/ResponsivePlayer/ResponsivePlayer';
 
 // sections
 import SectionDescription from '../sections/SectionDescription';
@@ -40,6 +42,7 @@ import NavBar from '../components/NavBar/NavBar';
 import SocialMedia from '../components/SocialMedia/SocialMedia';
 import SubscribeForm from '../components/SubscribeForm/SubscribeForm';
 import FooterTestimonial from '../components/FooterTestimonial/FooterTestimonial';
+import ResponsivePlayerModal from '../components/ResponsivePlayerModal/ResponsivePlayerModal';
 
 import { CROSSFADE } from '../static/crossfade';
 
@@ -125,6 +128,7 @@ const Home:React.FunctionComponent = ():React.ReactElement => {
                 navItems={ NAVIGATION }
                 lastButton= { true }
             />
+            <ResponsivePlayerModal /> 
 
             <SectionDescription />
             <SectionChallenge />

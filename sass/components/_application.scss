@@ -51,34 +51,18 @@
     }
 
     &__text {
-        transform: translateY(-6rem);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 6rem 6rem 1fr;
+        transform: translateY(-5rem);
         margin-top: 5rem;
-        margin-bottom: -3rem;
-        
-        > * {
-            margin-bottom: $margin-small; 
-
-            @include respond(portrait) {
-                margin-bottom: $margin-small-portrait;
-            }
-        }
-
-        :first-child {
-            @include respond(portrait) {
-                padding: 0 1rem;
-                display: inline-block; // center within float
-            }
-        }
-
-        :last-child {
-            @include respond(portrait) {
-                margin-bottom: 0;
-            }
-        }
     }
 
     &__header {
-
+        @include respond(portrait) {
+            padding: 0 1rem;
+            display: inline-block; // center within float
+        }
     }
 
     &__cta {
@@ -86,6 +70,6 @@
     }
 
     &__btn {
-
+        
     }
 }

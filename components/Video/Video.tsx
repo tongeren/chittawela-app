@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import { VideoProps } from './types';
 
-const Video= ({ src, alt }) => {
+const Video:React.FunctionComponent<VideoProps>= ({ src }):React.ReactElement => {
     return (
         <div className="video u-margin-bottom-medium">
             <div className="video__vimeo">
@@ -9,7 +9,6 @@ const Video= ({ src, alt }) => {
                     className="video__iframe" 
                     src={ src } 
                     allow="fullscreen"
-                    alt={ alt } 
                 />
             </div>
         </div>
@@ -17,8 +16,3 @@ const Video= ({ src, alt }) => {
 };
 
 export default Video;
-
-Video.propTypes = {
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
-};

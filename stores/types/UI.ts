@@ -6,6 +6,7 @@ export const UI = types
         imageHeight: types.number,
         photoHeight: types.number,
         bookSectionHeight: types.number,
+        playHeroVideo: types.boolean
     })
     .actions(self => ({
         setImageHeight(height:number):void {
@@ -17,6 +18,9 @@ export const UI = types
         setBookSectionHeight(height:number):void {
             self.bookSectionHeight = height;
         },
+        setPlayHeroVideo(state: boolean):void {
+            self.playHeroVideo = state;
+        }
     }))
     .views(self => ({
         getHeroHeightStyle():CSS.Properties {

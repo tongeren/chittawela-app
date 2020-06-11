@@ -23,12 +23,13 @@ const PHOTO = {
     }
 };
 
-const SectionGuides = () => 
+const SectionGuides = ():React.ReactElement => 
     <Section id="section-guides">
         <SectionLayout 
             marginTop
         >
             <BoxLayout 
+                firstText={ false }
                 text={
                     <div className="u-margin-bottom-medium">
                         <h3 className="heading-secondary-alt">
@@ -71,7 +72,7 @@ const SectionGuides = () =>
                 }
             />
             <BoxLayout
-                firstText
+                firstText={ true }
                 text={ 
                     <Fragment>
                         <h3 className="heading-secondary-alt">

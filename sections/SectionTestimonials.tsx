@@ -70,7 +70,7 @@ const INFO = [
 
 const n = PHOTOS.length;
 
-let testimonials = [];
+const testimonials = [];
 for (let i = 0; i < n; i++) {
     testimonials.push({
             "photos": PHOTOS[i],
@@ -78,7 +78,7 @@ for (let i = 0; i < n; i++) {
     });
 };
 
-const SectionTestimonials = () => {  
+const SectionTestimonials = ():React.ReactElement => {  
     return (
         <Section id="section-testimonials">
             <SectionLayout blue>

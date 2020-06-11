@@ -8,6 +8,7 @@ export const createStore = (): RootStoreModel => {
             scrollX: 0,
             scrollY: 0,
             orientation: "unsupported",
+            isMobile: false,
             up: false,
         },
         animations: { 
@@ -17,7 +18,8 @@ export const createStore = (): RootStoreModel => {
         ui: { 
             imageHeight: 0,
             photoHeight: 0,
-            bookSectionHeight: 0
+            bookSectionHeight: 0,
+            playHeroVideo: false
         }
     });
 };

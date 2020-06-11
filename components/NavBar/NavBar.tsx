@@ -1,10 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import MenuButton from '../MenuButton/MenuButton';
 import MenuNav from '../MenuNav/MenuNav';
 import LogoBox from '../LogoBox/LogoBox';
-// import { useResponsive } from '../../hooks/useResponsive/useResponsive';
-// import { useEventListener } from '../../hooks/useEventListener/useEventListener';
 import { ResponsiveState } from '../../hooks/useResponsive/types'
 import { useStore } from '../StoreProvider/StoreProvider';
 import { NavBarProps } from './types';

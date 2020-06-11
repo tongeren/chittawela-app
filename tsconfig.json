@@ -19,12 +19,12 @@
       "skipLibCheck": true
     },
     "exclude": [
-      "node_modules"
+      "node_modules", "helpers/fullscreen/"
     ],
     "include": [
       "next-env.d.ts",
       "**/*.ts",
-      "**/*.tsx", "pages/index.js"
+      "**/*.tsx", "helpers/fullscreen/toggleFullScreen.js", "pages/index.js"
     ]
 }
   

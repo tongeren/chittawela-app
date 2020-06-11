@@ -7,7 +7,7 @@
     height: $navigation-height;
     padding: 1rem $navigation-margin-horizontal;
 
-    z-index: 9999; // on top of everything
+    z-index: $z-index-navbar;
     opacity: 0.8;
 
     flex-direction: row;

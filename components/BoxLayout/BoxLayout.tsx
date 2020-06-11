@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import { BoxLayoutProps } from "./types";
 
-const BoxLayout = ({ firstText, text, other }) => {
+const BoxLayout:React.FunctionComponent<BoxLayoutProps> = ({ firstText, text, other }):React.ReactElement => {
     const textJSX = <div className="box-layout__text">{ text }</div>;
     const otherJSX = <div className="box-layout__other">{ other }</div>;
 
@@ -13,9 +13,3 @@ const BoxLayout = ({ firstText, text, other }) => {
 };
 
 export default BoxLayout;
-
-BoxLayout.propTypes = {
-    firstText: PropTypes.bool,
-    text: PropTypes.node.isRequired,
-    other: PropTypes.node.isRequired  
-};

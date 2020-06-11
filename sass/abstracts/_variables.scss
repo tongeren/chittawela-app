@@ -76,14 +76,17 @@ $separation-width: 10%;
 // PHOTO DIVIDER
 $photo-divider-height-portrait: 80rem;
 // IMAGES
-$image-sizes: ( challenge: (620, 603), foundation: (852, 640), your-host: (400, 600), guides-together: (600, 450), invitation: (585, 450), offer: (500, 280), program-work: (450, 450), program-play: (600, 360), testimonials: (300, 300), banburee: (600, 360));
+$image-sizes: ( challenge: (620, 603), foundation: (852, 640), guides: (450, 600), your-host: (400, 600), guides-together: (600, 450), invitation: (585, 450), offer: (500, 280), program-work: (450, 450), program-play: (600, 360), testimonials: (300, 300), banburee: (600, 360));
 // Z-INDICES
 $z-index-hidden: -3;
 $z-index-background: -2;
 $z-index-hidable: -1;
 $z-index-scroll-over: 1000;
-$z-index-visible: 5000;
-//$z-index-navigation: 9999;
+$z-index-visible: 3000;
+$z-index-navbar: 4000;
+$z-index-modal: 5000;
+$z-index-on-top: 9999;
+
 $border-radius-button-input: 0rem;
 $border-width-button-input: 1px;
 // NAVIGATION

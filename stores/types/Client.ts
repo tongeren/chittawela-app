@@ -12,6 +12,7 @@ export const Client = types
         scrollX: types.number,
         scrollY: types.number,
         orientation: types.string,
+        isMobile: types.boolean,
         up: types.boolean,
     })
     .actions(self => ({
@@ -30,6 +31,9 @@ export const Client = types
         },
         setOrientation(orientation: ScreenOrientationPS):void {
             self.orientation = orientation;
+        },
+        setIsMobile(mobile:boolean):void {
+            self.isMobile = mobile;
         }
     }))
     .views(self => ({
@@ -40,7 +44,10 @@ export const Client = types
             return self.scrollY > height - this.clipHeight();
         },
         responsiveState():ResponsiveState {
-            const isPortrait = (self.orientation === "portrait") && (self.windowWidth < IPAD_WIDTH);
+            const isPortrait = (self.orientation === "portrait");
+            
+            // Navbar responds in "landscape" mode in Chrome on iPhone 6S Plus !?! No css pixels?!?
+            // const isPortrait = (self.orientation === "portrait") && (self.windowWidth < IPAD_WIDTH);
             return isPortrait ? "portrait" : "landscape";
         }       
     }))
