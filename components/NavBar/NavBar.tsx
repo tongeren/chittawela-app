@@ -9,8 +9,7 @@ import { NavBarProps } from './types';
 
 const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, lastButton}): React.ReactElement => {
     const store = useStore();
-    const responsive = store.client.responsiveState();
-
+   
     const renderMenu = (responsive: ResponsiveState) => {
         switch (responsive) {
             case "portrait": {
@@ -31,7 +30,7 @@ const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, las
             style={ store.getNavBarStyles() } 
             onAnimationEnd={ () => store.animations.setNavbarAnimationEnd() } >
             <LogoBox flex={ flex } name={ name } />
-            { renderMenu(responsive) }
+            { renderMenu(store.client.responsiveState()) }
         </div>   
     ));
 };

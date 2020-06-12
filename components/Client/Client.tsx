@@ -82,7 +82,6 @@ const Client = ({ children }) => {
         store.client.setWindowWidth(windowDimensions.windowWidth);
     }, [store.client, orientation, scrollCoords, windowDimensions])
 
-    console.log("Client: store.client", store.client);
     console.log("Client: store", store);
 
     return useObserver( () => 

@@ -21,7 +21,7 @@ const ResponsivePlayerModal = ():React.ReactElement => {
                     playing={ store.ui.playHeroVideo }
                     height={ 0.8 * store.client.windowHeight + "px" }
                     width={ 0.8 * store.client.windowWidth + "px" }
-                    style={ { color: 'white' } }
+                    style={ { width: '100vw' } }
                     onEnded={ () => store.ui.setPlayHeroVideo(false)}
                 />
             </CenterBox>
