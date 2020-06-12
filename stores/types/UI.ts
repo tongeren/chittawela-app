@@ -7,7 +7,8 @@ export const UI = types
         imageHeight: types.number,
         photoHeight: types.number,
         bookSectionHeight: types.number,
-        playHeroVideo: types.boolean
+        playHeroVideo: types.boolean,
+        menuOpen: types.boolean
     })
     .actions(self => ({
         setImageHeight(height:number):void {
@@ -21,6 +22,9 @@ export const UI = types
         },
         setPlayHeroVideo(state: boolean):void {
             self.playHeroVideo = state;
+        },
+        setMenuOpen(state: boolean):void {
+            self.menuOpen = state;
         }
     }))
     .views(self => ({
@@ -29,5 +33,11 @@ export const UI = types
                 height: self.imageHeight + "px"
             };
         },
+        setBodyStyles():void {
+            const state = self.menuOpen;
+            document.body.style.overflowY = state ? "hidden" : "scroll";
+            document.body.style.position = state ? "fixed" : "static";
+            console.log(document.body.style.overflowY, document.body.style.position);
+        }
         
     }))

@@ -19,7 +19,8 @@ export const createStore = (): RootStoreModel => {
             imageHeight: 0,
             photoHeight: 0,
             bookSectionHeight: 0,
-            playHeroVideo: false
+            playHeroVideo: false,
+            menuOpen: false
         }
     });
 };

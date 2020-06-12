@@ -17,10 +17,6 @@
 
     &__checkbox {
         display: none;
-
-        // @include respond(portrait) {
-        //     display: block;
-        // }
     }
 
 
@@ -81,24 +77,6 @@
         &::after { top: .8rem; }
     }
 
-    &__background {
-        // display: none;
-        // background-color: black;
-        z-index: inherit;
-        
-        @include respond(portrait) {
-            display: flex;
-            position: fixed;
-            align-items: center;
-            justify-content: center;
-            height: 6rem;
-            width: 6rem;
-            border-radius: 50%;
-            z-index: 0; 
-        }
-        
-    }
-
     // navigation part of the navbar
     &__nav {
         margin-right: $navigation-margin-horizontal; // add margin to the nav in order to align with the section margin
@@ -115,6 +93,9 @@
             position: absolute;
             top: 0;
             left: 0;  
+            right: 0;
+            bottom: 0;
+            background-color: var(--color-gold);
         }
         
     }
@@ -130,10 +111,6 @@
         top: 1rem;
     }
 
-    /* transform to full screen background and navigation menu */
-    &__checkbox:checked + &__background {
-        animation: fadeInOpacityScaleBackground .8s cubic-bezier(0.86, 0, 0.07, 1) 0s 1 normal forwards running;
-    }
 
     &__checkbox:checked ~ &__nav {
         display: block;

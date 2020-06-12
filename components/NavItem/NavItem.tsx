@@ -1,12 +1,27 @@
-/* eslint react/prop-types: 0 */
-import React from 'react';
-import Anchor from '../Anchor/Anchor';
+import { useRouter } from 'next/router'
+import { useStore } from '../StoreProvider/StoreProvider';
 import { NavItemProps } from './types';
 
 const NavItem: React.FunctionComponent<NavItemProps> = ({ href, name }) :React.ReactElement => {
+    const router = useRouter();
+    const store = useStore();
+
+    const handleClick = event => {
+        event.preventDefault();
+
+        // Close the menu modal
+        store.ui.setMenuOpen(false);
+
+        // Enable scrolling
+        store.ui.setBodyStyles();
+
+        // Scroll anchor
+        router.push(href);
+    };
+
     return (
         <li className="nav-item">
-            <Anchor href={ href } name={ name }/>
+            <a href={ href } className="anchor" onClick={ handleClick }>{ name }</a> 
         </li>
     );
 };

@@ -1,35 +1,38 @@
-// import { useToggle } from '../../hooks/useToggle/useToggle';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useObserver } from 'mobx-react-lite';
+import { useStore } from '../StoreProvider/StoreProvider';
 import MenuModal from '../MenuModal/MenuModal';
 import { MenuButtonProps } from './types';
 
 const MenuButton:React.FunctionComponent<MenuButtonProps> = ({ navItems, lastButton }):React.ReactElement => {
-    const [checked, setChecked ] = useState(false);
+    const store = useStore();
+    const [checked, setChecked ] = useState(store.ui.menuOpen);
 
-    const toggle = () => {
-        console.log("toggle");
-        setChecked(!checked);
-    };
+    useEffect(() => {
+        store.ui.setMenuOpen(checked);
+        store.ui.setBodyStyles();
+    }, [store.ui, checked]);
 
-    return (
+    return useObserver( () => (
         <div className="menu-button">
             <input 
                 className="menu-button__checkbox" 
                 id="navi-toggle" 
                 type="checkbox" 
-                defaultChecked={ checked }
-                onInput={ toggle }
+                checked={ store.ui.menuOpen }
+                onChange={ () => {
+                    store.ui.setMenuOpen(!checked);
+                    setChecked(!checked);
+                } }
             />   
-            {/* <div className="menu-button__background">&nbsp;</div> */}
             <label className="menu-button__button" htmlFor="navi-toggle"> 
                 <span id="icon" className="menu-button__icon"></span> 
             </label>
-            {/* <div className="menu-button__nav">
-                <MenuNav menu={ true } navItems={ navItems } flex="column" lastButton={ lastButton }/>
-            </div> */}
-            <MenuModal show={ checked } navItems={ navItems } lastButton={ lastButton } />
+            <div className="menu-button__nav">
+                <MenuModal show={ store.ui.menuOpen } navItems={ navItems } lastButton={ lastButton } />
+            </div>
         </div>
-    );
+    ));
 };
 
 export default MenuButton;

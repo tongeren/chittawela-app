@@ -56,19 +56,19 @@ const MEDIA = [
 
 const NAVIGATION = [
     {
-        "href": "#section-challenge",
+        "href": "/#section-challenge",
         "name": "Challenge"
     },
     {
-        "href": "#section-foundation",
+        "href": "/#section-foundation",
         "name": "Foundation"
     },
     {
-        "href": "#section-transformation",
+        "href": "/#section-transformation",
         "name": "Transformation"
     },
     {
-        "href": "#sanctuary",
+        "href": "/#sanctuary",
         "name": "Sanctuary"
     },
     {
