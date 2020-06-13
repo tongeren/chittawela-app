@@ -1,6 +1,6 @@
-import { Classes } from '../../helpers/classes/addClasses';
+import { Classes } from '../../../helpers/classes/addClasses';
 
-export interface ButtonProps {
+export interface AnchorProps {
     classes?: Classes
     text: string
     href?: string                                                         // set by wrapping Link component

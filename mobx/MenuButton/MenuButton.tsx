@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useObserver } from 'mobx-react-lite';
-import { useStore } from '../StoreProvider/StoreProvider';
-import MenuModal from '../MenuModal/MenuModal';
+import { useStore } from '../../components/StoreProvider/StoreProvider';
+import MenuModal from '../../components/MenuModal/MenuModal';
 import { MenuButtonProps } from './types';
 
 const MenuButton:React.FunctionComponent<MenuButtonProps> = ({ navItems, lastButton }):React.ReactElement => {

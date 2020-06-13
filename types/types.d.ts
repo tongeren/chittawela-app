@@ -10,5 +10,10 @@ export interface LabelNumber {
     number: number
 }
 
+export interface LinkText {
+    href: string
+    text: string
+}
+
 
 

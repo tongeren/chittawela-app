@@ -1,6 +1,6 @@
 import { Fragment, ReactElement } from 'react';
 import CenterBox from '../components/CenterBox/CenterBox';
-import LinkButton from '../components/LinkButton/LinkButton';
+import LinkAnchor from '../components/LinkAnchor/LinkAnchor';
 import Section from '../components/Section/Section';
 import SectionHeading from '../components/SectionHeading/SectionHeading';
 import SectionLayout from '../components/SectionLayout/SectionLayout';
@@ -32,7 +32,7 @@ const SectionGroup = ():ReactElement =>
                     <strong>There's no limit in what you can accomplish with ther support and encouragement of such incredible people!</strong>
                 </p>
                 <CenterBox>
-                    <LinkButton href="/#section-price" text="Consult us" />
+                    <LinkAnchor href="/#section-price" text="Consult us" />
                 </CenterBox>
            </Fragment>
         </SectionLayout>

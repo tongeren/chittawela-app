@@ -8,7 +8,7 @@ import slides from '../static/slides';
 
 const SLIDES_PLAY = slides(0);
 
-const SectionPlay = () => {
+const SectionPlay = ():React.ReactElement => {
     return (
         <Section id="section-play">
             <SectionLayout>

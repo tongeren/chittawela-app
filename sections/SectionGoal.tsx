@@ -1,5 +1,5 @@
 import CenterBox from '../components/CenterBox/CenterBox';
-import LinkButton from '../components/LinkButton/LinkButton';
+import LinkAnchor from '../components/LinkAnchor/LinkAnchor';
 import Section from '../components/Section/Section';
 import SectionHeading from '../components/SectionHeading/SectionHeading';
 import SectionLayout from '../components/SectionLayout/SectionLayout';
@@ -28,7 +28,7 @@ const SectionGoal = ():React.ReactElement =>
                 margin="small"
             />
             <CenterBox>
-                <LinkButton href="#section-book" text="Apply today" />
+                <LinkAnchor href="#section-book" text="Apply today" />
             </CenterBox>
         </SectionLayout>
     </Section>;

@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import BoxLayout from '../components/BoxLayout/BoxLayout';
 import CenterBox from '../components/CenterBox/CenterBox';
-import LinkButton from '../components/LinkButton/LinkButton';
+import LinkButton from '../components/LinkAnchor/LinkAnchor';
 import Photo from '../components/Photo/Photo';
 import Section from '../components/Section/Section';
 import SectionHeading from '../components/SectionHeading/SectionHeading';

@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import BoxLayout from '../components/BoxLayout/BoxLayout';
 import CenterBox from '../components/CenterBox/CenterBox';
-import LinkButton from '../components/LinkButton/LinkButton';
+import LinkAnchor from '../components/LinkAnchor/LinkAnchor';
 import Photo from '../components/Photo/Photo';
 import PricingTable from '../components/PricingTable/PricingTable';
 import PhotoQuote from '../components/PhotoQuote/PhotoQuote';
@@ -66,7 +66,7 @@ const SectionPrice = ():React.ReactElement => {
                         </span>
                     </div>
                     <CenterBox>
-                        <LinkButton href="/#section-book" text="Apply today" />
+                        <LinkAnchor href="/#section-book" text="Apply today" />
                     </CenterBox>
                 </Fragment>
             </SectionLayout>

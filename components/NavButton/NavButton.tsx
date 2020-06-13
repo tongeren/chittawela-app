@@ -1,4 +1,4 @@
-import Anchor from '../Anchor/Anchor';
+import Anchor from '../LinkAnchor/Anchor/Anchor';
 import { NavButtonProps } from './types';
 
 const NavButton:React.FunctionComponent<NavButtonProps> = ({ navItem }):React.ReactElement => {

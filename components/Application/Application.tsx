@@ -1,6 +1,6 @@
 import SVG from '../SVG/SVG';
 import CenterBox from '../CenterBox/CenterBox';
-import LinkButton from '../LinkButton/LinkButton';
+import LinkAnchor from '../LinkAnchor/LinkAnchor';
 import { ApplicationProps } from './types';
 
 const Application:React.FunctionComponent<ApplicationProps> = ({ sprite, header, cta, buttonText, href}):React.ReactElement => {
@@ -16,7 +16,7 @@ const Application:React.FunctionComponent<ApplicationProps> = ({ sprite, header,
                 <div className="application__cta">{ cta }</div>
                 <div className="application__btn">
                     <CenterBox>
-                        <LinkButton href={ href } text={ buttonText } />
+                        <LinkAnchor href={ href } text={ buttonText } />
                     </CenterBox>
                 </div>
             </div>

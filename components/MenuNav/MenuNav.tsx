@@ -1,6 +1,6 @@
 import React from 'react';
 import NavItem from '../NavItem/NavItem';
-import NavButton from '../NavButton/NavButton';
+import LinkAnchor from '../LinkAnchor/LinkAnchor';
 import { MenuNavProps } from './types';
 
 const MenuNav:React.FunctionComponent<MenuNavProps> = ({ menu, navItems, flex, lastButton }):React.ReactElement => {
@@ -22,7 +22,7 @@ const MenuNav:React.FunctionComponent<MenuNavProps> = ({ menu, navItems, flex, l
                 { items.map((item, key) => 
                     <NavItem key={key} { ...item } />
                 )}
-                { lastButton ? <NavButton navItem={ buttonProps } /> : null }
+                { lastButton && <LinkAnchor classes="button--white-transparent button--interact-gold" { ...buttonProps } /> }
             </ul>
         </div>
     );
@@ -32,4 +32,4 @@ MenuNav.displayName = "MenuNav";
 
 export default MenuNav;
 
-
+//<NavButton navItem={ buttonProps } />

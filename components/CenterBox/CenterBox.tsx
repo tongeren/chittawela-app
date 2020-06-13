@@ -1,6 +1,9 @@
-const CenterBox = ({ children }):React.ReactElement => {
+import { CenterBoxProps } from "./types";
+
+const CenterBox:React.FunctionComponent<CenterBoxProps> = ({ children, fill }):React.ReactElement => {
+    const classes = "center-box".concat(" ", fill && "center-box--fill");
     return (
-        <div className="center-box">
+        <div className={ classes }>
             { children }
         </div>
     );

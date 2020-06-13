@@ -1,4 +1,3 @@
-import React from 'react';
 import { CTAProps } from './types';
 import RetreatInfo from '../RetreatInfo/RetreatInfo';
 import CTAButton from './CTAButton/CTAButton';

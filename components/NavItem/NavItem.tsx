@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useStore } from '../StoreProvider/StoreProvider';
 import { NavItemProps } from './types';
 
-const NavItem: React.FunctionComponent<NavItemProps> = ({ href, name }) :React.ReactElement => {
+const NavItem: React.FunctionComponent<NavItemProps> = ({ href, text }) :React.ReactElement => {
     const router = useRouter();
     const store = useStore();
 
@@ -22,7 +22,7 @@ const NavItem: React.FunctionComponent<NavItemProps> = ({ href, name }) :React.R
 
     return (
         <li className="nav-item">
-            <a href={ href } className="anchor" onClick={ handleClick }>{ name }</a> 
+            <a href={ href } className="anchor" onClick={ handleClick }>{ text }</a> 
         </li>
     );
 };

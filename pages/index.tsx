@@ -1,12 +1,13 @@
-import React from 'react';
 import Head from 'next/head';
 
-// client(browser)-only components:
+import Hero from '../mobx/Hero/Hero';
+import NavBar from '../mobx/NavBar/NavBar';
+import ResponsivePlayerModal from '../mobx/ResponsivePlayerModal/ResponsivePlayerModal';
+
+// Normal imports for store user components:
 import Divider from '../components/Divider/Divider';
 import FooterClipping from '../components/FooterClipping/FooterClipping';
 import PictureDivider from '../components/PictureDivider/PictureDivider';
-import Modal from '../components/Modal/Modal';
-import ResponsivePlayer from '../components/ResponsivePlayer/ResponsivePlayer';
 
 // sections
 import SectionDescription from '../sections/SectionDescription';
@@ -35,14 +36,11 @@ import SectionBook from '../sections/SectionBook';
 
 import Copyright from '../components/Copyright/Copyright';
 import FooterBottom from '../components/FooterBottom/FooterBottom';
-import Hero from '../components/Hero/Hero';
 import LogoBox from '../components/LogoBox/LogoBox';
 import MenuNav from '../components/MenuNav/MenuNav';
-import NavBar from '../components/NavBar/NavBar';
 import SocialMedia from '../components/SocialMedia/SocialMedia';
 import SubscribeForm from '../components/SubscribeForm/SubscribeForm';
 import FooterTestimonial from '../components/FooterTestimonial/FooterTestimonial';
-import ResponsivePlayerModal from '../components/ResponsivePlayerModal/ResponsivePlayerModal';
 
 import { CROSSFADE } from '../static/crossfade';
 
@@ -57,36 +55,36 @@ const MEDIA = [
 const NAVIGATION = [
     {
         "href": "/#section-challenge",
-        "name": "Challenge"
+        "text": "Challenge"
     },
     {
         "href": "/#section-foundation",
-        "name": "Foundation"
+        "text": "Foundation"
     },
     {
         "href": "/#section-transformation",
-        "name": "Transformation"
+        "text": "Transformation"
     },
     {
         "href": "/#sanctuary",
-        "name": "Sanctuary"
+        "text": "Sanctuary"
     },
     {
         "href": "/login",
-        "name": "Login"
+        "text": "Login"
     }
 ];
 
 const NAV_LEFT = [
-    { "href": "/policy", "name": "Privacy policy" },
-    { "href": "/terms", "name": "Terms & conditions" },
-    { "href": "/about", "name": "About" }
+    { "href": "/policy", "text": "Privacy policy" },
+    { "href": "/terms", "text": "Terms & conditions" },
+    { "href": "/about", "text": "About" }
 ];
 
 const NAV_RIGHT = [
-    { "href": "/blog", "name": "Blog" },
-    { "href": "/newsletter", "name": "Newsletter" },
-    { "href": "/contact", "name": "Contact" }
+    { "href": "/blog", "text": "Blog" },
+    { "href": "/newsletter", "text": "Newsletter" },
+    { "href": "/contact", "text": "Contact" }
 ];
 
 

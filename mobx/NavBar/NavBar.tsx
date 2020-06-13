@@ -1,9 +1,9 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import MenuButton from '../MenuButton/MenuButton';
-import MenuNav from '../MenuNav/MenuNav';
-import LogoBox from '../LogoBox/LogoBox';
-import { useStore } from '../StoreProvider/StoreProvider';
+import MenuNav from '../../components/MenuNav/MenuNav';
+import LogoBox from '../../components/LogoBox/LogoBox';
+import { useStore } from '../../components/StoreProvider/StoreProvider';
 import { ResponsiveState } from '../../hooks/useResponsive/types'
 import { NavBarProps } from './types';
 

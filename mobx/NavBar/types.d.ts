@@ -1,4 +1,4 @@
-import { NavItemProps } from '../NavItem/types';
+import { NavItemProps } from '../../components/NavItem/types';
 import { Flex } from '../../types/types';
 
 export interface NavBarProps {
