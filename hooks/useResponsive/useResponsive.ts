@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import _ from 'lodash';
+import throttle from 'lodash.throttle';
 import { ResponsiveState } from './types';
 import { THROTTLE_TIMES } from '../throttle';
 
@@ -32,8 +32,8 @@ export const useResponsive = ():ResponsiveState => {
             determine();
 
             // Define event handlers, use throttling to reduce performance impact
-            const handleResize = _.throttle(determine, THROTTLE_TIMES.resize);
-            const handleOrientationChange = _.throttle(determine, THROTTLE_TIMES.orientation);     
+            const handleResize = throttle(determine, THROTTLE_TIMES.resize);
+            const handleOrientationChange = throttle(determine, THROTTLE_TIMES.orientation);     
 
             window.addEventListener('resize', handleResize);
             window.addEventListener('orientationchange', handleOrientationChange );

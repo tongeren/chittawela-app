@@ -1,7 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { useEventListener } from '../useEventListener/useEventListener';
-import _ from 'lodash';
-import { MeasurementObject, UseDimensionsArgs, UseDimensionsHook, HTMLElements } from "./types";
+import throttle from 'lodash.throttle';
+import { MeasurementObject } from "./types";
 import { THROTTLE_TIMES } from '../throttle';
 
 // See https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
@@ -38,8 +37,8 @@ export const useMeasurements = () => {
             measure();
 
             // Define event handlers, use throttling to reduce performance impact
-            const handleResize = _.throttle(measure, THROTTLE_TIMES.resize);
-            const handleScroll = _.throttle(measure, THROTTLE_TIMES.scroll);
+            const handleResize = throttle(measure, THROTTLE_TIMES.resize);
+            const handleScroll = throttle(measure, THROTTLE_TIMES.scroll);
 
             // If we want to measure continually take care of adding and removing the appropriate event listeners
           

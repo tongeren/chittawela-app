@@ -1,9 +1,11 @@
-/* eslint-disable */
-import React from 'react';
 import ConditionallyRender from '../../containers/ConditionallyRender/ConditionallyRender';
 import getDisplayName from '../../helpers/getDisplayName';
 
-const restrictToClient = (WrappedComponent) => {
+interface WrappedComponentProps {
+    props: Record<string, unknown>
+}
+
+const restrictToClient = (WrappedComponent: React.FunctionComponent<WrappedComponentProps>):React.FunctionComponent => {
     const RestrictToClient = (props) => {
 
         return (
@@ -17,5 +19,7 @@ const restrictToClient = (WrappedComponent) => {
 
     return RestrictToClient;
 };
+
+restrictToClient.displayName = "restrictToClient";
 
 export default restrictToClient;

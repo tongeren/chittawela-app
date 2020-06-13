@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development next dev",
-    "build": "cross-env NODE_ENV=production ANALYZE=true next build",
+    "build": "cross-env NODE_ENV=production ANALYZE=false next build",
     "start": "cross-env NODE_ENV=production next start -p 3000",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -17,7 +17,7 @@
     "firebase": "^7.14.4",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^7.1.0",
-    "lodash": "^4.17.15",
+    "lodash.throttle": "^4.1.1",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.7",
     "mobx-state-tree": "^3.16.0",

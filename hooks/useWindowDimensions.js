@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import _ from 'lodash';
+import throttle from 'lodash.throttle';
 
 const THROTTLE_TIME = 50; // ms
 
@@ -22,8 +22,8 @@ const useWindowDimensions = () => {
     useEffect(() => {
         if (hasWindow) {
            
-            window.addEventListener('resize', _.throttle(handleResize, THROTTLE_TIME));
-            return () => window.removeEventListener('resize', _.throttle(handleResize, THROTTLE_TIME));
+            window.addEventListener('resize', throttle(handleResize, THROTTLE_TIME));
+            return () => window.removeEventListener('resize', throttle(handleResize, THROTTLE_TIME));
         }
     }, [hasWindow]);
 

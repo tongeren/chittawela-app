@@ -1,14 +1,14 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { trace } from 'mobx';
-import { useObserver, observer } from 'mobx-react-lite';
+import { observer } from 'mobx-react-lite';
 import { useStore } from '../StoreProvider/StoreProvider';
 import { useEventListener } from '../../hooks/useEventListener/useEventListener';
-import restrictToClient from '../../hoc/restrictToClient'; // I should only use this here and nowhere else
+import restrictToClient from '../../hoc/restrictToClient/restrictToClient'; // I should only use this here and nowhere else
 import { determineOrientation } from '../../helpers/orientation/orientation';
 import { ScreenOrientationPS } from '../../helpers/orientation/types';
 import measureDimensions from '../../helpers/dimensions/measureDimensions';
 import isMobile from '../../helpers/mobile/isMobile';
-import _ from 'lodash';
+import throttle from 'lodash.throttle';
 
 const Client = observer( ({ children }) => {
     // Get the mobx-state-tree store
@@ -70,14 +70,14 @@ const Client = observer( ({ children }) => {
 
     // Add event listeners
     useEventListener('resize', (event) => {
-        _.throttle(dimensionsChangeHandler, 50)(event);
-        _.throttle(orientationChangeHandler, 50)(event);
+        throttle(dimensionsChangeHandler, 50)(event);
+        throttle(orientationChangeHandler, 50)(event);
     }, window);
     useEventListener('orientationchange', (event) => {
-        _.throttle(dimensionsChangeHandler, 50)(event);
-        _.throttle(orientationChangeHandler, 50)(event);
+        throttle(dimensionsChangeHandler, 50)(event);
+        throttle(orientationChangeHandler, 50)(event);
     }, window);
-    useEventListener('scroll', _.throttle(scrollHandler, 50), window);  
+    useEventListener('scroll', throttle(scrollHandler, 50), window);  
 
     // Set store values
     useEffect( () => {

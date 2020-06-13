@@ -26,10 +26,10 @@ const nextConfig = {
 };
 
 module.exports = withPlugins([
-    [optimizedImages, {
+    [ optimizedImages, {
         /* config for next-optimized-images */
     }],
-    [bundleAnalyzer, {
+    [ bundleAnalyzer, {
        /* config for next-bundle-analyzer */
     }],
 

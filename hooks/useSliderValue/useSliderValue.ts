@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import _ from 'lodash';
+import throttle from 'lodash.throttle';
 import { THROTTLE_TIMES } from '../throttle';
 import { UseSliderHook } from './types';
 
@@ -27,7 +27,7 @@ export const useSliderValue = ():UseSliderHook => {
             determineSliderValue();
 
              // Define event handler, use throttling to reduce performance impact
-            const handleInputChange = _.throttle(determineSliderValue, THROTTLE_TIMES.input);
+            const handleInputChange = throttle(determineSliderValue, THROTTLE_TIMES.input);
 
             slider.addEventListener('input', handleInputChange);
             return () => slider.removeEventListener('input', handleInputChange);

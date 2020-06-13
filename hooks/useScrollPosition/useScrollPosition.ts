@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { ScrollPositionObject, UsePositionHook } from './types';
-import _ from 'lodash';
+import { ScrollPositionObject } from './types';
+import throttle from 'lodash.throttle';
 
 const THROTTLE_TIME = 1000; // ms
 
@@ -28,7 +28,7 @@ export const useScrollPosition: (x: void) => ScrollPositionObject | null = (x: v
 
             determinePosition();
 
-            const handleScroll = _.throttle(determinePosition, THROTTLE_TIME);
+            const handleScroll = throttle(determinePosition, THROTTLE_TIME);
 
             window.addEventListener('scroll', handleScroll, true);
             return () => window.removeEventListener('scroll', handleScroll, true);

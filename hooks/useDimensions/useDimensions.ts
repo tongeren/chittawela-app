@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import _ from 'lodash';
+import throttle from 'lodash.throttle';
 import { DimensionObject, UseDimensionsArgs, UseDimensionsHook, HTMLElements } from "./types";
 import { THROTTLE_TIMES } from '../throttle';
 
@@ -43,7 +43,7 @@ export const useDimensions: (liveMeasure: UseDimensionsArgs) => UseDimensionsHoo
             measure();
 
             // Define event handlers, use throttling to reduce performance impact
-            const handleResize = _.throttle(measure, THROTTLE_TIMES.resize);
+            const handleResize = throttle(measure, THROTTLE_TIMES.resize);
 
             // If we want to measure continually take care of adding and removing the appropriate event listeners
             if (liveMeasure) {
