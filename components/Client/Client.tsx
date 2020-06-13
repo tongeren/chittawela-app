@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { useObserver } from 'mobx-react-lite';
+import { trace } from 'mobx';
+import { useObserver, observer } from 'mobx-react-lite';
 import { useStore } from '../StoreProvider/StoreProvider';
 import { useEventListener } from '../../hooks/useEventListener/useEventListener';
 import restrictToClient from '../../hoc/restrictToClient'; // I should only use this here and nowhere else
@@ -9,12 +10,18 @@ import measureDimensions from '../../helpers/dimensions/measureDimensions';
 import isMobile from '../../helpers/mobile/isMobile';
 import _ from 'lodash';
 
-const Client = ({ children }) => {
+const Client = observer( ({ children }) => {
+    // Get the mobx-state-tree store
     const store = useStore();
-    const observed = useRef(); // observe screen orientation as early as possible
+
+    // Enter the debugger whenever an observable value causes this component to re-run
+    trace(true);
+
+    // Observe screen orientation as early as possible
+    const observed = useRef(); 
     console.log("Client: store, observed", store, observed);
     store.client.setIsMobile(isMobile());
-    console.log("Client: isMobile(), store.client.isMobile", isMobile(),store.client.isMobile);
+    console.log("Client: isMobile(), store.client.isMobile", isMobile(), store.client.isMobile);
 
     const [ windowDimensions, setWindowDimensions ] = useState(measureDimensions()) 
     const [ scrollCoords, setScrollCoords ] = useState({ scrollX: 0, scrollY: 0 }); // scroll position does not exist on load
@@ -85,12 +92,13 @@ const Client = ({ children }) => {
 
     console.log("Client: store", store);
 
-    return useObserver( () => 
+    return (
         <div ref={ observed }>
             { children }
         </div> 
     );
-};
+    
+});
 
 Client.displayName = "Client";
 
