@@ -9,4 +9,6 @@ const SocialMedia:React.FunctionComponent<SocialMediaProps> = ({ media }):React.
     );
 };
 
+SocialMedia.displayName = "SocialMedia";
+
 export default SocialMedia;

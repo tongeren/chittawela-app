@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSliderValue } from '../../hooks/useSliderValue/useSliderValue';
 import { useDimensions } from '../../hooks/useDimensions/useDimensions';
-import restrictToClient from '../../hoc/restrictToClient';
 import Photo from '../Photo/Photo';
 import { TransformationProps } from './types';
 
@@ -37,4 +36,6 @@ const Transformation: React.FunctionComponent<TransformationProps> = ({ before, 
     );
 };
 
-export default restrictToClient(Transformation);
+Transformation.displayName = "Transformation";
+
+export default Transformation;

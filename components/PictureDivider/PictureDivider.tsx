@@ -10,5 +10,7 @@ const PictureDivider:React.FunctionComponent<PictureDividerProps> = ({ src, aspe
     ));
 };
 
+PictureDivider.displayName = "PictureDivider";
+
 export default PictureDivider;
 

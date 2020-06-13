@@ -35,6 +35,8 @@ const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, las
     ));
 };
 
+NavBar.displayName = "NavBar";
+
 export default NavBar;
 
 

@@ -7,6 +7,7 @@ const NavItem: React.FunctionComponent<NavItemProps> = ({ href, name }) :React.R
     const store = useStore();
 
     const handleClick = event => {
+        // Prevent default behaviour
         event.preventDefault();
 
         // Close the menu modal
@@ -25,6 +26,8 @@ const NavItem: React.FunctionComponent<NavItemProps> = ({ href, name }) :React.R
         </li>
     );
 };
+
+NavItem.displayName = "NavItem";
 
 export default NavItem;
 

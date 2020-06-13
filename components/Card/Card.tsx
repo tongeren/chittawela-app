@@ -14,6 +14,8 @@ const Card:React.FunctionComponent<CardProps> = ({ period, title, photo, descrip
     );
 };
 
+Card.displayName = "Card";
+
 export default Card;
 
 

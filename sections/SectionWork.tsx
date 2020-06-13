@@ -132,4 +132,6 @@ const SectionWork = ():React.ReactElement => {
     );
 }
 
+SectionWork.displayName = "SectionWork";
+
 export default SectionWork;

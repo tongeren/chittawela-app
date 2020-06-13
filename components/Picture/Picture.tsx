@@ -25,4 +25,6 @@ const Picture: React.FunctionComponent<PictureProps> = ({ classes, sources, imag
     ));
 };
 
+Picture.displayName = "Picture";
+
 export default Picture;

@@ -6,5 +6,7 @@ const CenterBox = ({ children }):React.ReactElement => {
     );
 };
 
+CenterBox.displayName = "CenterBox";
+
 export default CenterBox;
 

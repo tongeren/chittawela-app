@@ -35,5 +35,7 @@ const MenuButton:React.FunctionComponent<MenuButtonProps> = ({ navItems, lastBut
     ));
 };
 
+MenuButton.displayName = "MenuButton";
+
 export default MenuButton;
 

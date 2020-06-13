@@ -13,6 +13,8 @@ const FooterBottom:React.FunctionComponent<FooterBottomProps> = ({ logoBox, navL
         <div className="footer-bottom-layout__copyright">{ copyright }</div> 
     </div>;
 
+FooterBottom.displayName = "FooterBottom";
+
 export default FooterBottom;
 
 

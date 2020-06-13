@@ -15,4 +15,6 @@ const ContactItem:React.FunctionComponent<ContactItemProps> = ({ iconClasses, re
     );
 };
 
+ContactItem.displayName = "ContactItem";
+
 export default ContactItem;

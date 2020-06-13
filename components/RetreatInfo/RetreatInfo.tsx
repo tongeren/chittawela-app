@@ -11,5 +11,7 @@ const RetreatInfo:React.FunctionComponent<RetreatInfoProps> = ({ date, location 
     );
 };
 
+RetreatInfo.displayName = "RetreatInfo";
+
 export default RetreatInfo;
 

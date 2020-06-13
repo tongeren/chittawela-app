@@ -2,6 +2,7 @@ import { types } from "mobx-state-tree";
 import calcClipHeight from "../helpers/calcClipHeight";
 import { ResponsiveState } from '../../hooks/useResponsive/types';
 import { ScreenOrientationPS } from '../../helpers/orientation/types';
+import CSS from 'csstype';
 
 const IPAD_WIDTH = 768;
 
@@ -49,7 +50,21 @@ export const Client = types
             // Navbar responds in "landscape" mode in Chrome on iPhone 6S Plus !?! No css pixels?!?
             // const isPortrait = (self.orientation === "portrait") && (self.windowWidth < IPAD_WIDTH);
             return isPortrait ? "portrait" : "landscape";
-        }       
+        },
+        getFooterClippingStyles():CSS.Properties {
+            const height = calcClipHeight(self.windowWidth);
+            const isPortrait = (self.orientation === "portrait");
+
+            const H = height + "px";
+
+            return isPortrait ? { display: 'none' } 
+                : {
+                    height: H, 
+                    clipPath: `polygon(0 ${ H }, 100vw 0, 100vw ${ H })`
+                }; 
+        }
+        
+
     }))
 
     

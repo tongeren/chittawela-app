@@ -26,4 +26,6 @@ const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): R
 
 };
 
+Hero.displayName = "Hero";
+
 export default Hero;

@@ -11,4 +11,6 @@ const SVG: React.FunctionComponent<SVGProps> = ({ classes, sprite }):React.React
     );
 };
 
+SVG.displayName = "SVG";
+
 export default SVG;

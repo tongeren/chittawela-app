@@ -1,3 +1,5 @@
+import { SlideProps } from '../components/Carousel/types';
+
 const NO_OF_SLIDES = 6;
 const PIXEL_WIDTH=600;
 
@@ -17,7 +19,7 @@ const ALT = "Lagoon 400 in Ang Thong National Marine Park";
 
 const SECTION_NAME = [ "program-play", "banburee" ];
 
-const slides = (id:number):Record<string, unknown>[] => {
+const slides = (id:number):SlideProps[] => {
     const FULL_FILENAME_EX_NUMBER = CLOUDINARY_CHITTAWELA
     .concat("", CLOUDINARY_QUALITY_SETTINGS)
     .concat(",", CLOUDINARY_WIDTH_SETTING)
@@ -26,7 +28,7 @@ const slides = (id:number):Record<string, unknown>[] => {
     .concat("", PICTURE_PREFIX[ id ]);
 
     /* eslint prefer-const: 0 */
-    let slides:Record<string, unknown>[] = [];
+    let slides: SlideProps[] = [];
     let filename;
 
     for (let i = 1; i<= NO_OF_SLIDES; i++) {

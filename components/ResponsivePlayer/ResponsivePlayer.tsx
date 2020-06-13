@@ -37,4 +37,6 @@ const ResponsivePlayer:React.FunctionComponent<ResponsivePlayerProps> = ({ url, 
     );
 }
 
+ResponsivePlayer.displayName = "ResponsivePlayer";
+
 export default ResponsivePlayer;

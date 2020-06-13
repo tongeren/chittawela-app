@@ -1,5 +1,5 @@
 export interface BoxLayoutProps {
-    firstText: boolean
+    firstText?: boolean
     text: React.ReactNode
     other: React.ReactNode
 }

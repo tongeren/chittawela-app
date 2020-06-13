@@ -13,5 +13,7 @@ const Crossfade: React.FunctionComponent<CrossfadeProps> = ({ crossfade }): Reac
     );
 };
 
+Crossfade.displayName = "Crossfade";
+
 export default Crossfade;
 

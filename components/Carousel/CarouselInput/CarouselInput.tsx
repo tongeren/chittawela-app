@@ -13,4 +13,6 @@ const CarouselInput:React.FunctionComponent<CarouselInputProps> = ({ name, numbe
     );
 };
 
+CarouselInput.displayName = "CarouselInput";
+
 export default CarouselInput;

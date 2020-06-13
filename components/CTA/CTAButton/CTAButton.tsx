@@ -22,6 +22,7 @@ const CTAButton: React.FunctionComponent<CTAButtonProps> = ({ cta }) => {
     ));
 };
 
+CTAButton.displayName = "CTAButton";
 
 export default CTAButton;
 

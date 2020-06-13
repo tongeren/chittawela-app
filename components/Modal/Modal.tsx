@@ -9,4 +9,6 @@ const Modal:React.FunctionComponent<ModalProps> = ({ show, children, closeHandle
     );
 }
 
+Modal.displayName = "Modal";
+
 export default Modal;

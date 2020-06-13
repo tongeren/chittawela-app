@@ -1,4 +1,3 @@
-import React from 'react';
 import { PhotoProps } from './types';
 
 const Photo:React.FunctionComponent<PhotoProps> = ({ id, media, srcSet, sizes, src, alt, name, styles }):React.ReactElement => {
@@ -11,5 +10,7 @@ const Photo:React.FunctionComponent<PhotoProps> = ({ id, media, srcSet, sizes, s
         </div>
     );
 };
+
+Photo.displayName = "Photo";
 
 export default Photo;

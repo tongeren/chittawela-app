@@ -10,4 +10,6 @@ const LinkNavAnchor:React.FunctionComponent<LinkNavAnchorProps> = ({ href, text 
     );
 };
 
+LinkNavAnchor.displayName = "LinkNavAnchor";
+
 export default LinkNavAnchor;

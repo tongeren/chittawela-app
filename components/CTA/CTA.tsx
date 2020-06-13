@@ -21,5 +21,7 @@ const CTA: React.FunctionComponent<CTAProps> = ({ headline, explanation, retreat
     );
 };
 
+CTA.displayName = "CTA";
+
 export default CTA;
 

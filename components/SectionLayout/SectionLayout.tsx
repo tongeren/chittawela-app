@@ -19,4 +19,6 @@ const SectionLayout: React.FunctionComponent<SectionLayoutProps> = ({ id, headin
     );
 };
 
+SectionLayout.displayName = "SectionLayout";
+
 export default SectionLayout;

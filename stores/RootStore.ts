@@ -108,7 +108,7 @@ const RootStore = types
             const H = (height + clip) + "px";
             const C = clip + "px";
             const M = -0.5* clip + "px";
-            const N = -clip + "px";
+            // const N = -clip + "px";
             const T = total + "px";
 
             const styles = {
@@ -119,7 +119,24 @@ const RootStore = types
             };
 
             return (height === 0) ? undefined : styles;
-        }
+        },
+        getDividerStyles(height: string, shiftTop?: boolean, shiftBottom?: boolean):CSS.Properties {
+            const clip = self.client.clipHeight();
+            const H = clip + "px";
+        
+            // Only shift down when asked
+            const marginBottom = shiftBottom ? H : 0;
+            const marginTop = shiftTop ? H : 0;
+
+            const isPortrait = (self.client.orientation === "portrait");
+        
+            return isPortrait ? { height: 'inherit' } 
+                            : {
+                                height: `calc(${ height } + ${ H })`,
+                                marginTop: `calc(-0.5 * ${ marginTop })`,
+                                marginBottom: `calc(-0.5 * ${ marginBottom })`
+                            };
+        },
 
     }))
 

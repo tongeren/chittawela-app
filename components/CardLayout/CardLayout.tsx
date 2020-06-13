@@ -9,4 +9,6 @@ const CardLayout:React.FunctionComponent<CardLayoutProps> = ({ cards }):React.Re
     );
 };
 
+CardLayout.displayName = "CardLayout";
+
 export default CardLayout;

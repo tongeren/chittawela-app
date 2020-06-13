@@ -1,5 +1,4 @@
 import { forwardRef } from 'react';
-// import addClasses from '../../helpers/classes/addClasses';
 import { NavAnchorProps } from './types';
 
 const NavAnchor:React.ForwardRefExoticComponent<NavAnchorProps> = forwardRef(({ text, onClick, href }, ref):React.ReactElement => {   
@@ -9,5 +8,7 @@ const NavAnchor:React.ForwardRefExoticComponent<NavAnchorProps> = forwardRef(({ 
         </a>
     );
 });
+
+NavAnchor.displayName = "NavAnchor";
 
 export default NavAnchor;

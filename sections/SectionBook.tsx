@@ -45,7 +45,7 @@ const ACTION_FORM_LIST = [
     }
 ];
 
-const SectionBook:React.FunctionComponent = ():React.ReactElement => 
+const SectionBook = ():React.ReactElement => 
     <PhotoSection id="section-book" > 
         <SectionLayout>
             <BookLayout
@@ -87,5 +87,7 @@ const SectionBook:React.FunctionComponent = ():React.ReactElement =>
             />    
         </SectionLayout>
     </PhotoSection>
+
+SectionBook.displayName = "SectionBook";
 
 export default SectionBook;

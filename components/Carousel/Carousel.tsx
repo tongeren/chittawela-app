@@ -68,5 +68,7 @@ const Carousel:React.FunctionComponent<CarouselProps> = ({ name, slides }):React
     );
 };
 
+Carousel.displayName = "Carousel";
+
 export default Carousel;
 

@@ -4,9 +4,11 @@ import { useDimensions } from '../../hooks/useDimensions/useDimensions';
 import { useStore } from '../StoreProvider/StoreProvider';
 import { PhotoSectionProps } from './types';
 
+// Note that as soon as we want more than one PhotoSection we have to rewrite this component and the store
 const PhotoSection:React.FunctionComponent<PhotoSectionProps> = ({ id, children }):React.ReactElement => {
     const store = useStore();
 
+    // Measure dimensions of this section
     const [ ref, dimensions ] = useDimensions({ liveMeasure: true });
     const { width, height } = !(dimensions === undefined) ? dimensions : { width: 0, height: 0 };
     store.ui.setBookSectionHeight(height);
@@ -18,6 +20,6 @@ const PhotoSection:React.FunctionComponent<PhotoSectionProps> = ({ id, children 
     ));
 };
 
-export default PhotoSection;
+PhotoSection.displayName = "PhotoSection";
 
-// (height===0) ? undefined : styles
+export default PhotoSection;

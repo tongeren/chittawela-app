@@ -24,5 +24,7 @@ const Application:React.FunctionComponent<ApplicationProps> = ({ sprite, header,
     );   
 };
 
+Application.displayName = "Application";
+
 export default Application;
 

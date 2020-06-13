@@ -4,7 +4,7 @@ export interface PhotoProps {
     sizes: string
     src: string
     alt: string
-    sectionName: string
+    name: string
 }
 
 export interface SlideProps {

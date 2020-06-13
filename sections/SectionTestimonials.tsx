@@ -89,7 +89,7 @@ const SectionTestimonials = ():React.ReactElement => {
                         transformation={
                             <Transformation { ...testimonial.photos } />
                         }
-                        clientExperience={
+                        experience={
                             <ClientExperience { ...testimonial.info } /> 
                         }
                     />

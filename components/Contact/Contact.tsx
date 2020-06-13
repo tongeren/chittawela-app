@@ -12,6 +12,8 @@ const Contact:React.FunctionComponent<ContactProps> = ({ heading, list }):React.
     );
 };
 
+Contact.displayName = "Contact";
+
 export default Contact;
 
 

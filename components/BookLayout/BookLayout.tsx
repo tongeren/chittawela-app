@@ -9,5 +9,7 @@ const BookLayout:React.FunctionComponent<BookLayoutProps> = ({ left, right }):Re
     );
 };
 
+BookLayout.displayName = "BookLayout";
+
 export default BookLayout;
 

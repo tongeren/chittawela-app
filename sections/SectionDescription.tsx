@@ -41,4 +41,6 @@ const SectionDescription = ():React.ReactElement =>
         </SectionLayout>
     </Section>;
 
+SectionDescription.displayName = "SectionDescription";
+
 export default SectionDescription;

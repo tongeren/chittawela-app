@@ -12,5 +12,7 @@ const Avatar:React.FunctionComponent<AvatarProps> = ({ src, alt, margin }):React
     );
 };
 
+Avatar.displayName = "Avatar";
+
 export default Avatar;
 

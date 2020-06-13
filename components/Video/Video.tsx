@@ -15,4 +15,6 @@ const Video:React.FunctionComponent<VideoProps>= ({ src }):React.ReactElement =>
     );
 };
 
+Video.displayName = "Video";
+
 export default Video;

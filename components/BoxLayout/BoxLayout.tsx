@@ -12,4 +12,6 @@ const BoxLayout:React.FunctionComponent<BoxLayoutProps> = ({ firstText, text, ot
     );
 };
 
+BoxLayout.displayName = "BoxLayout";
+
 export default BoxLayout;

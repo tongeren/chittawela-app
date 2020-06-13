@@ -11,4 +11,6 @@ const MenuModal:React.FunctionComponent<MenuModalProps> = ({ show, navItems, las
     );
 } 
 
+MenuModal.displayName = "MenuModal";
+
 export default MenuModal;

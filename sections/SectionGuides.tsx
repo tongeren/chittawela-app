@@ -111,4 +111,6 @@ const SectionGuides = ():React.ReactElement =>
         </SectionLayout>
     </Section>
 
+SectionGuides.displayName = "SectionGuides";
+
 export default SectionGuides;

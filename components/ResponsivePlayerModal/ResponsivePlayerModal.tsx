@@ -29,4 +29,6 @@ const ResponsivePlayerModal = ():React.ReactElement => {
     ));
 };
 
+ResponsivePlayerModal.displayName = "ResponsivePlayerModal";
+
 export default ResponsivePlayerModal;

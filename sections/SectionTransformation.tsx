@@ -55,4 +55,6 @@ const SectionTransformation = ():React.ReactElement =>
         </SectionLayout>
     </Section>;
 
+SectionTransformation.displayName = "SectionTransformation";
+
 export default SectionTransformation;

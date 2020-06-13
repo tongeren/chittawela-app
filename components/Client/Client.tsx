@@ -12,8 +12,9 @@ import _ from 'lodash';
 const Client = ({ children }) => {
     const store = useStore();
     const observed = useRef(); // observe screen orientation as early as possible
-
+    console.log("Client: store, observed", store, observed);
     store.client.setIsMobile(isMobile());
+    console.log("Client: isMobile(), store.client.isMobile", isMobile(),store.client.isMobile);
 
     const [ windowDimensions, setWindowDimensions ] = useState(measureDimensions()) 
     const [ scrollCoords, setScrollCoords ] = useState({ scrollX: 0, scrollY: 0 }); // scroll position does not exist on load
@@ -90,5 +91,7 @@ const Client = ({ children }) => {
         </div> 
     );
 };
+
+Client.displayName = "Client";
 
 export default restrictToClient(Client);

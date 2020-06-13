@@ -11,4 +11,6 @@ const CarouselSlide:React.FunctionComponent<CarouselSlideProps> = ({ photo }):Re
     );
 };
 
+CarouselSlide.displayName = "CarouselSlide";
+
 export default CarouselSlide;

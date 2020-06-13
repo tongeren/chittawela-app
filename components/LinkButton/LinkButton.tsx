@@ -10,4 +10,6 @@ const LinkButton:React.FunctionComponent<LinkButtonProps> = ({ href, text }) => 
     );
 };
 
+LinkButton.displayName = "LinkButton";
+
 export default LinkButton;

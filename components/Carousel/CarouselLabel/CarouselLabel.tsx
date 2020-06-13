@@ -11,5 +11,7 @@ const CarouselLabel:React.FunctionComponent<CarouselLabelProps> = ({ name, group
     );
 };
 
+CarouselLabel.displayName = "CarouselLabel";
+
 export default CarouselLabel;
 

@@ -15,4 +15,6 @@ const ActionGroup:React.FunctionComponent<ActionGroupProps> = ({ action }):React
     );
 };
 
+ActionGroup.displayName = "ActionGroup";
+
 export default ActionGroup;

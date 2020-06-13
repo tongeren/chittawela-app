@@ -33,4 +33,6 @@ const SectionGoal = ():React.ReactElement =>
         </SectionLayout>
     </Section>;
 
+SectionGoal.displayName = "SectionGoal";
+
 export default SectionGoal;

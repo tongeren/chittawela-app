@@ -6,6 +6,8 @@ const BrandName:React.FunctionComponent<BrandNameProps> = ({ flex, name }):React
     );
 };
 
+BrandName.displayName = "BrandName";
+
 export default BrandName;
 
 

@@ -16,5 +16,7 @@ const FormGroup:React.FunctionComponent<FormGroupProps> = ({id, name, inputType,
     );
 };
 
+FormGroup.displayName = "FormGroup";
+
 export default FormGroup;
 

@@ -16,4 +16,6 @@ const ActionForm:React.FunctionComponent<ActionFormProps> = ({ caption, list }):
     );
 };
 
+ActionForm.displayName = "ActionForm";
+
 export default ActionForm;

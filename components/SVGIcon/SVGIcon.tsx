@@ -9,10 +9,6 @@ const SVGIcon:React.FunctionComponent<SVGIconProps> = ({ classes, sprite }):Reac
     );
 };
 
-export default SVGIcon;
+SVGIcon.displayName = "SVGIcon";
 
-// SVGIcon.propTypes = {
-//     // entered: PropTypes.bool,
-//     sprite: PropTypes.string.isRequired,
-//     classes: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
-// };
+export default SVGIcon;

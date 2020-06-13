@@ -5,5 +5,10 @@ export interface WindowDimensions {
     windowHeight: number
 }
 
+export interface LabelNumber {
+    label: string
+    number: number
+}
+
 
 

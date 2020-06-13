@@ -10,5 +10,7 @@ const Button:React.ForwardRefExoticComponent<ButtonProps> = forwardRef(({ classe
     );
 });
 
+Button.displayName = "Button";
+
 export default Button;
 
