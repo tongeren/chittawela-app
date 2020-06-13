@@ -46,10 +46,15 @@ export const Client = types
         },
         responsiveState():ResponsiveState {
             const isPortrait = (self.orientation === "portrait");
+            const isLandscape = (self.orientation === "landscape");
             
             // Navbar responds in "landscape" mode in Chrome on iPhone 6S Plus !?! No css pixels?!?
             // const isPortrait = (self.orientation === "portrait") && (self.windowWidth < IPAD_WIDTH);
-            return isPortrait ? "portrait" : "landscape";
+            const state = isPortrait ? "portrait" : (
+                isLandscape ? "landscape" : "undetermined"
+            );
+            console.log("responsiveState:", state )
+            return state;
         },
         getFooterClippingStyles():CSS.Properties {
             const height = calcClipHeight(self.windowWidth);

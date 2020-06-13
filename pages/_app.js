@@ -6,7 +6,7 @@ import Client from '../components/Client/Client';
 // import dynamic from 'next/dynamic';
 // const Client = dynamic(() => import('../components/Client/Client'), {ssr: false })
 import { StoreProvider } from '../components/StoreProvider/StoreProvider';
-import 'mobx-react-lite/batchingForReactDom';
+import 'mobx-react-lite/batchingForReactDom'; // Enable batchin9
 import '../sass/main.scss';
 
 // Initialize the Firebase app

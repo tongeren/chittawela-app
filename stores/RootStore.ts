@@ -1,4 +1,5 @@
 import { types, Instance } from 'mobx-state-tree';
+import { spy } from 'mobx';
 import { Client } from './types/Client';
 import { Animations } from './types/Animations';
 import { UI } from './types/UI';
@@ -50,7 +51,7 @@ const RootStore = types
         addNavBarAnimation():string {
             // Animate the navbar iaoi responsiveState in landscape mode, the CTAButton animation has ended, and the navbar animation has not ended earlier 
             const flag = (self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd && !self.animations.navbarAnimationEnd;
-
+            console.log()
             const classes = "navbar";
             return flag ? classes.concat(" ", "navbar--animated") : classes;
         },
@@ -108,7 +109,6 @@ const RootStore = types
             const H = (height + clip) + "px";
             const C = clip + "px";
             const M = -0.5* clip + "px";
-            // const N = -clip + "px";
             const T = total + "px";
 
             const styles = {
@@ -163,3 +163,8 @@ const backgroundColorValue = (passed:boolean):string => {
     return passed ? COLOR_GOLD : "";   
 };
 
+spy(event => {
+    if (event.type === "action") {
+        console.log(`Spy: ${ event.name } with args: ${ event.arguments }`)
+    }
+})

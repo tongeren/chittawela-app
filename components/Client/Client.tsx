@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { trace } from 'mobx';
+import { trace, reaction } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../StoreProvider/StoreProvider';
 import { useEventListener } from '../../hooks/useEventListener/useEventListener';
@@ -16,6 +16,7 @@ const Client = observer( ({ children }) => {
 
     // Enter the debugger whenever an observable value causes this component to re-run
     trace(true);
+    // trace(store.client.setWindowWidth);
 
     // Observe screen orientation as early as possible
     const observed = useRef(); 
@@ -87,6 +88,15 @@ const Client = observer( ({ children }) => {
         store.client.setWindowHeight(windowDimensions.windowHeight);
         store.client.setWindowWidth(windowDimensions.windowWidth);
     }, [store.client, orientation, scrollCoords, windowDimensions]);
+
+    // reaction( 
+    //     () => {
+    //         return orientation;
+    //     },
+    //     orientation => {
+    //         store.client.setOrientation(orientation)
+    //     }
+    // );
 
     return (
         <div ref={ observed }>
