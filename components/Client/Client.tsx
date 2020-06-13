@@ -19,9 +19,7 @@ const Client = observer( ({ children }) => {
 
     // Observe screen orientation as early as possible
     const observed = useRef(); 
-    console.log("Client: store, observed", store, observed);
     store.client.setIsMobile(isMobile());
-    console.log("Client: isMobile(), store.client.isMobile", isMobile(), store.client.isMobile);
 
     const [ windowDimensions, setWindowDimensions ] = useState(measureDimensions()) 
     const [ scrollCoords, setScrollCoords ] = useState({ scrollX: 0, scrollY: 0 }); // scroll position does not exist on load
@@ -88,9 +86,7 @@ const Client = observer( ({ children }) => {
         store.client.setScrollY(scrollCoords.scrollY);
         store.client.setWindowHeight(windowDimensions.windowHeight);
         store.client.setWindowWidth(windowDimensions.windowWidth);
-    }, [store.client, orientation, scrollCoords, windowDimensions])
-
-    console.log("Client: store", store);
+    }, [store.client, orientation, scrollCoords, windowDimensions]);
 
     return (
         <div ref={ observed }>

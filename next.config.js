@@ -1,8 +1,12 @@
 /* eslint-disable */
 const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
 
-const nextConfiguration = { 
+const optimizedImages = require('next-optimized-images');
+const bundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true'
+});
+
+const nextConfig = { 
     // non-plugin configuration
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
         // Note: we provide webpack above so you should not `require` it
@@ -25,7 +29,10 @@ module.exports = withPlugins([
     [optimizedImages, {
         /* config for next-optimized-images */
     }],
+    [bundleAnalyzer, {
+       /* config for next-bundle-analyzer */
+    }],
 
     // other plugins here
 
-], nextConfiguration);
+], nextConfig);
