@@ -1,5 +1,6 @@
 module.exports = (api) => {
-    const env = api.cache(true);
+    const isTest = api.env('test');
+    const env = api.cache.forever();
 
     const presets = [
         [
@@ -7,8 +8,9 @@ module.exports = (api) => {
         {
             "preset-env": { 
                 "targets": {
-                    "node": "current"
-                } 
+                    "node": "current",
+                },
+                "modules": isTest ? 'commonjs' : false, 
             },
             "preset-typescript": {},
             "plugin-proposal-class-properties": {},

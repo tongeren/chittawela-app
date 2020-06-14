@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=development next dev",
     "build": "cross-env NODE_ENV=production ANALYZE=false next build",
     "start": "cross-env NODE_ENV=production next start -p 3000",
-    "test": "jest",
+    "test": "cross-env NODE_ENV=test jest",
     "test:watch": "jest --watch",
     "check-types": "tsc --watch"
   },
@@ -15,6 +15,7 @@
     "@vimeo/player": "^2.11.0",
     "dotenv": "^8.2.0",
     "firebase": "^7.14.4",
+    "identity-obj-proxy": "^3.0.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^7.1.0",
     "lodash.throttle": "^4.1.1",
