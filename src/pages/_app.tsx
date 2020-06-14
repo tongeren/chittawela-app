@@ -1,10 +1,6 @@
-
-import { Fragment } from 'react';
 import { useStore } from '../stores/stores';
-import { useMounted } from '../hooks/useMounted/useMounted';
 import initFirebase from '../config/firebase/initFirebase';
-import Client from '../client/Client/Client';
-import Loading from '../components/Loading/Loading';
+import ClientCSR from '../components/ClientCSR/ClientCSR';
 import { StoreProvider } from '../components/StoreProvider/StoreProvider';
 import 'mobx-react-lite/batchingForReactDom'; // Enable batching
 import '../sass/main.scss';
@@ -22,18 +18,13 @@ export const reportWebVitals = (metric: any):void => {
 
 const Root = ({ Component, pageProps}):React.ReactElement => {
     const store = useStore(pageProps.initialState);
-    const mounted = useMounted();
 
     return (
-        <Fragment>
-            { mounted ? 
-                <StoreProvider value={ store }>
-                    <Client>
-                        <Component { ...pageProps } />
-                    </Client>          
-                </StoreProvider> 
-             : <Loading /> }
-        </Fragment>
+        <StoreProvider value={ store }>
+            <ClientCSR>
+                <Component { ...pageProps } />
+            </ClientCSR>          
+        </StoreProvider> 
     );
 };
 

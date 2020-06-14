@@ -1,12 +1,21 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
 import MenuButton from '../MenuButton/MenuButton';
-import MenuNav from '../../components/MenuNav/MenuNav';
-import LogoBox from '../../components/LogoBox/LogoBox';
-import { useStore } from '../../components/StoreProvider/StoreProvider';
-import { NavBarProps } from './types';
+import MenuNav from '../MenuNav/MenuNav';
+import LogoBox from '../LogoBox/LogoBox';
+import { useStore } from '../StoreProvider/StoreProvider';
+import { INavItem } from '../NavItem/NavItem';
+import { Flex } from '../../types/types';
 
-const NavBar: React.FunctionComponent<NavBarProps> = ({flex, name, navItems, lastButton}): React.ReactElement => {
+export interface INavBar {
+    flex: Flex
+    name: string
+    navItems: INavItem[]
+    lastButton: boolean
+}
+
+
+const NavBar: React.FunctionComponent<INavBar> = ({flex, name, navItems, lastButton}): React.ReactElement => {
     const store = useStore();
    
     const renderMenu = (orientation) => {

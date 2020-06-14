@@ -1,9 +1,19 @@
 import React from 'react';
 import NavItem from '../NavItem/NavItem';
 import LinkAnchor from '../LinkAnchor/LinkAnchor';
-import { MenuNavProps } from './types';
+import { INavItem } from '../NavItem/NavItem';
+import { Flex } from '../../types/types';
+import { SyntheticEvent } from 'react';
 
-const MenuNav:React.FunctionComponent<MenuNavProps> = ({ menu, navItems, flex, lastButton, closeMenu }):React.ReactElement => {
+export interface IMenuNav {
+    menu: boolean
+    flex: Flex
+    navItems: INavItem[]
+    lastButton?: boolean,
+    closeMenu?: (event: SyntheticEvent) => void
+}
+
+const MenuNav:React.FunctionComponent<IMenuNav> = ({ menu, navItems, flex, lastButton, closeMenu }):React.ReactElement => {
     const buttonProps = lastButton ? navItems.slice(-1)[0] : null;
     const items = lastButton ? navItems.slice(0, -1) : navItems; 
 

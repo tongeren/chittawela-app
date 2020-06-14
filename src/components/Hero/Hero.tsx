@@ -1,9 +1,9 @@
 import React from 'react';
 import { useObserver } from 'mobx-react-lite';
-import CTA from '../../components/CTA/CTA';
-import SVG from '../../components/SVG/SVG';
-import Crossfade from '../../components/Crossfade/Crossfade';
-import { useStore } from '../../components/StoreProvider/StoreProvider';
+import CTA from '../CTA/CTA';
+import SVG from '../SVG/SVG';
+import Crossfade from '../Crossfade/Crossfade';
+import { useStore } from '../StoreProvider/StoreProvider';
 import { HeroProps } from './types';
 
 const Hero: React.FunctionComponent<HeroProps> = ({ sprite, crossfade, cta }): React.ReactElement =>{

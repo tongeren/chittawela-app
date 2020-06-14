@@ -1,8 +1,8 @@
 import { useObserver } from 'mobx-react-lite';
-import { useStore } from '../../components/StoreProvider/StoreProvider';
-import Modal from '../../components/Modal/Modal';
-import ResponsivePlayer from '../../components/ResponsivePlayer/ResponsivePlayer';
-import CenterBox from '../../components/CenterBox/CenterBox';
+import { useStore } from '../StoreProvider/StoreProvider';
+import Modal from '../Modal/Modal';
+import ResponsivePlayer from '../ResponsivePlayer/ResponsivePlayer';
+import CenterBox from '../CenterBox/CenterBox';
 
 const ResponsivePlayerModal = ():React.ReactElement => {
     const store = useStore();

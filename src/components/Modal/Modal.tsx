@@ -1,7 +1,10 @@
 // Modal the properties show and closeHandler are related: closeHandler must set the state of show to false
-import { ModalProps } from './types';
+export interface IModal {
+    show: boolean
+    closeHandler: () => void // closeHandler must set the state of show to false
+}
 
-const Modal:React.FunctionComponent<ModalProps> = ({ show, children, closeHandler }):React.ReactElement => {  
+const Modal:React.FunctionComponent<IModal> = ({ show, children, closeHandler }):React.ReactElement => {  
     return (
         <div 
             className={ show ? "modal modal--active" : "modal" } 
@@ -15,3 +18,4 @@ const Modal:React.FunctionComponent<ModalProps> = ({ show, children, closeHandle
 Modal.displayName = "Modal";
 
 export default Modal;
+

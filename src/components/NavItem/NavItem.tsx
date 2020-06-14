@@ -1,7 +1,13 @@
 import { useRouter } from 'next/router'
-import { NavItemProps } from './types';
+import { SyntheticEvent } from "react";
 
-const NavItem: React.FunctionComponent<NavItemProps> = ({ href, text, onClick }) :React.ReactElement => {
+export interface INavItem {
+    href: string
+    text: string
+    onClick?: (event:SyntheticEvent) => void
+}
+
+const NavItem: React.FunctionComponent<INavItem> = ({ href, text, onClick }) :React.ReactElement => {
     const router = useRouter();
 
     const handleClick = event => {

@@ -1,10 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useObserver } from 'mobx-react-lite';
-import { useStore } from '../../components/StoreProvider/StoreProvider';
-import MenuModal from '../../components/MenuModal/MenuModal';
-import { MenuButtonProps } from './types';
+import { useStore } from '../StoreProvider/StoreProvider';
+import MenuModal from '../MenuModal/MenuModal';
+import { INavItem } from '../NavItem/NavItem';
 
-const MenuButton:React.FunctionComponent<MenuButtonProps> = ({ navItems, lastButton }):React.ReactElement => {
+export interface IMenuButton {
+    navItems: INavItem[]
+    lastButton: boolean
+}
+
+const MenuButton:React.FunctionComponent<IMenuButton> = ({ navItems, lastButton }):React.ReactElement => {
     const store = useStore();
     const [checked, setChecked ] = useState(store.ui.menuOpen);
 

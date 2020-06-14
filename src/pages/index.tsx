@@ -3,9 +3,9 @@ import { getSnapshot, ModelSnapshotType } from 'mobx-state-tree';
 import { initStore } from '../stores/stores';
 import { useMounted } from '../hooks/useMounted/useMounted';
 
-import Hero from '../client/Hero/Hero';
-import NavBar from '../client/NavBar/NavBar';
-import ResponsivePlayerModal from '../client/ResponsivePlayerModal/ResponsivePlayerModal';
+import Hero from '../components/Hero/Hero';
+import NavBar from '../components/NavBar/NavBar';
+import ResponsivePlayerModal from '../components/ResponsivePlayerModal/ResponsivePlayerModal';
 
 // Normal imports for store user components:
 import Divider from '../components/Divider/Divider';

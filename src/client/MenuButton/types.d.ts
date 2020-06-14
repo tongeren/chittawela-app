@@ -1,4 +1,4 @@
-import { NavItemProps } from '../../components/NavItem/types';
+import { NavItemProps } from '../NavItem/types';
 
 export interface MenuButtonProps {
     navItems: NavItemProps[]

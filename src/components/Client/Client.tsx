@@ -2,12 +2,12 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { trace } from 'mobx';
 import throttle from 'lodash.throttle';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../../components/StoreProvider/StoreProvider';
+import { useStore } from '../StoreProvider/StoreProvider';
 import { useEventListener } from '../../hooks/useEventListener/useEventListener';
-import { determineOrientation } from '../../../src/helpers/orientation/orientation';
-import { ScreenOrientationPS } from '../../../src/helpers/orientation/types';
-import measureDimensions from '../../../src/helpers/dimensions/measureDimensions';
-import isMobile from '../../../src/helpers/mobile/isMobile';
+import { determineOrientation } from '../../helpers/orientation/orientation';
+import { ScreenOrientationPS } from '../../helpers/orientation/types';
+import measureDimensions from '../../helpers/dimensions/measureDimensions';
+import isMobile from '../../helpers/mobile/isMobile';
 
 const Client = observer( ({ children }) => {
     // Get the mobx-state-tree store

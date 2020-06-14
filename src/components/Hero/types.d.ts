@@ -1,5 +1,5 @@
 import { CrossfadeProps } from '../../components/Crossfade/types';
-import { CTAProps } from '../../components/CTA/types';
+import { CTAProps } from '../CTA/types';
 
 export interface HeroProps {
     sprite: string,
