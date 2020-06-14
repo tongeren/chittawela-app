@@ -1,8 +1,9 @@
 import Head from 'next/head';
+import { useMounted } from '../hooks/useMounted/useMounted';
 
-import Hero from '../mobx/Hero/Hero';
-import NavBar from '../mobx/NavBar/NavBar';
-import ResponsivePlayerModal from '../mobx/ResponsivePlayerModal/ResponsivePlayerModal';
+import Hero from '../client/Hero/Hero';
+import NavBar from '../client/NavBar/NavBar';
+import ResponsivePlayerModal from '../client/ResponsivePlayerModal/ResponsivePlayerModal';
 
 // Normal imports for store user components:
 import Divider from '../components/Divider/Divider';
@@ -99,6 +100,10 @@ const CTA = {
 };
 
 const Home:React.FunctionComponent = ():React.ReactElement => {
+  const isMounted = useMounted();
+
+  console.log("Home: isMounted", isMounted);
+
   return (
     <div className="container">
         <Head>

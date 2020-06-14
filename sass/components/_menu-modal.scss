@@ -1,4 +1,6 @@
 .menu-modal {
+    display: flex;
+    transform: translateY(-100%);
     position: absolute;
     top: 0;
     left: 0;
@@ -7,4 +9,10 @@
     width: 100vw;
     height: 100vh;
     background-color: var(--color-gold);
+
+    &--active {
+        display: flex;
+        transform: translateY(0);
+        transition: translateY .2s;
+    }
 }

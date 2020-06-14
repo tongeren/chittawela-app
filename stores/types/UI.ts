@@ -33,11 +33,13 @@ export const UI = types
                 height: self.imageHeight + "px"
             };
         },
-        setBodyStyles():void {
+        toggleScrolling():void {
             const state = self.menuOpen;
             document.body.style.overflowY = state ? "hidden" : "scroll";
             document.body.style.position = state ? "fixed" : "static";
-            console.log(document.body.style.overflowY, document.body.style.position);
+            document.body.style.touchAction = state ? "none" : "auto";
         }
         
     }))
+
+//setBodyStyles()

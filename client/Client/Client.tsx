@@ -1,9 +1,9 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { trace, reaction } from 'mobx';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../StoreProvider/StoreProvider';
+import { useStore } from '../../components/StoreProvider/StoreProvider';
 import { useEventListener } from '../../hooks/useEventListener/useEventListener';
-import restrictToClient from '../../hoc/restrictToClient/restrictToClient'; // I should only use this here and nowhere else
+// import restrictToClient from '../../hoc/restrictToClient/restrictToClient'; // I should only use this here and nowhere else
 import { determineOrientation } from '../../helpers/orientation/orientation';
 import { ScreenOrientationPS } from '../../helpers/orientation/types';
 import measureDimensions from '../../helpers/dimensions/measureDimensions';
@@ -16,7 +16,6 @@ const Client = observer( ({ children }) => {
 
     // Enter the debugger whenever an observable value causes this component to re-run
     trace(true);
-    // trace(store.client.setWindowWidth);
 
     // Observe screen orientation as early as possible
     const observed = useRef(); 
@@ -89,14 +88,7 @@ const Client = observer( ({ children }) => {
         store.client.setWindowWidth(windowDimensions.windowWidth);
     }, [store.client, orientation, scrollCoords, windowDimensions]);
 
-    // reaction( 
-    //     () => {
-    //         return orientation;
-    //     },
-    //     orientation => {
-    //         store.client.setOrientation(orientation)
-    //     }
-    // );
+    
 
     return (
         <div ref={ observed }>
@@ -108,4 +100,4 @@ const Client = observer( ({ children }) => {
 
 Client.displayName = "Client";
 
-export default restrictToClient(Client);
+export default Client;

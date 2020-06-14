@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useObserver } from 'mobx-react-lite';
 import { useStore } from '../../components/StoreProvider/StoreProvider';
 import MenuModal from '../../components/MenuModal/MenuModal';
@@ -8,10 +8,28 @@ const MenuButton:React.FunctionComponent<MenuButtonProps> = ({ navItems, lastBut
     const store = useStore();
     const [checked, setChecked ] = useState(store.ui.menuOpen);
 
+    const handleModalChange = useCallback( 
+        open => {
+            store.ui.setMenuOpen(open);
+            store.ui.toggleScrolling();
+        }, [ store.ui ]
+    );
+
+    // Bring local state in line with global state again
+    const updateLocalState = () => {
+        setChecked(store.ui.menuOpen); 
+    };
+
+    // Change corresponding (global) store state whenever local change changes
     useEffect(() => {
-        store.ui.setMenuOpen(checked);
-        store.ui.setBodyStyles();
-    }, [store.ui, checked]);
+        handleModalChange(checked);
+    }, [ handleModalChange, checked ]);
+
+    // Close modal 
+    const closeModal = () => { 
+       handleModalChange(false);
+       updateLocalState(); 
+    };
 
     return useObserver( () => (
         <div className="menu-button">
@@ -19,17 +37,19 @@ const MenuButton:React.FunctionComponent<MenuButtonProps> = ({ navItems, lastBut
                 className="menu-button__checkbox" 
                 id="navi-toggle" 
                 type="checkbox" 
-                checked={ store.ui.menuOpen }
-                onChange={ () => {
-                    store.ui.setMenuOpen(!checked);
-                    setChecked(!checked);
-                } }
+                checked={ checked  } 
+                onChange={ () => setChecked(!checked) }
             />   
             <label className="menu-button__button" htmlFor="navi-toggle"> 
                 <span id="icon" className="menu-button__icon"></span> 
             </label>
             <div className="menu-button__nav">
-                <MenuModal show={ store.ui.menuOpen } navItems={ navItems } lastButton={ lastButton } />
+                <MenuModal 
+                    show={ store.ui.menuOpen } 
+                    navItems={ navItems } 
+                    lastButton={ lastButton } 
+                    closeModal={ closeModal }
+                />
             </div>
         </div>
     ));

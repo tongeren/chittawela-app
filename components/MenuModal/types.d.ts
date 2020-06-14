@@ -1,5 +1,7 @@
-import { MenuButtonProps } from '../../mobx/MenuButton/types';
+import { MenuButtonProps } from '../../client/MenuButton/types';
+import { SyntheticEvent } from 'react';
 
 export interface MenuModalProps extends MenuButtonProps{
-    show: boolean,
+    show: boolean
+    closeModal: (event: SyntheticEvent) => void
 }

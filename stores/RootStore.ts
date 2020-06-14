@@ -43,14 +43,14 @@ const RootStore = types
     .views(self => ({
         addHeroAnimation():string {
             // Animate (clip) the hero iaoi responsiveState in landscape mode and the CTAButton animation has ended
-            const flag = (self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd;
+            const flag = (self.client.orientation === "landscape") && self.animations.ctaButtonAnimationEnd;
 
             const classes = "hero";
             return flag ? classes.concat(" ", "hero--animated") : classes;
         },
         addNavBarAnimation():string {
             // Animate the navbar iaoi responsiveState in landscape mode, the CTAButton animation has ended, and the navbar animation has not ended earlier 
-            const flag = (self.client.responsiveState() === "landscape") && self.animations.ctaButtonAnimationEnd && !self.animations.navbarAnimationEnd;
+            const flag = (self.client.orientation === "landscape") && self.animations.ctaButtonAnimationEnd && !self.animations.navbarAnimationEnd;
             console.log()
             const classes = "navbar";
             return flag ? classes.concat(" ", "navbar--animated") : classes;
@@ -62,7 +62,7 @@ const RootStore = types
 
             const passed = (self.client.scrollY > rightHeaderHeight);
             const up = self.client.up;
-            const landscape = (self.client.responsiveState() === "landscape");
+            const landscape = (self.client.orientation === "landscape");
             const ended = self.animations.navbarAnimationEnd;
 
             // Get the styles of the navbar
@@ -82,7 +82,7 @@ const RootStore = types
         },
         getPictureDividerStyles(src:string, aspectRatio:number, shift?:boolean, scroll?:boolean):CSS.Properties {
             const clip = self.client.clipHeight();
-            const portrait = (self.client.responsiveState() === "portrait");
+            const portrait = (self.client.orientation === "portrait");
 
             // Scale the height using the aspect ratio of the background image
             const height = ((aspectRatio > 1) ? self.client.windowHeight : (self.client.windowWidth / aspectRatio)) + 2 * clip;
@@ -102,7 +102,7 @@ const RootStore = types
         },
         getPhotoSectionStyles():CSS.Properties {
             const clip = self.client.clipHeight();
-            const portrait = (self.client.responsiveState() === "portrait");
+            const portrait = (self.client.orientation === "portrait");
             const height = self.ui.bookSectionHeight;
             const total = height + 2 * clip;
             

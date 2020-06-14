@@ -8,12 +8,8 @@ const CTAButton: React.FunctionComponent<CTAButtonProps> = ({ cta }) => {
     return useObserver( () => (
         <button
             id="cta-button"
-            onClick={ () => { 
-                console.log("CTAButton - before: store.ui.playHeroVideo", store.ui.playHeroVideo); 
-
-                store.ui.setPlayHeroVideo(true);
-                console.log("CTAButton - after: store.ui.playHeroVideo", store.ui.playHeroVideo); 
-            }}
+            onClick={ () => store.ui.setPlayHeroVideo(true) }
+            onTouchStart={ () => store.ui.setPlayHeroVideo(true) }
             onAnimationEnd={ () => store.animations.setCTAButtonAnimationEnd() }
             className="button button--white-orange button--animated"
         >

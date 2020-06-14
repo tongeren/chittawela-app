@@ -3,7 +3,10 @@ import { ModalProps } from './types';
 
 const Modal:React.FunctionComponent<ModalProps> = ({ show, children, closeHandler }):React.ReactElement => {  
     return (
-        <div className={ show ? "modal modal--active" : "modal" } onClick={ () => closeHandler() }> 
+        <div 
+            className={ show ? "modal modal--active" : "modal" } 
+            onClick={ () => closeHandler() }
+            onTouchStart={ () => closeHandler() }> 
             { children }
         </div>
     );

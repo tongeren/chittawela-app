@@ -1,5 +1,6 @@
 import CenterBox from '../CenterBox/CenterBox';
 import FormGroup from './FormGroup/FormGroup';
+import LinkAnchor from '../LinkAnchor/LinkAnchor';
 import { ActionFormProps } from './types';
 
 const ActionForm:React.FunctionComponent<ActionFormProps> = ({ caption, list }):React.ReactElement => {
@@ -10,6 +11,7 @@ const ActionForm:React.FunctionComponent<ActionFormProps> = ({ caption, list }):
                 { list.map((item, key) => <FormGroup key={ key } { ...item } /> )}
             </div>
             <CenterBox>
+                {/* <LinkAnchor /> */}
                 <a href="#" className="button button--white-orange">Start your journey here</a>
             </CenterBox>
         </div>

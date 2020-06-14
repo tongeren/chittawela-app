@@ -4,7 +4,7 @@ import { SectionLayoutProps } from './types';
 const SectionLayout: React.FunctionComponent<SectionLayoutProps> = ({ id, heading, children, blue, marginBottom, marginTop }):React.ReactElement => { 
     const store = useStore();
 
-    const portrait = (store.client.responsiveState() === "portrait");
+    const portrait = (store.client.orientation === "portrait");
     const color = `section-layout ${blue ? "section-layout--blue" : ""}`;
     const classes = portrait ? color : (color 
         .concat(" ", marginBottom ? "u-margin-bottom-section" : "")

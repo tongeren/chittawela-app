@@ -1,68 +1,42 @@
-.menu-button {
-    display: none;
-    position: relative;
-     
-    @include respond(portrait) {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        position: fixed;
-        height: 0.7 * $navigation-height;
-        width: 0.7 * $navigation-height;
-        z-index: 1; // button should be on top of the background
-        border-radius: 50%;
-        text-align: center;
-        cursor: pointer;
-    }
+.menu-button {  
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    height: 0.7 * $navigation-height;
+    width: 0.7 * $navigation-height;
+    z-index: 1;
+    text-align: center;
+    cursor: pointer;
 
     &__checkbox {
         display: none;
     }
 
-
     &__button {
-        display: none;
+        display: flex;
+        position: fixed;
+        height: 0.7 * $navigation-height;
+        width: 0.7 * $navigation-height;
+        text-align: center;
+        cursor: pointer;
         z-index: inherit;
-
-        
-        @include respond(portrait) {
-            display: flex;
-            position: fixed;
-            height: 0.7 * $navigation-height;
-            width: 0.7 * $navigation-height;
-            z-index: 1; // button should be on top of the background
-            border-radius: 50%;
-            text-align: center;
-            cursor: pointer;
-        }
-        
-
     }
 
     &__icon {
-        display: none;
         position: absolute;
         top: 50%;
         left: 1.5rem;
         transform: translateY(-50%);
         z-index: inherit;
-        
-        @include respond(portrait) {
-            display: block;   
-        }
 
         &,
         &::before,
         &::after {
-            display: none;
+            display: inline-block;
             width: 3rem;
             height: 2px;
             background-color: white; 
-
-            @include respond(portrait) {    
-                display: inline-block;
-            }
-        
         }
 
         &::before,
@@ -77,31 +51,6 @@
         &::after { top: .8rem; }
     }
 
-    // navigation part of the navbar
-    &__nav {
-        margin-right: $navigation-margin-horizontal; // add margin to the nav in order to align with the section margin
-        // z-index: inherit;
-
-        // NAV SWITCHES TO FULL SCREEN 
-        
-        @include respond(portrait) {
-            height: 100vh;
-            display: none; // nav should not be there initially
-            pointer-events: none;
-            margin-right: 0; // remove margin-right
-            width: 100vw;         
-            position: absolute;
-            top: 0;
-            left: 0;  
-            right: 0;
-            bottom: 0;
-            background-color: var(--color-gold);
-        }
-        
-    }
-
-    // FUNCTIONALITY
-
     /* on hover make hamburger icon bigger */
     &__button:hover &__icon::before {
         top: -1rem;
@@ -109,21 +58,6 @@
 
     &__button:hover &__icon::after {
         top: 1rem;
-    }
-
-
-    &__checkbox:checked ~ &__nav {
-        display: block;
-        animation: fadeInOpacityGrowWidth .8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s 1 normal forwards running;
-        pointer-events: auto;
-        
-        
-        @include respond(portrait) {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
     }
 
     /* transform to close icon */
@@ -153,3 +87,4 @@
         transform: rotate(0);
     }
 }
+
