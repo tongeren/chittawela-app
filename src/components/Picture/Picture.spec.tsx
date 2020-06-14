@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from 'test-utils';
-import Picture from "./Picture";
+import Picture from "../PictureCSR/PictureCSR";
 
 const testProps = {
     sources: [{ "source": 

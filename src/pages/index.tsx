@@ -45,11 +45,11 @@ import SocialMedia from '../components/SocialMedia/SocialMedia';
 import SubscribeForm from '../components/SubscribeForm/SubscribeForm';
 import FooterTestimonial from '../components/FooterTestimonial/FooterTestimonial';
 
-export const getServerSideProps = () => {
-    const store = initStore();
+// export const getServerSideProps = () => {
+//     const store = initStore();
   
-    return { props: { initialState: getSnapshot(store) } };
-};
+//     return { props: { initialState: getSnapshot(store) } };
+// };
 
 import { CROSSFADE } from '../_static/crossfade';
 

@@ -76,7 +76,7 @@ for (let i = 0; i < n; i++) {
             "photos": PHOTOS[i],
             "info":   INFO[i]
     });
-};
+}
 
 const SectionTestimonials = ():React.ReactElement => {  
     return (

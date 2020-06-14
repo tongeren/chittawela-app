@@ -1,8 +1,11 @@
 import React from 'react';
-import Picture from '../Picture/Picture';
-import { CrossfadeProps } from './types';
+import Picture, { IPictureCSR } from '../PictureCSR/PictureCSR';
 
-const Crossfade: React.FunctionComponent<CrossfadeProps> = ({ crossfade }): React.ReactElement => {
+export interface ICrossfade {
+    crossfade: IPictureCSR[]
+}
+
+const Crossfade: React.FunctionComponent<ICrossfade> = ({ crossfade }): React.ReactElement => {
     return (
         <div className="crossfade">
             { crossfade.map((picture, key) => {
