@@ -6,9 +6,11 @@ const addClasses = (existing: string, extra: Classes):string => {
     if (typeof extra === 'string') extra = [ extra ];  
 
     const reducer = (acc, val) => acc.concat(" ", val);
-    extra.push(existing);
 
-    return extra.reduce(reducer);
+    extra = [ existing ].concat(extra);
+    // extra.push(existing);
+
+    return extra.reduce(reducer).trim();
 };
 
 export default addClasses; 

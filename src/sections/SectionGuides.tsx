@@ -26,7 +26,7 @@ const PHOTO = {
 const SectionGuides = ():React.ReactElement => 
     <Section id="section-guides">
         <SectionLayout 
-            marginTop
+            topMargin
         >
             <BoxLayout 
                 firstText={ false }

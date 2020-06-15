@@ -1,6 +1,6 @@
 .result-layout {
     display: grid;
-    grid-template-columns: repeat(4, #{$card-width});
+    grid-template-columns: repeat(4, 1fr); 
     grid-gap: $card-grid-gap;
 
     padding: 4rem 0;

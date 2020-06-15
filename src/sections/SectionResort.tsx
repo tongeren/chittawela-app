@@ -11,7 +11,7 @@ const BANBUREE_SLIDES = slides(1);
 const SectionResort = ():React.ReactElement => 
     <Section id="section-resort">
         <SectionLayout
-            marginTop
+            topMargin
             heading={
                         <SectionHeading 
                             title="A breathtaking setting for transformation"

@@ -11,7 +11,7 @@ const SectionChallenge = ():React.ReactElement =>
             title="Connect to your heart and reach your full potential"
             subtitle="Let me show you how to listen to your inner self and re-experience its unlimited inner strength and knowledge"
         />
-        <SectionLayout blue>
+        <SectionLayout color>
             <BoxLayout
                 firstText
                 text={

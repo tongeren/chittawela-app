@@ -13,7 +13,7 @@ const SectionPrice = ():React.ReactElement => {
     return (
         <Section id="section-price">
             <SectionLayout
-                blue
+                color
                 heading={
                     <SectionHeading
                         title="And the cost of this unique profoundly life-changing adventure and experience?"

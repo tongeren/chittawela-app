@@ -26,7 +26,7 @@ const items = [
 const SectionFollowUp = ():React.ReactElement => 
     <Section id="section-follow-up">
         <SectionLayout
-            blue
+            color
             heading={
                         <SectionHeading 
                             title="You will be well on your way to achieving your ultimate goals"

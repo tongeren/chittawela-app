@@ -81,7 +81,7 @@ for (let i = 0; i < n; i++) {
 const SectionTestimonials = ():React.ReactElement => {  
     return (
         <Section id="section-testimonials">
-            <SectionLayout blue>
+            <SectionLayout color>
                 <FlexColLayout>
                     { testimonials.map((testimonial, key) =>
                     <Testimonial

@@ -7,7 +7,7 @@ import SectionLayout from '../components/SectionLayout/SectionLayout';
 const SectionInspiring = ():React.ReactElement => 
     <Section id="section-inspiring">
         <SectionLayout
-            blue
+            color
             heading={
                         <SectionHeading 
                             title="I chose a soothing, inspiring, and intimate location for my retreat for three reasons:"

@@ -7,7 +7,7 @@ import SectionLayout from '../components/SectionLayout/SectionLayout';
 const SectionTransformation = ():React.ReactElement => 
     <Section id="section-transformation">
         <SectionLayout
-            blue
+            color
             heading={
                         <SectionHeading 
                             title="This is what you will have achieved after our time together"

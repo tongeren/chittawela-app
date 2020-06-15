@@ -10,7 +10,7 @@ import SectionLayout from '../components/SectionLayout/SectionLayout';
 const SectionFoundation = ():React.ReactElement => 
     <Section id="section-foundation">
         <SectionLayout
-            marginTop
+            topMargin
             heading={
                         <SectionHeading 
                             title="Master yourself, embrace your soul, and harness its infinite powers"

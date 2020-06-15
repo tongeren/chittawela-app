@@ -8,8 +8,7 @@ import SectionLayout from '../components/SectionLayout/SectionLayout';
 const SectionGroup = ():ReactElement => 
     <Section id="section-group">
         <SectionLayout
-            marginTop
-            marginBottom
+            topMargin bottomMargin
             heading={
                         <SectionHeading 
                             title="Seven uplifting days in the company of other high achievers, surrounded by positive energy"

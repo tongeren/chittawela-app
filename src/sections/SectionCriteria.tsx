@@ -34,7 +34,7 @@ const CRITERIA = [
 const SectionCriteria= ():React.ReactElement => 
     <Section id="section-criteria">
         <SectionLayout
-            blue
+            color
             heading={
                         <SectionHeading 
                             title="To be considered for this opportunity, you must meet the following 4 commitments:"

@@ -6,7 +6,7 @@ import StatementLayout from '../components/StatementLayout/StatementLayout';
 const SectionDescription = ():React.ReactElement => 
     <Section id="section-statements">
         <SectionLayout 
-            blue 
+            color
             heading={
                 <SectionHeading title="Does any of the following sound familiar to you?" color="black" align="center"/>
             }

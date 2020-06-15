@@ -1,0 +1,89 @@
+.navi-toggle {  
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    height: 0.7 * $navigation-height;
+    width: 0.7 * $navigation-height;
+    z-index: 1;
+    text-align: center;
+    cursor: pointer;
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        display: flex;
+        position: fixed;
+        height: 0.7 * $navigation-height;
+        width: 0.7 * $navigation-height;
+        text-align: center;
+        cursor: pointer;
+        z-index: inherit;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 1.5rem;
+        transform: translateY(-50%);
+        z-index: inherit;
+
+        &,
+        &::before,
+        &::after {
+            display: inline-block;
+            width: 3rem;
+            height: 2px;
+            background-color: white; 
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &::before { top: -.8rem; }
+        &::after { top: .8rem; }
+    }
+
+    /* on hover make hamburger icon bigger */
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    /* transform to close icon */
+    &__checkbox:checked ~ &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked ~ &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked ~ &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+
+    &__checkbox:not(:checked) ~ &__button &__icon {
+        background-color: white;
+    }
+
+    &__checkbox:not(:checked) ~ &__button &__icon {
+        transform: rotate(0);
+    }
+
+    &__checkbox:not(:checked) ~ &__button &__icon {
+        transform: rotate(0);
+    }
+}

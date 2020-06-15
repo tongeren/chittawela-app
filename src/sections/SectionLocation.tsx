@@ -6,7 +6,7 @@ import SectionLayout from '../components/SectionLayout/SectionLayout';
 const SectionLocation = ():React.ReactElement => 
     <Section id="section-location">
         <SectionLayout
-            marginBottom
+            bottomMargin
             heading={
                         <SectionHeading 
                             title=" Did I mention that we'll be meeting at a four-star luxury beachfront resort in the tropical island of Samui, Thailand?"

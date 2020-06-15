@@ -8,7 +8,7 @@
         padding: $section-padding-portrait;
     }
 
-    &--blue {
+    &--color {
         padding: $section-padding-vertical + 5rem $section-padding-horizontal;
 
         @include respond(portrait) {

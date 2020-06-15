@@ -28,7 +28,7 @@ const PHOTOS = {
 const SectionOffer = ():React.ReactElement => 
     <Section id="section-offer">
         <SectionLayout
-            marginTop
+            topMargin
         >
             <BoxLayout 
                 firstText

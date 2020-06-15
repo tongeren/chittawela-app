@@ -1,15 +1,25 @@
 import { useStore } from '../StoreProvider/StoreProvider';
-import { SectionLayoutProps } from './types';
+import addClasses from '../../helpers/classes/addClasses';
 
-const SectionLayout: React.FunctionComponent<SectionLayoutProps> = ({ id, heading, children, blue, marginBottom, marginTop }):React.ReactElement => { 
+export interface ISectionLayout {
+    id?: string 
+    heading?: React.ReactElement
+    children: React.ReactNode
+    color?: boolean
+    bottomMargin?: boolean
+    topMargin?: boolean
+}
+
+const SectionLayout: React.FunctionComponent<ISectionLayout> = ({ id, heading, children, color, bottomMargin, topMargin }):React.ReactElement => { 
     const store = useStore();
-
     const portrait = (store.client.orientation === "portrait");
-    const color = `section-layout ${blue ? "section-layout--blue" : ""}`;
-    const classes = portrait ? color : (color 
-        .concat(" ", marginBottom ? "u-margin-bottom-section" : "")
-        .concat(" ", marginTop ? "u-margin-top-section" : "")
-    );
+
+    const colorClass = color ? "section-layout--color": "";
+    const bottomClass = (!portrait && bottomMargin) ? "u-margin-bottom-section": "";
+    const topClass = (!portrait && topMargin) ? "u-margin-top-section" : "";
+
+    const arr = [colorClass, bottomClass, topClass].filter(str => !(str === undefined));
+    const classes = addClasses("section-layout", arr);
         
     return (
         <div id={ id } className={ classes }>

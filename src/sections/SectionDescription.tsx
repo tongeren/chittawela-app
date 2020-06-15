@@ -3,11 +3,11 @@ import Application from '../components/Application/Application';
 import BoxLayout from '../components/BoxLayout/BoxLayout';
 import Section from '../components/Section/Section';
 import SectionHeading from '../components/SectionHeading/SectionHeading';
-import SectionLayout from '../components/SectionLayout/SectionLayout';
+import SectionLayoutCSR from '../components/SectionLayoutCSR/SectionLayoutCSR';
 
 const SectionDescription = ():React.ReactElement => 
     <Section id="section-description">
-        <SectionLayout marginBottom> 
+        <SectionLayoutCSR bottomMargin> 
             <BoxLayout
                 firstText
                 text={
@@ -38,7 +38,7 @@ const SectionDescription = ():React.ReactElement =>
                     />
                 }
             />    
-        </SectionLayout>
+        </SectionLayoutCSR>
     </Section>;
 
 SectionDescription.displayName = "SectionDescription";

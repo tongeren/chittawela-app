@@ -30,7 +30,10 @@ $resolution-apple-retina-screen: 192dpi;
 
 
 // GRADIENTS
-$gradient-skyblue: linear-gradient(to right top, rgba(var(--color-medium-skyblue), 1), rgba(var(--color-light-skyblue), .1));
+$gradient-skyblue: linear-gradient(to right top, rgba(var(--color-medium-skyblue), 1), rgba(var(--color-medium-skyblue), .1)),
+linear-gradient(to right top, rgba(var(--color-light-skyblue), .1), rgba(var(--color-light-skyblue), 1));
+$gradient-green: linear-gradient(to right top, rgba(var(--color-dark-green), 1), rgba(var(--color-dark-green), .1)), 
+linear-gradient(to right top, rgba(var(--color-dark-limegreen), .1), rgba(var(--color-dark-limegreen), 1));
 $gradient-primary: $gradient-skyblue;
 // PADDING
 $padding-large: 6rem;

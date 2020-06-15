@@ -7,8 +7,7 @@ import SectionLayout from '../components/SectionLayout/SectionLayout';
 const SectionOpportunity = ():React.ReactElement => 
     <Section id="section-opportunity">
         <SectionLayout
-            marginBottom
-            marginTop
+            topMargin bottomMargin
             heading={
                         <SectionHeading 
                             title="This is your opportunity to start living life authentically"
