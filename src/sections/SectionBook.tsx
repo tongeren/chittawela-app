@@ -1,12 +1,14 @@
 import dynamic from 'next/dynamic';
-
+import Loading from '../components/Loading/Loading';
 import ActionForm from '../components/ActionForm/ActionForm';
 import Contact from '../components/Contact/Contact';
-
-const PhotoSection = dynamic(() => import('../components/PhotoSection/PhotoSection'), { ssr: false });
+import PhotoSection from '../components/PhotoSection/PhotoSection';
+const SectionLayout = dynamic(
+    () => import('../components/SectionLayout/SectionLayout'), 
+    { loading: () => <Loading />, ssr: false }
+);
 
 import ResponsiveHeading from '../components/ResponsiveHeading/ResponsiveHeading';
-import SectionLayout from '../components/SectionLayout/SectionLayout';
 import BookLayout from '../components/BookLayout/BookLayout';
 import AlignTopBottom from '../components/AlignTopBottom/AlignTopBottom';
 
@@ -46,7 +48,7 @@ const ACTION_FORM_LIST = [
 ];
 
 const SectionBook = ():React.ReactElement => 
-    <PhotoSection id="section-book" > 
+    <PhotoSection id="section-book"> 
         <SectionLayout>
             <BookLayout
                 left={

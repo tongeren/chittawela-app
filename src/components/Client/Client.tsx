@@ -20,7 +20,7 @@ const Client = observer( ({ children }) => {
     const observed = useRef(); 
     store.client.setIsMobile(isMobile());
 
-    const [ windowDimensions, setWindowDimensions ] = useState(measureDimensions()) 
+    const [ windowDimensions, setWindowDimensions ] = useState({ windowWidth: 0, windowHeight: 0}) ; // measureDimensions()
     const [ scrollCoords, setScrollCoords ] = useState({ scrollX: 0, scrollY: 0 }); // scroll position does not exist on load
     const [ orientation, setOrientation ] = useState("unsupported" as ScreenOrientationPS);
 
@@ -88,7 +88,7 @@ const Client = observer( ({ children }) => {
     }, [store.client, orientation, scrollCoords, windowDimensions]);
 
     return (
-        <div ref={ observed }>
+        <div ref={ observed }> 
             { children }
         </div> 
     );

@@ -48,8 +48,10 @@ export const useDimensions: (liveMeasure: UseDimensionsArgs) => UseDimensionsHoo
             // If we want to measure continually take care of adding and removing the appropriate event listeners
             if (liveMeasure) {
                 window.addEventListener("resize", handleResize);
+                window.addEventListener("scroll", handleResize);
                 return () => {
                     window.removeEventListener("resize", handleResize);
+                    window.removeEventListener("scroll", handleResize);
                 };
             }
         } 

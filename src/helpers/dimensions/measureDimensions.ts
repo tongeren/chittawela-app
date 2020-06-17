@@ -5,11 +5,19 @@ const measureDimensions = ():WindowDimensions => {
     const mobile = isMobile();
 
     if (mobile) {
-        const { clientWidth, clientHeight } = document.documentElement; // better support than windowWidth & windowHeight on mobile browsers
-        return { windowWidth: clientWidth, windowHeight: clientHeight };
+        if (document) {
+            const { clientWidth, clientHeight } = document.documentElement; // better support than windowWidth & windowHeight on mobile browsers
+            return { windowWidth: clientWidth, windowHeight: clientHeight };
+        } else { 
+            return { windowWidth: 0, windowHeight: 0 };
+        }
     } else { 
-        const { innerWidth, innerHeight } = window;
-        return { windowWidth: innerWidth, windowHeight: innerHeight };
+        if (window) {
+            const { innerWidth, innerHeight } = window;
+            return { windowWidth: innerWidth, windowHeight: innerHeight };
+        } else {
+            return { windowWidth: 0, windowHeight: 0 };
+        }
     }
 };
 

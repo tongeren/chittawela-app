@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from 'test-utils';
-import Picture from "../PictureCSR/PictureCSR";
+import Picture from "./Picture";
 
 const testProps = {
     sources: [{ "source": 
@@ -26,5 +26,3 @@ describe("<Picture />", () => {
         expect(img).toHaveAttribute("alt");
     });   
 });
-
-// TO DO 

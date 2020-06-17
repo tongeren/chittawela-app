@@ -3,12 +3,12 @@
 import React, { Fragment } from 'react'
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { useMounted } from '../../hooks/useMounted/useMounted';
-import { StoreProvider } from '../../components/StoreProvider/StoreProvider';
-import Client from '../../client/Client/Client';
-import Loading from '../../components/Loading/Loading';
-import { useStore } from '../../stores/stores';
-import { createStore } from '../../stores/createStore';
+import { useMounted } from '../hooks/useMounted/useMounted';
+import { StoreProvider } from '../components/StoreProvider/StoreProvider';
+import Client from '../components/Client/Client';
+import Loading from '../components/Loading/Loading';
+import { useStore } from '../stores/stores';
+import { createStore } from '../stores/createStore';
 import 'mobx-react-lite/batchingForReactDom';
 // import '../../sass/main.scss';
 

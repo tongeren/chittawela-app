@@ -108,119 +108,119 @@ const CTA = {
 };
 
 const Home:React.FunctionComponent = ():React.ReactElement => {
-  const isMounted = useMounted();
+    const isMounted = useMounted();
 
-  console.log("Home: isMounted", isMounted);
+    console.log("Home: isMounted", isMounted);
 
-  return (
-    <div className="container">
-        <Head>
-            <title>Self-transformational retreats &mdash; Be on your way to a new you &mdash; Chittawela</title>
-            <link rel="icon" href="/logo_192px_color.png" />
+    return (
+        <div className="container">
+            <Head>
+                <title>Self-transformational retreats &mdash; Be on your way to a new you &mdash; Chittawela</title>
+                <link rel="icon" href="/logo_192px_color.png" />
 
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pinyon+Script:400&display=swap" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat:400&display=swap" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+SC:300&display=swap" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700display=swap" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pinyon+Script:400&display=swap" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat:400&display=swap" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+SC:300&display=swap" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700display=swap" />
 
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
 
-        </Head>
+            </Head>
 
-        <main>
-            <Hero 
-                sprite="wiphatthra"
-                crossfade={ CROSSFADE }
-                cta={ CTA }
-            /> 
-            <NavBar 
-                name="Chittawela" 
-                flex="row"  
-                navItems={ NAVIGATION }
-                lastButton= { true }
-            />
-            <ResponsivePlayerModal /> 
+            <main>
+                <Hero 
+                    sprite="wiphatthra"
+                    crossfade={ CROSSFADE }
+                    cta={ CTA }
+                /> 
+                <NavBar 
+                    name="Chittawela" 
+                    flex="row"  
+                    navItems={ NAVIGATION }
+                    lastButton= { true }
+                />
+                <ResponsivePlayerModal /> 
 
-            <SectionDescription />
-            <SectionChallenge />
-            <SectionFoundation />
+                <SectionDescription />
+                <SectionChallenge />
+                <SectionFoundation />
+                
+                <PictureDivider src="/img/lotus_1920x1280.jpg" aspectRatio={ 1920/1280 }/>
+
+                <SectionInvitation />
+                <SectionStatements />
+
+                <Divider 
+                    id="sanctuary"
+                    title="Best of all, you'll lay the basis for your ultimate transformation in a secluded and soothing resort on Thailand's luxury island Samui" 
+                    large 
+                    shiftBottom
+                />
+                <PictureDivider shift src="/img/banburee_1280x835.jpg" aspectRatio={ 1280/835 }/>
+
+                <SectionLeap />
+                <SectionTransformation />
+                <SectionGoal />
+
+                <Divider 
+                    title="This is what our program looks like..."
+                />
+                <SectionWork />
+
+
+                <Divider
+                    title="And there will be enough time for relaxation and enjoyment too!"
+                    shiftBottom
+                />
+                <PictureDivider src="/img/ang_thong_national_park_1920x1080.jpg" aspectRatio={ 1920/1080 } shift /> 
+                <SectionPlay />
+
+                <SectionFollowUp />
+                <PictureDivider src="/img/Lana_climbing_stairs_1920x2560.jpg" aspectRatio={ 1920/2560 } shift scroll/>
+                <SectionLocation />
+
+                <Divider 
+                    title="Welcome to your sanctuary: Banburee Resort & Spa, Koh Samui, Thailand"
+                    subtitle="These warm and spectacular surroundings offer you the safe harbour to go deeper, dream bigger, and inspire you realize your deepest desires!"
+                />
+                <SectionResort />
+                <SectionInspiring />
+                <SectionGroup />
+                
+                <Divider title="And there is us - your guides:" />
+                <SectionGuides />
+
+                <Divider
+                    title="Our clients agree:"
+                    subtitle="This retreat will exceed your wildest expectations"
+                />
+
+                <SectionTestimonials /> 
+                <SectionSelection />
+                <SectionCriteria />
+                <SectionOffer />
+                <SectionPrice />
+                <SectionOpportunity />
+
+                <Divider title="Now is the time to set your change in motion" />
+
+                {/* <SectionBook /> */}
+
+            </main>
+
+            <FooterTestimonial />
+            <FooterClipping />
             
-            <PictureDivider src="/img/lotus_1920x1280.jpg" aspectRatio={ 1920/1280 }/>
-
-            <SectionInvitation />
-            <SectionStatements />
-
-            <Divider 
-                id="sanctuary"
-                title="Best of all, you'll lay the basis for your ultimate transformation in a secluded and soothing resort on Thailand's luxury island Samui" 
-                large 
-                shiftBottom
+            <FooterBottom 
+                logoBox       ={ <LogoBox name="Chittawela" flex="column" /> }
+                navLeft       ={ <MenuNav menu={ false } flex="column" navItems={ NAV_LEFT } lastButton={ false } /> }
+                navRight      ={ <MenuNav menu={ false } flex="column" navItems={ NAV_RIGHT } lastButton={ false } /> }
+                socialMedia   ={ <SocialMedia media={ MEDIA } /> } 
+                subscribeForm ={ <SubscribeForm /> } 
+                copyright     ={ <Copyright period="2019-2020" name="Chittawela LLP" /> }
             />
-            <PictureDivider shift src="/img/banburee_1280x835.jpg" aspectRatio={ 1280/835 }/>
-
-            <SectionLeap />
-            <SectionTransformation />
-            <SectionGoal />
-
-            <Divider 
-                title="This is what our program looks like..."
-            />
-            <SectionWork />
-
-
-            <Divider
-                title="And there will be enough time for relaxation and enjoyment too!"
-                shiftBottom
-            />
-            <PictureDivider src="/img/ang_thong_national_park_1920x1080.jpg" aspectRatio={ 1920/1080 } shift /> 
-            <SectionPlay />
-
-            <SectionFollowUp />
-            <PictureDivider src="/img/Lana_climbing_stairs_1920x2560.jpg" aspectRatio={ 1920/2560 } shift scroll/>
-            <SectionLocation />
-
-            <Divider 
-                title="Welcome to your sanctuary: Banburee Resort & Spa, Koh Samui, Thailand"
-                subtitle="These warm and spectacular surroundings offer you the safe harbour to go deeper, dream bigger, and inspire you realize your deepest desires!"
-            />
-            <SectionResort />
-            <SectionInspiring />
-            <SectionGroup />
-            
-            <Divider title="And there is us - your guides:" />
-            <SectionGuides />
-
-            <Divider
-                title="Our clients agree:"
-                subtitle="This retreat will exceed your wildest expectations"
-            />
-
-            <SectionTestimonials /> 
-            <SectionSelection />
-            <SectionCriteria />
-            <SectionOffer />
-            <SectionPrice />
-            <SectionOpportunity />
-
-            <Divider title="Now is the time to set your change in motion" />
-
-            <SectionBook />
-
-        </main>
-
-        <FooterTestimonial />
-        <FooterClipping />
-        
-        <FooterBottom 
-            logoBox       ={ <LogoBox name="Chittawela" flex="column" /> }
-            navLeft       ={ <MenuNav menu={ false } flex="column" navItems={ NAV_LEFT } lastButton={ false } /> }
-            navRight      ={ <MenuNav menu={ false } flex="column" navItems={ NAV_RIGHT } lastButton={ false } /> }
-            socialMedia   ={ <SocialMedia media={ MEDIA } /> } 
-            subscribeForm ={ <SubscribeForm /> } 
-            copyright     ={ <Copyright period="2019-2020" name="Chittawela LLP" /> }
-        />
-    </div>
-  );
+        </div>
+    );
 };
 
 export default Home;

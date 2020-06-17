@@ -1,6 +1,12 @@
+import dynamic from 'next/dynamic';
 import { useStore } from '../stores/stores';
 import initFirebase from '../config/firebase/initFirebase';
-import ClientCSR from '../components/ClientCSR/ClientCSR';
+import Loading from '../components//Loading/Loading';
+const Client = dynamic( 
+    () => import('../components/Client/Client'), 
+    { loading: () => <Loading />, ssr: false } 
+);
+// import Client from '../components/Client/Client';
 import { StoreProvider } from '../components/StoreProvider/StoreProvider';
 import 'mobx-react-lite/batchingForReactDom'; // Enable batching
 import '../sass/main.scss';
@@ -21,9 +27,9 @@ const Root = ({ Component, pageProps}):React.ReactElement => {
 
     return (
         <StoreProvider value={ store }>
-            <ClientCSR>
+            <Client>
                 <Component { ...pageProps } />
-            </ClientCSR>          
+            </Client>          
         </StoreProvider> 
     );
 };
